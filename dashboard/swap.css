@@ -1,0 +1,142 @@
+.swap-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start!important;
+  padding: 5rem;
+
+}
+
+.swap-form {
+    width: auto;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: black;
+    background-clip: border-box;
+    border-radius: 1.25rem;
+    margin-top: 3rem;
+    padding: 1rem 1rem;
+    animation: glowing-border 2s infinite;
+    text-align: start!important;
+    
+    
+  }
+
+  .swap-form h4 {
+  color: white;
+  margin: 1rem 8rem 2rem 8rem;
+  border-bottom: 1px solid #00d664;
+  border-style: dashed;
+  font-size: 20px;
+  }
+
+  
+  @keyframes glowing-border {
+    0% {
+      box-shadow: 0 0 5px #00d664;
+    }
+    50% {
+      box-shadow: 0 0 20px #00d664;
+    }
+    100% {
+      box-shadow: 0 0 5px #00d664;
+    }
+  }
+  
+  
+  .swap-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #88fc8c;
+    font-weight: bold;
+   
+  }
+  
+  
+  input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #4caf50;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #bdbaba;
+    color: black;
+   
+}
+
+input[type="number"]::placeholder {
+    color: black;
+    
+}
+
+
+  .swap-form button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 3rem;
+  }
+  
+  .swap-form button:hover {
+    background-color: #1d471f;
+  }
+  
+     
+  footer.section-p1
+  {
+   background-color: #000000;
+   margin: 40px 0; 
+   padding: 40px 80px;
+   margin-bottom: 0;
+   margin-left: -25px;
+   text-align: start;
+   
+}     
+  
+@media screen and (max-width: 768px) {
+
+  .swap-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: start!important;
+    padding: 1rem;
+  
+  }
+  
+  .swap-form h4 {
+    color: white;
+    margin: 1rem 6rem 2rem 6rem;
+    border-bottom: 1px solid #00d664;
+    border-style: dashed;
+    font-size: 16px;
+    }  
+
+footer.section-p1
+{
+ 
+ background-color: #000000;
+ margin: 0; 
+ padding: 30px;
+ margin-bottom: 0;
+ margin-left: 0;
+ display: flex;
+ flex-direction: column;
+ text-align: start;
+ margin-top: 3rem;
+}
+
+}

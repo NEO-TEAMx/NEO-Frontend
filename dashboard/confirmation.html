@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="confirmation.css">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!----------------------------------------------------------SWIPPER CSS----------------------------------------------------------------------------->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <title>Confirmation Page</title>
+  <!-- Add any required stylesheets or scripts for the confirmation page -->
+</head>
+<body>
+
+  <section class="general__container" >  
+    <section id="header">
+      <div class="small-header">
+          <div class="sidebside">
+              <div class="logo"><img src="../material/Anchor logo2.jpg" alt=""></div>
+              <h2>
+                  Anchor
+              </h2>
+          </div>
+          <div class="container">
+              <ul id="navbar">  
+                <li><a href="Main.html">Home</a></li>
+                  <li><a class="active" href="deposit.html">Deposit</a></li>
+                  <li><a href="dashboard.html">Dashboard</a></li>
+              </ul>
+          </div>
+          <button id="open-menu-btn"><i class="uil uil-list-ui-alt"></i></button>
+          <button id="close-menu-btn"><i class="uil uil-times"></i></button>
+      </div>
+    
+     
+      
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+<div class="tradingview-widget-container__widget"></div>
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+
+{
+"symbols": [
+{
+  "description": "",
+  "proName": "KUCOIN:ANCUSDT"
+},
+{
+  "description": "",
+  "proName": "BINANCE:BTCUSDT"
+},
+{
+  "description": "",
+  "proName": "BINANCE:ETHUSDT"
+},
+{
+  "description": "",
+  "proName": "BINANCE:ADAUSDT"
+},
+{
+  "description": "",
+  "proName": "BINANCE:XRPUSDT"
+},
+{
+  "description": "",
+  "proName": "BINANCE:TRXPERP"
+},
+{
+  "description": "",
+  "proName": "OANDA:EURUSD"
+}
+],
+"showSymbolLogo": true,
+"colorTheme": "dark",
+"isTransparent": false,
+"displayMode": "adaptive",
+"locale": "en"
+}
+</script>
+</div>
+<!-- TradingView Widget END -->
+
+ 
+</section>
+<div class="card">
+  <div class="card-body">
+      <div class="usdt__img">
+        <img src="../material/62d315f8a5bd81658000888.jpg" class="card-img-top w-100" alt="TETHER USDT (ERC20)">
+    </div>
+    <div class="details">
+      <ul class="details__list">
+        <li class="list-group-item"><p>Amount: <strong>0 </strong> USD</p></li>
+        <li class="list-group-item"><p> Charge:<strong>0</strong> USD </p></li>
+        <li class="list-group-item"><p>Payable: <strong> 0</strong> USD</p></li>
+          <li class="list-group-item"><p> Conversion Rate: <strong>1 USD = 1  USDT (ERC 20)</strong></p></li>
+          <li class="list-group-item"><p>In USDT (ERC 20):<strong>0</strong></p></li>
+        </ul>
+    </div>
+    <a href="#" onclick="showConfirmation()" class="btn.deposit">Confirm</a>
+    <!-- <a href="https://optimum-trade.net/user/deposit/manual" class="btn btn-block py-3 font-weight-bold mt-4 cmn-btn">Confirm</a> -->
+</div>
+</div>
+
+
+<!-- Overlay -->
+<div class="overlay" id="overlay">
+  <!-- Confirmation container -->
+  <div class="confirmation-container" id="confirmationContainer">
+    <button onclick="removeConfirmation()" id="close-ovarlay-btn"><i class="uil uil-times"></i></button>
+    <label for="">COPY ADDRESS</label>
+    <p>Thank you for your deposit request. </br>Please send your deposit to the wallet address below</p>
+    <div class="input-flex">
+      <div class="input-group">
+        <input type="text" id="walletAddress" class="form-control" value="0x69Db4E29f006B89A4f728995aF7C1519189E00f7" readonly>
+      </div>
+      <a href="#" onclick="copyToClipboard()"><i class="uil uil-copy copy"></i></a>
+    </div>
+    <a href="#" onclick="" class="btn-confirm">Confirm Payment</a>
+
+  </div>
+  
+</div>
+
+<script>
+function showConfirmation() {
+  document.getElementById("overlay").style.display = "flex";
+}
+
+function removeConfirmation() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+function copyToClipboard() {
+  const walletAddress = document.getElementById("walletAddress");
+  walletAddress.select();
+  document.execCommand("copy");
+  alert("Wallet address copied to clipboard!");
+}
+</script>
+
+ 
+  <script>
+     // Retrieve the amount from local storage
+  const amount = localStorage.getItem('amount');
+
+  // Update the amount on the confirmation page
+  const amountValueElement = document.getElementById('amount-value');
+  amountValueElement.textContent = amount;;
+  </script>
+
+<footer class="section-p1">
+    <div class="col">
+        <img class="logo" src="../material/Anchor logo2.jpg" alt="">
+        <h4>Contact</h4>
+        <p><span><strong><i class="uil uil-envelope"></i></strong> </span><a href="mailto:Anchor-protocol@mail.com">Anchor-protocol@mail.com</a></p>
+        <p> <span><strong><i class="uil uil-location-point"></i></strong></span> 562 Willingtom Road, Street 32, San  Francisco</p>
+        <p><span><strong><i class="uil uil-clock-nine"></i></strong> </span> 10:00 - 18:00, Mon - Sat</p>
+        <div class="follow">
+            <h4>Follow Us On</h4>
+            <div class="icon">
+            <a href=" https://instagram.com" target="_blank"><i class="uil uil-instagram"></i></a>
+            <a href=" https://twitter.com/@_DanielPopa" target="_blank"><i class="uil uil-twitter-alt"></i></a>
+            <a href=" https://linkedin.com" target="_blank"><i class="uil uil-linkedin-alt"></i></a>
+            <a href=" https://youtube.com" target="_blank"><i class="uil uil-youtube"></i></a>
+              </div>
+             </div>
+    </div>
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact Us</a>
+      </div>
+    
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">Help</a>
+       </div>
+    <div class="col install">
+        <h4>Install App</h4>
+        <p>Coming Soon To App Store &amp Google Play!!</p>
+        <div class="row">
+           <a href="#"> <img src="../material/app_store.svg" alt=""></a>
+           <a href="#"><img src="../material/google_play.svg" alt=""></a>
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="pay.png" alt="">
+    </div>  
+    <div class="copyright">
+      <p> © 2023, Anchor-Protocol, All Rights Resrerved.</p>
+    </div>
+</footer>
+<script src="../contact-script.js"></script>
+  <script src="deposit.js"></script>
+</body>
+</html>

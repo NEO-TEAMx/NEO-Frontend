@@ -1,0 +1,455 @@
+/* 
+
+.card {
+    box-shadow: 0 0 15px #CCA35480;
+    background-color: #000000;
+    border: 2px solid #CCA35480;
+}
+.card {
+    box-shadow: 0 0 15px rgba(204, 163, 84, 0.5);
+    background-color: #000000;
+    border: 2px solid rgba(204, 163, 84, 0.5);
+}
+.card {
+    box-shadow: 0 0 15px rgba(204, 163, 84, 0.35);
+    background-color: #000000;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    background-color: #000000;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+.list-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: .25rem;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+
+.list-group-item:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+.list-group-item {
+    border: 1px dashed #CCA35454;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: transparent;
+    border: 1px dashed #cca35454;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+}
+p, li, span {
+    margin: 0;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.text-center {
+    text-align: center!important;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+user agent stylesheet
+ul {
+    list-style-type: disc;
+}
+
+.list-group-item+.list-group-item {
+    border-top-width: 0;
+}
+
+.list-group-item {
+    border: 1px dashed #CCA35454;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: transparent;
+    border: 1px dashed #cca35454;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+}
+p, li, span {
+    margin: 0;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.text-center {
+    text-align: center!important;
+}
+
+ul, ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+user agent stylesheet
+ul {
+    list-style-type: disc;
+}
+
+
+.p-prev-list img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 auto;
+    border-radius: 50px;
+    border: 1px solid goldenrod;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+} */
+
+
+
+.card {
+    /* box-shadow: 0 0 15px #CCA35480;
+    background-color: #000000;
+    border: 2px solid #CCA35480; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.card-body {
+    width: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: black;
+    background-clip: border-box;
+    border-radius: 1.25rem;
+    margin-top: 3rem;
+    padding: 1rem 1rem;
+    animation: glowing-border 2s infinite;
+  }
+
+  
+  
+  @keyframes glowing-border {
+    0% {
+      box-shadow: 0 0 5px #00d664;
+    }
+    50% {
+      box-shadow: 0 0 20px #00d664;
+    }
+    100% {
+      box-shadow: 0 0 5px #00d664;
+    }
+  }
+
+  
+  
+.card-body .usdt__img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+    margin-top: 2rem;
+    border: 0.5rem solid  rgb(203, 173, 0);
+    margin-bottom: 2rem;
+}
+  
+ 
+.card-body P {
+    color: white;
+}
+
+
+
+
+.details  {
+    margin-bottom: 2rem;
+    border:1px solid #00d664;
+    border-style: dashed;
+    border-bottom: none;
+
+    
+} 
+
+.details .details__list li {
+    color: white;
+    padding: 1rem 6rem;
+    border-bottom:1px solid #00d664;
+    border-style: dashed;
+}
+
+.details .details__list li:last-child {
+    color: white;
+    padding: 1rem ;
+    border-bottom:1px solid #00d664;
+    border-style: dashed;
+}
+
+.list-group-item input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #00d664;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+  }
+
+  .list-group-item input[type="text"]::placeholder {
+    color: #035228;
+    text-align: center;
+    font-weight: 600;
+  }
+
+
+
+/* 
+.details .details__list li:last-child {
+    margin-bottom: 4rem;
+  } */
+
+
+.card .card-body a {
+    background-color: #18452b;
+    width: 100%;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: initial;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+  }
+
+
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.93);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the overlay appears above other content */
+  }
+
+  .overlay p {
+    text-align: justify;
+    font-size: 15px;
+  }
+
+  /* Styling for the confirmation container */
+  .confirmation-container {
+    text-align: center;
+    position: relative;
+    color: #ffff;
+    border: 2px solid #035228;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #000;
+    z-index: 1001; /* Place the container above the overlay */
+
+  }
+
+  #close-ovarlay-btn {
+    margin: 10px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 600;
+    color: #00d664;
+  }
+
+
+  
+label {
+    color: #cccccc;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 1rem;
+    border-bottom: 1px solid #00d664;
+    border-style: dashed;
+    
+
+}
+
+   .input-flex {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    
+  }
+  
+  .input-group {
+    flex: 1; /* Use flex: 1 to take up available space */
+    display: flex;
+    border-radius: .25rem 0 0 .25rem;
+    border: 1px solid #09582e;
+    height: 35px;
+    
+  }
+
+  
+  .form-control{
+    background: transparent;
+    color: #00d664;
+    padding: 10px;
+    width: 100%;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: .25rem;
+  }
+
+  .copy {
+    font-size: 20px;
+    border: 1px solid  #09582e;
+    border-radius: 0 .25rem .25rem 0;
+    padding: 2.5px;
+    font-weight: 600;
+    line-height: normal;
+    color: #00d664;
+    background-color: transparent; 
+    cursor: pointer;
+  }
+
+
+  .overlay .confirmation-container .btn-confirm {
+    background-color: #18452b;
+    width: fit-content;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+  }
+
+
+
+
