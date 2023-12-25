@@ -1,361 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
 
-<title>Referral Data</title>
-</head>
-<body>
-
+    <title>Referral Data</title>
+  </head>
+  <body>
     <style>
-        body {
-          font-family: Arial, sans-serif;
-         
-        }
+      body {
+        font-family: Arial, sans-serif;
+      }
 
-        .container-wrapper{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 3rem;
-        }
-        
-        .refer-code-container {
-            color: white;
-            width: auto;
-            border: 2px solid #09582e;
-            background-color: rgba(9, 88, 46, 0.2); 
-            box-shadow: 0 2px 6px  #00d664;
-            padding: 1rem;
-            border-radius: 8px;
-        }
-        .refer-code-container h2{
-            color: #0df77a;
-            font-size: 24px;
-            font-weight: 800;
-            font-family: 'Times New Roman', Times, serif;
-            margin: 1rem;
-        }
-
-        .refer-code-container h3{
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            font-family: 'Times New Roman', Times, serif;
-            margin: 1rem;
-        }
-
-            
-    .input-flex {
+      .container-wrapper {
         display: flex;
-        justify-content:center;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 3rem;
+      }
+
+      .refer-code-container {
+        color: white;
+        width: auto;
+        border: 2px solid #09582e;
+        background-color: rgba(9, 88, 46, 0.2);
+        box-shadow: 0 2px 6px #00d664;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+      .refer-code-container h2 {
+        color: #0df77a;
+        font-size: 24px;
+        font-weight: 800;
+        font-family: "Times New Roman", Times, serif;
+        margin: 1rem;
+      }
+
+      .refer-code-container h3 {
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: "Times New Roman", Times, serif;
+        margin: 1rem;
+      }
+
+      .input-flexs {
+        display: flex;
+        justify-content: center;
         align-items: center;
         margin-top: 1rem;
         margin-bottom: 1.5rem;
         padding: 0;
-        
-    }
-    
-    .input-group {
+      }
+
+      .input-groups {
         flex: 1; /* Use flex: 1 to take up available space */
         display: flex;
-        border-radius: .25rem 0 0 .25rem;
+        border-radius: 0.25rem 0 0 0.25rem;
         border: 1px solid #09582e;
-        height: 35px;
-        
-    }
+        height: 36px;
+        border-right: none;
+      }
 
-    .form-control{
-    background: transparent;
-    color: #00d664;
-    padding: 10px;
-    width: 100%;
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: normal;
-    border-radius: .25rem;
-  }
+      .form-control {
+        background: transparent;
+        color: #00d664;
+        padding: 10px;
+        width: 100%;
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: normal;
+        border-radius: 0.25rem;
+      }
 
-  .copy {
-    font-size: 20px;
-    border: 1px solid  #09582e;
-    border-radius: 0 .25rem .25rem 0;
-    padding: 5.5px;
-    font-weight: 600;
-    line-height: normal;
-    color: #00d664;
-    background-color: transparent; 
-    cursor: pointer;
-  }
+      .copy {
+        position: relative;
+        top: 2px;
+        font-size: 20px;
+        border: 1px solid #09582e;
+        border-radius: 0 0.25rem 0.25rem 0;
+        padding: 6px;
+        font-weight: 600;
+        line-height: normal;
+        color: #00d664;
+        background-color: transparent;
+        cursor: pointer;
+      }
 
-#referralCode {
-    flex: 1;
-    background: transparent; /* Transparent input field */
-    border: none;
-    color: white;
-    padding: 15px;
-    font-size: 15px;
-}
+      #referralCode {
+        flex: 1;
+        background: transparent; /* Transparent input field */
+        border: none;
+        color: white;
+        padding: 15px;
+        font-size: 15px;
+      }
 
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #09582e;
+        background-color: transparent;
+      }
 
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #09582e;
+        color: #ffffff;
+        background-color: transparent;
+        flex: 1;
+      }
 
+      th {
+        background-color: transparent;
+        border: 1px solid #09582e;
+      }
 
-
-        table {
-          border-collapse: collapse;
-          width: 100%;
-          border: 1px solid #09582e;
-          background-color: transparent;
-        }
-
-        th, td {
-          padding: 8px;
-          text-align: left;
-          border: 1px solid #09582e;
-          color: #ffffff;
-          background-color: transparent;
-          flex: 1;
-        }
-
-        th {
-          background-color: transparent;
-          border: 1px solid #09582e;
-          
-        }
-
-        tr {
+      tr {
         display: flex;
         justify-content: space-between;
-        }
+      }
 
-        tr:nth-child(odd) {
-            background-color: transparent;
-        }
-        tr:nth-child(even) {
-            background-color: transparent;
-        }
-        td:nth-child(2) {
-          border-right: 1px solid #09582e; /* Add line after "Bought Hash" column */
-        }
-        tr:last-child td {
-          border-bottom: none; /* Remove border at the last row */
-        }
-        .table-section {
-            padding: 3rem;
-            text-align: center;
-        }
-        .table-section h1{
-            color: white;
-            font-size: 24px;
-            font-weight: 800;
-            font-family: 'Times New Roman', Times, serif;
-            margin-bottom: 1.5rem;
-        }
-      </style>
+      tr:nth-child(odd) {
+        background-color: transparent;
+      }
+      tr:nth-child(even) {
+        background-color: transparent;
+      }
+      td:nth-child(2) {
+        border-right: 1px solid #09582e; /* Add line after "Bought Hash" column */
+      }
+      tr:last-child td {
+        border-bottom: none; /* Remove border at the last row */
+      }
+      .table-section {
+        padding: 3rem;
+        text-align: center;
+      }
+      .table-section h1 {
+        color: white;
+        font-size: 24px;
+        font-weight: 800;
+        font-family: "Times New Roman", Times, serif;
+        margin-bottom: 1.5rem;
+      }
 
-<section id="header">
-    <div class="small-header">
+      @media screen and (max-width: 768px) {
+        .copy {
+          position: relative;
+          top: 1px;
+        }
+      }
+
+      @media screen and (max-width: 900px) {
+        .copy {
+          position: relative;
+          top: 0.5px;
+        }
+      }
+    </style>
+
+    <section id="header">
+      <div class="small-header container">
         <div class="sidebside">
-            <div class="logo"><img src="../material/Anchor logo2.jpg" alt=""></div>
-            <h2>
-                Anchor
-            </h2>
+          <div class="logo">
+            <img src="../assets/images/neo-logo.png" alt="" />
+          </div>
+          <h2>NEO</h2>
         </div>
-     
-            <ul id="navbar">
-                <li><a href="Main.html">Home</a></li>
-                <li><a class="active" href="referral.html">Referral</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <!-- <div class="dashboard">  <li><a class="dashboard" href="Dashboard.html">Dashboard</a></li></div> 
-   -->
-            </ul>
-
+        <div class="">
+          <ul id="navbar">
+            <li><a href="../html/index.html">Home</a></li>
+            <li>
+              <a href="../dashboard/referral.html" class="active">Refferals</a>
+            </li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
         <button id="open-menu-btn"><i class="uil uil-list-ui-alt"></i></button>
         <button id="close-menu-btn"><i class="uil uil-times"></i></button>
-    </div>
-  
-</section>
-<div class="container-wrapper">
-    <div class="refer-code-container">
+      </div>
+    </section>
+    <div class="container-wrapper">
+      <div class="refer-code-container">
         <h2>REFFERALS</h2>
         <p>Refer And Earn Hash</p>
         <p>Get 2 Hash as Referral Commission per Active Referral</p>
-        <p>When your referred users become active members, you'll receive 2 Hash as a referral commission for each of them.</p>
+        <p>
+          When your referred users become active members, you'll receive 2 Hash
+          as a referral commission for each of them.
+        </p>
         <h3>Your Referral Link</h3>
-        <div class="input-flex">
-            <div class="input-group">
-                <input type="text" id="referralCode" value="Anchor-protocol?rid=23456765" readonly>
-            </div>
-            <a href="#" onclick="copyToClipboard()"><i class="uil uil-copy copy"></i></a>
+        <div class="input-flexs">
+          <div class="input-groups">
+            <input
+              type="text"
+              id="referralCode"
+              value="Anchor-protocol?rid=23456765"
+              readonly
+            />
           </div>
-
-    </div>
-</div>
-
-
-<section class="table-section">
-    <h1>Referral Data Table</h1>
-    <table>
-      <tr>
-        <th>Referrals</th>
-        <th>Purchased Hash</th>
-        <th>Hash Commission</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-    </table>
-</section>
-<footer class="section-p1">
-    <div class="col">
-    <img class="logo" src="../material/Anchor logo2.jpg" alt="">
-    <h4>Contact</h4> 
-    <p><span><strong><i class="uil uil-envelope"></i></strong> </span><a href="mailto:Anchor-protocol@mail.com">Anchor-protocol@mail.com</a></p>
-    <p> <span><strong><i class="uil uil-location-point"></i></strong></span> 562 Willingtom Road, Street 32, San  Francisco</p>
-    <p><span><strong><i class="uil uil-clock-nine"></i></strong> </span> 10:00 - 18:00, Mon - Sat</p>
-    <div class="follow">
-    <h4>Follow Us On</h4>
-    <div class="icon">
-    <a href=" https://instagram.com" target="_blank"><i class="uil uil-instagram"></i></a>
-    <a href=" https://twitter.com/@_DanielPopa" target="_blank"><i class="uil uil-twitter-alt"></i></a>
-    <a href=" https://linkedin.com" target="_blank"><i class="uil uil-linkedin-alt"></i></a>
-    <a href=" https://youtube.com" target="_blank"><i class="uil uil-youtube"></i></a>
-  
+          <a href="#" onclick="copyToClipboard()"
+            ><i class="uil uil-copy copy"></i
+          ></a>
+        </div>
       </div>
-     </div>
     </div>
-  
-    <div class="col">
-      <h4>About</h4>
-      <a href="#">About Us</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Contact Us</a>
-    </div>
-  
-    <div class="col">
-      <h4>My Account</h4>
-      <a href="#">Sign In</a>
-      <a href="#">Help</a>
-     </div>
-  <div class="col install">
-      <h4>Install App</h4>
-      <p></p>
-      <p>Coming Soon To App Store &amp Google Play!!</p>
-      <div class="row">
-         <a href="#"> <img src="../material/app_store.svg" alt=""></a>
-         <a href="#"><img src="../material/google_play.svg" alt=""></a>
-         
-      </div>
-  </div>  
-  
-   <!-- <div class="col install">
-     <h4>Install App</h4>
-     <P>From App Store or Google Play</P>
-      <div class="row">
-      <img src="uwa.png" alt="">
-      <img src="apps 1.png" alt="">
-      <p>coming soon !!!</p>
-      </div>
-      <p>Secured Payment Gateways</p>
-     <img src="pay.png" alt="">
-   </div>   -->
-   <div class="copyright">
-   <p> © 2023, Anchor-Protocol, All Rights Resrerved.</p>
-  </div>
-  </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const menu = document.querySelector("#navbar");
-      const menuBtn = document.querySelector("#open-menu-btn");
-      const closeBtn = document.querySelector("#close-menu-btn");
-    
-      menuBtn.addEventListener('click', () => {
-        menu.style.display = "flex"
-        closeBtn.style.display = "inline-block";
-        menuBtn.style.display = "none";
+    <section class="table-section container">
+      <h1>Referral Data Table</h1>
+      <table>
+        <tr>
+          <th>Referrals</th>
+          <th>Purchased Hash</th>
+          <th>Commission</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </table>
+    </section>
+
+    <footer>
+      <div class="footer container py-4 px-4">
+        <div class="cols">
+          <h4>Contact</h4>
+          <p>
+            <span
+              ><strong><i class="uil uil-envelope"></i></strong> </span
+            ><a href="mailto:Neo-protocol@mail.com">Neo-protocol@mail.com</a>
+          </p>
+          <p>
+            <span
+              ><strong><i class="uil uil-location-point"></i></strong
+            ></span>
+            562 Willingtom Road, Street 32, San Francisco
+          </p>
+          <p>
+            <span
+              ><strong><i class="uil uil-clock-nine"></i></strong>
+            </span>
+            10:00 - 18:00, Mon - Sat
+          </p>
+          <div class="follow">
+            <h4>Follow Us On</h4>
+            <div class="icon">
+              <a href=" https://twitter.com/@Neo_Blockchain" target="_blank"
+                ><i class="uil uil-twitter-alt"></i
+              ></a>
+              <a href=" https://linkedin.com" target="_blank"
+                ><i class="uil uil-linkedin-alt"></i
+              ></a>
+              <a href=" https://youtube.com" target="_blank"
+                ><i class="uil uil-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cols">
+          <h4>About</h4>
+          <a href="#about-us">About Us</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="cols">
+          <h4>My Account</h4>
+          <a href="signin.html">Sign In</a>
+          <a href="contact.html">Help</a>
+        </div>
+        <div class="cols install">
+          <h4>Install App</h4>
+          <p></p>
+          <p>Coming Soon To App Store &amp Google Play!!</p>
+          <div class="row">
+            <a href="#"> <img src="../assets/images/app_store.svg" alt="" /></a>
+            <a href="#"
+              ><img src="../assets/images/google_play.svg" alt=""
+            /></a>
+          </div>
+          <p>Secured Payment Gateways</p>
+          <img src="pay.png" alt="" />
+        </div>
+
+        <div class="copyright">
+          <p>© 2023, Neo-Protocol, All Rights Resrerved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menu = document.querySelector("#navbar");
+        const menuBtn = document.querySelector("#open-menu-btn");
+        const closeBtn = document.querySelector("#close-menu-btn");
+
+        menuBtn.addEventListener("click", () => {
+          menu.style.display = "flex";
+          closeBtn.style.display = "inline-block";
+          menuBtn.style.display = "none";
+        });
+
+        closeBtn.addEventListener("click", () => {
+          menu.style.display = "none";
+          closeBtn.style.display = "none";
+          menuBtn.style.display = "inline-block";
+        });
+
+        console.log("Contact script file linked successfully!");
       });
-    
-      closeBtn.addEventListener('click', () => {
-        menu.style.display = "none";
-        closeBtn.style.display = "none";
-        menuBtn.style.display = "inline-block";
-      });
-    
-      console.log("Contact script file linked successfully!");
-    });
 
-    function copyToClipboard() {
-      const walletAddress = document.getElementById("referralCode");
-      referralCode.select();
-      document.execCommand("copy");
-      alert("Wallet address copied to clipboard!");
-    }
-    
-  </script>
-</body>
+      function copyToClipboard() {
+        const walletAddress = document.getElementById("referralCode");
+        referralCode.select();
+        document.execCommand("copy");
+        alert("Wallet address copied to clipboard!");
+      }
+    </script>
+  </body>
 </html>

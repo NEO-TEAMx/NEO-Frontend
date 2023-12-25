@@ -1,186 +1,177 @@
-
 .body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-    font-family: poppins, sans-serif;
-    font-size: 0.88rem;
-    user-select: none;
-    overflow-x: hidden;       
-    background: linear-gradient(
-    90deg
-    , hsla(30, 11%, 4%, 1) 0%, hsla(30, 11%, 4%, 1) 40%, rgb(17, 16, 16) 100%);
-
-
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: poppins, sans-serif;
+  font-size: 0.88rem;
+  user-select: none;
+  overflow-x: hidden;
+  background: linear-gradient(
+    90deg,
+    hsla(30, 11%, 4%, 1) 0%,
+    hsla(30, 11%, 4%, 1) 40%,
+    rgb(17, 16, 16) 100%
+  );
 }
 
 a {
-
-    color: #ffff;
+  color: #ffff;
 }
- 
+
 img {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 h2 {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
+  font-family: "Times New Roman", Times, serif;
 }
 
 h3 {
-    font-size: 0.87rem;
+  font-size: 0.87rem;
 }
 
 small {
-    font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 
 span {
-    color: #00d664;
+  color: #00d664;
 }
 
-
 .hide {
-    display: none;
+  display: none;
 }
 
 .small-header {
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    background: linear-gradient(
-    90deg
-    , hsla(30, 11%, 4%, 1) 0%, rgb(27, 25, 22) 40%, hsla(0, 0%, 0%, 1) 100%);
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background: linear-gradient(
+    90deg,
+    hsla(30, 11%, 4%, 1) 0%,
+    rgb(27, 25, 22) 40%,
+    hsla(0, 0%, 0%, 1) 100%
+  );
+}
 
-  
-  }
-
-  .small-header .open button{
-    display: inline-block;
-    cursor: pointer;
-    font-size: 25px;
-  }
-  
+.small-header .open button {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 25px;
+}
 
 .container {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    width: 98%;
-    margin: 0 auto;
-    gap: 1.8rem;
-    grid-template-columns: 16rem auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 98%;
+  margin: 0 auto;
+  gap: 1.8rem;
+  grid-template-columns: 16rem auto;
 }
 
 aside {
-    height: 100%;
-    background-color: #101112;
-    overflow: hidden;
-    
+  height: 100%;
+  background-color: #101112;
+  overflow: hidden;
 }
 
-aside .top{
-    background: rgb(7, 7, 7);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1.4rem;
-    padding: 0 20px;
+aside .top {
+  background: rgb(7, 7, 7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+  padding: 0 5px;
 }
 
 aside .logo {
-    display: flex;
-    gap: 0.8rem;
-    
+  display: flex;
+  /* gap: 0.8rem; */
 }
 
 aside .logo img {
-    display: block;
-    width: 50px;
-    height: 50px;
+  display: block;
+  width: 50px;
+  height: 50px;
 }
 
 aside .logo h2 {
-    text-align: center;
-    margin-top: 12px;
-    color: #00d664;
-    font-size: 1.2rem;
+  text-align: center;
+  margin-top: 12px;
+  color: #00d664;
+  font-size: 1.2rem;
 }
 
 aside button {
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    color: #00d664;
-    font-size: 35px;
-    margin-bottom: 10px;
-    
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #00d664;
+  font-size: 35px;
+  margin-bottom: 10px;
 }
-
 
 aside .close {
-    display: none;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
 }
-
 
 /*------------------------------------------------------------ SIDEBAR --------------------------------------------------------------*/
 
 aside .sidebar {
-   display: flex;
-   flex-direction: column;
-   height: 86vh;
-   position: relative;
-   top: 3rem;
-   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  height: 86vh;
+  position: relative;
+  top: 3rem;
+  padding: 0 20px;
 }
 
 aside h3 {
-    font-weight: 500; 
-
+  font-weight: 500;
 }
 
-
-  
 aside a {
-    text-decoration: none;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 20px 15px;
-    border-radius: 5px;
-    position: relative;
-    transition: transform 0.3s;
-    height: 35px; /* Increase the height as desired */
-    margin-bottom: 15px; /* Adjust the margin at the bottom as desired */
-    
-  }
-  
-  aside a::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: #00d664;
-    transition: 0.3s;
-  }
-  
-  aside a:hover {
-    background: rgba(0, 214, 100, 0.1);
-    color: #00d664;
-    transform: translateX(5px);
-    
-  }
-  
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+  border-radius: 5px;
+  position: relative;
+  transition: transform 0.3s;
+  height: 35px;
+  /* Increase the height as desired */
+  margin-bottom: 15px;
+  /* Adjust the margin at the bottom as desired */
+}
+
+aside a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #00d664;
+  transition: 0.3s;
+}
+
+aside a:hover {
+  background: rgba(0, 214, 100, 0.1);
+  color: #00d664;
+  transform: translateX(5px);
+}
+
 /*   
   .aside a:hover::before {
     background-color: #fff;
@@ -188,246 +179,226 @@ aside a {
   }
    */
 
-  aside a i {
-    margin-right: 8px;
-    transition: transform 0.3s;
+aside a i {
+  margin-right: 8px;
+  transition: transform 0.3s;
+}
+
+aside a:hover i {
+  transform: translateX(5px);
+}
+
+aside li:last-child a {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+aside .sidebar .active {
+  background: rgba(0, 214, 100, 0.1);
+  color: #00d664;
+}
+
+/*------------------------------------------------------------ SIDEBAR ENDS--------------------------------------------------------------*/
+
+/*------------------------------------------------------------  SIDEBAR MEDIA QUERIES BEGINS--------------------------------------------------------------*/
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+    grid-template-columns: auto;
   }
-  
-  aside a:hover i {
-    transform: translateX(5px);
+
+  aside {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 25rem;
+    z-index: 9999;
+    height: 100%;
+    padding: 10px;
+    box-shadow: 1rem 2rem 3rem #010603;
+    animation: showMenu 500ms ease forwards;
+  }
+
+  @keyframes showMenu {
+    to {
+      left: 0;
+    }
+  }
+
+  aside .close {
+    display: inline-block;
+    cursor: pointer;
   }
 
   aside li:last-child a {
     position: absolute;
-     bottom: 0;
-     width: 100%;
-    }
-    
-  aside .sidebar .active {
-        background: rgba(0, 214, 100, 0.1);
-        color: #00d664;
-      
-    }
-
-    
-/*------------------------------------------------------------ SIDEBAR ENDS--------------------------------------------------------------*/
-
-
-
-
-/*------------------------------------------------------------  SIDEBAR MEDIA QUERIES BEGINS--------------------------------------------------------------*/
-@media screen and (max-width: 1200px){
- 
-.container {
+    bottom: 6rem;
     width: 100%;
-    grid-template-columns: auto;
-}
-
-aside  {
-   display: none;
-   position: fixed;
-   top: 0;
-   left: -100%;
-   width: 25rem;
-   z-index: 9999; 
-   height: 100%;
-   padding: 10px;
-   box-shadow: 1rem 2rem 3rem #010603;
-   animation: showMenu 500ms ease forwards;
-
-}
-
-@keyframes showMenu {
-    to {
-        left: 0;
-    }
-    
-}
-
-aside .close {
-    display: inline-block;
-    cursor: pointer;
-}
-
-
-aside li:last-child a {
-  position: absolute;
-   bottom: 6rem;
-   width: 100%;
   }
 
+  aside li:last-child a {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
+@media screen and (max-width: 768px) {
+  aside li:last-child a {
+    position: absolute;
+    bottom: 4rem;
+    width: 100%;
+  }
+}
 
 /*------------------------------------------------------------  SIDEBAR MEDIA QUERIES ENDS--------------------------------------------------------------*/
 
-
-
-
-
-
-
 /*------------------------------------------------------------  MINING SECTION BEGINS--------------------------------------------------------------*/
 
+.mining-section {
+  margin-top: 1.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.mining-section h2 {
+  color: #00d664;
+  font-weight: 800;
+  font-size: 2.3rem;
+  line-height: 3rem;
+  margin: 1rem 0rem 1rem 0rem;
+  margin-left: -650px;
+}
 
+.mining-section h3 {
+  color: #00d664;
+  font-weight: 600;
+  font-size: 2.3rem;
+  line-height: 3rem;
+  margin-top: 1.2rem;
+}
 
-
-  .mining-section {
-    margin-top: 1.4rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .mining-section h2 {
-    color: #00d664;
-    font-weight: 800;
-    font-size: 2.3rem;
-    line-height: 3rem;
-    margin: 1rem 0rem 1rem  0rem;
-    margin-left: -650px;
-  }
-
-  .mining-section h3 {
-    color: #00d664;
-    font-weight: 600;
-    font-size: 2.3rem;
-    line-height: 3rem;
-    margin-top: 1.2rem;
-  }
-
-
-  #mining-container {
-    text-align: center;
-    background-image: url(../material/exchange-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: black;
-    border-radius: 8px;
-    border: 1px solid rgb(30, 49, 30); 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 20px;
-    color: #fff;
-    margin-bottom: 3rem;
-    margin-left: 5rem;
-    margin-right:5rem;
-    position: relative;
-    
+#mining-container {
+  text-align: center;
+  background-image: url(../assets/images/exchange-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  border-radius: 8px;
+  border: 1px solid rgb(30, 49, 30);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  color: #fff;
+  margin-bottom: 3rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  position: relative;
 }
 
 #mining-container .swap-btn-container {
-position: absolute;
-bottom: 10px;
-right: 20px;
-display: flex;
-align-items: center;
-justify-content: center;
-background-color: transparent;
-color: #fff;
-border: none;
-border-radius: 5px;
-padding: 10px;
-cursor: pointer;
-
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
 }
 
-#swap-btn{
-margin-right: 5px;
-color: #00d664;
-background-color: transparent;
-border: 1px solid #00d664;
-border-radius: 5px;
-padding: 0.5rem 1rem;
-
+#swap-btn {
+  margin-right: 5px;
+  color: #00d664;
+  background-color: transparent;
+  border: 1px solid #00d664;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
 }
 
 #swap-btn i {
-display: inline-flex;
-align-items: center;
-vertical-align: middle;
-margin-top: -4px;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-top: -4px;
 }
 
-
 #swap-btn {
-transition: transform 0.3s;
+  transition: transform 0.3s;
 }
 
 #swap-btn:active {
-transform: scale(0.6);
+  transform: scale(0.6);
 }
-
-
 
 #mining-container span {
-color: #00d664;
+  color: #00d664;
 }
-
 
 #mining-container p {
-margin-top: 10px;
+  margin-top: 10px;
 }
 
+.progress-bar-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
 
-  .progress-bar-container {
-    position: relative;
-    width: 200px;
-    height: 200px;
+.progress-bar {
+  transform: rotate(-90deg);
+  position: relative;
+}
 
-  }
+.bg-circle {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 5;
+}
 
-  .progress-bar {
-    transform: rotate(-90deg);
-    position: relative; 
-  }
+.progress-circle {
+  fill: none;
+  stroke: #00d664;
+  stroke-width: 5;
+  stroke-dasharray: 0, 100;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1d linear;
+}
 
-  .bg-circle {
-    fill: none;
-    stroke: #eee;
-    stroke-width: 5;
-  }
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
 
-  .progress-circle {
-    fill: none;
-    stroke: #00d664;
-    stroke-width: 5;
-    stroke-dasharray: 0, 100;
-    stroke-linecap: round;
-    transition: stroke-dasharray 1d linear;
-  }
+.timer-text {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff6f6;
+}
 
-  .progress-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    font-weight: bold;
-    color: red;
-  }
-
-
-  .timer-text {
-    position: absolute;
-    top: 70%;
-    left: 0;
-    width: 100%;
-    transform: translateY(-50%);
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff6f6;
-  }
-
-
-
-  #start-mining-btn {
+#start-mining-btn {
   background-color: #0b6736;
   color: #fff;
   border: none;
@@ -437,66 +408,66 @@ margin-top: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 2rem;
-  }
+}
 
-  #start-mining-btn:hover {
+#start-mining-btn:hover {
   background-color: #0bc163;
-  border: none; /* Add this line to remove the border */
+  border: none;
+  /* Add this line to remove the border */
   outline: none;
-  }
+}
 
 .top-left {
-position: absolute;
-top: 0;
-left: 0;
-text-align: left;
-padding: 10px;
-font-weight: bold;
-border: 1px solid #0a502a ;
-border-radius: 5px;
-margin: 1.5rem 1.5rem;
-box-shadow: 2px  2px 4px #0e921f9a;
-text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #0a502a;
+  border-radius: 5px;
+  margin: 1.5rem 1.5rem;
+  box-shadow: 2px 2px 4px #0e921f9a;
+  text-align: center;
 }
 
 .top-left h4 {
-padding: 0;
-margin: 0;
-color: rgb(151, 151, 151);
+  padding: 0;
+  margin: 0;
+  color: rgb(151, 151, 151);
 }
 
 .top-left p {
-padding: 0;
-margin: 0;
-color: #00d664;
+  padding: 0;
+  margin: 0;
+  color: #00d664;
 }
 
 .top-right {
-position: absolute;
-top: 0;
-right: 0;
-text-align: right;
-padding: 10px;
-font-weight: bold;
-border: 1px solid #0a502a ;
-border-radius: 5px;
-margin: 1.5rem 1.5rem;
-box-shadow: -2px 2px 4px rgba(14, 146, 31, 0.603);
-text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #0a502a;
+  border-radius: 5px;
+  margin: 1.5rem 1.5rem;
+  box-shadow: -2px 2px 4px rgba(14, 146, 31, 0.603);
+  text-align: center;
 }
 
 .top-right h4 {
-padding: 0;
-margin: 0;
-color: rgb(151, 151, 151);
+  padding: 0;
+  margin: 0;
+  color: rgb(151, 151, 151);
 }
 
 .top-right p {
-padding: 0;
-margin: 0;
-color: #00d664;
+  padding: 0;
+  margin: 0;
+  color: #00d664;
 }
-
 
 .price-chart-section {
   text-align: center;
@@ -515,35 +486,28 @@ color: #00d664;
   margin-bottom: 10px;
 }
 
-
-
-
 /*------------------------------------------------------------  MINING SECTION ENDSS--------------------------------------------------------------*/
 
+/* Set the container width to a percentage value and add padding to maintain aspect ratio */
+.responsive-container {
+  width: 100%;
+  /* padding-bottom: 75%; */
+  padding-bottom: 50%;
+  position: relative;
+}
 
-  /* Set the container width to a percentage value and add padding to maintain aspect ratio */
-  .responsive-container {
-    width: 100%;
-    /* padding-bottom: 75%; */
-    padding-bottom: 50%;
-    position: relative;
+/* Make the chart container fill the entire space of the responsive container */
+#price-chart-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* margin-left: -20px; */
+}
 
-  }
-
-  /* Make the chart container fill the entire space of the responsive container */
-  #price-chart-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* margin-left: -20px; */
-  }
-
-
-  
-  /* ------------------------------------------- MEDIA QUERIES PRICE CHART --------------------------------------------------*/
-  /* @media (max-width: 767px) {
+/* ------------------------------------------- MEDIA QUERIES PRICE CHART --------------------------------------------------*/
+/* @media (max-width: 767px) {
     .responsive-container {
       padding-bottom: 100%;
     }
@@ -571,252 +535,213 @@ color: #00d664;
 
   } */
 
-
-
 /*------------------------------------------------------------  FOOTER BEGINS--------------------------------------------------------------*/
-footer.section-p1
-   {
-    background-color: #000000;
-    margin-left: -28px;
-    left: 0;
-
+footer.section-p1 {
+  background-color: #000000;
+  margin-left: -28px;
+  left: 0;
 }
 
 /*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------  MINING-SECTION MEDIA QUERIES BEGINS--------------------------------------------------------------*/
 
-@media screen and (max-width: 1200px){
-  
-    
-
-.hide {
+@media screen and (max-width: 1200px) {
+  .hide {
     display: block;
-}
+  }
 
-
-.small-header .open button{
+  .small-header .open button {
     display: inline-block;
     cursor: pointer;
     font-size: 35px;
   }
-  
 
-  
-    .mining-section {
-        margin-top: 1.4rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-      }
-    
-      .mining-section h2 {
-        color: #00d664;
-        font-weight: 500;
-        font-size: 1.6rem;
-        line-height: normal;
-        margin-left: -500px;
-      }
-
-      
-      .mining-section h3 {
-        color: #00d664;
-        font-weight: 500;
-        font-size: 2rem;
-        line-height: normal;
-        margin-top: 1.2rem;
-      }
-    
-    
-      #mining-container {
-        text-align: center;
-        background-image: url(../material/exchange-bg.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        background-color: black;
-        border-radius: 8px;
-        border: 1px solid rgb(30, 49, 30); 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 20px;
-        color: #fff;
-        margin-bottom: 3rem;
-        margin-left: 1.5rem;
-        margin-right:1.5rem;
-        position: relative;
-        width: 700px;
-        
-    }
-
-
-    
-    .price-chart-section h4 {
-      color: #fff;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-     
-    .price-chart-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
+  .mining-section {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-   .responsive-container {
-      width: fit-content;
-      margin-left: 1.5rem;
-      margin-right:1.5rem;
-      padding-bottom: 25rem; 
-      position: relative;
- 
-      
- }
+  .mining-section h2 {
+    color: #00d664;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: normal;
+    margin-left: -500px;
+  }
 
- #price-chart-container {
+  .mining-section h3 {
+    color: #00d664;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: normal;
+    margin-top: 1.2rem;
+  }
+
+  #mining-container {
+    text-align: center;
+    background-image: url(../material/exchange-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    border-radius: 8px;
+    border: 1px solid rgb(30, 49, 30);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    color: #fff;
+    margin-bottom: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    position: relative;
+    width: 700px;
+  }
+
+  .price-chart-section h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .price-chart-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .responsive-container {
+    width: fit-content;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding-bottom: 25rem;
+    position: relative;
+  }
+
+  #price-chart-container {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: -160px;
- }
-
-  footer.section-p1
-    {
-      background-color: #000000;
-      margin: 0; 
-      padding: 20px;
-
   }
 
-  } 
-
-  @media screen and (max-width: 768px) {
-
-    
-    .mining-section {
-        margin-top: 1.4rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-
-      }
-    
-      .mining-section h2 {
-        color: #00d664;
-        font-weight: 500;
-        font-size: 1.6rem;
-        line-height: normal;
-        margin-left: 0;
-      }
-
-      
-      .mining-section h3 {
-        color: #00d664;
-        font-weight: 500;
-        font-size: 2rem;
-        line-height: normal;
-        margin-top: 1.2rem;
-      }
-    
-    
-      #mining-container {
-        text-align: center;
-        background-image: url(../material/exchange-bg.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        background-color: black;
-        border-radius: 8px;
-        border: 1px solid rgb(30, 49, 30); 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 20px;
-        color: #fff;
-        margin-bottom: 3rem;
-        margin-left: 1.5rem;
-        margin-right:1.5rem;
-        position: relative;
-        width: 98%;
-        
-    }   
-    .price-chart-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
-  
-     .responsive-container {
-        width: auto;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        padding-bottom: 35rem; 
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-   
-        
-   }
-
-   #price-chart-container {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left:-180px ;
-   }
-
-
-    
-#mining-container .swap-btn-container {
-position: absolute;
-bottom: 10px;
-right: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-background-color: transparent;
-color: #fff;
-border: none;
-border-radius: 5px;
-padding: 10px;
-cursor: pointer;
-
+  footer.section-p1 {
+    background-color: #000000;
+    margin: 0;
+    padding: 20px;
+  }
 }
 
-#swap-btn{
-font-size: 0;
-margin-right: -5px;
-color: #00d664;
-background-color: transparent;
-border: none;
+@media screen and (max-width: 768px) {
+  .mining-section {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-}
+  .mining-section h2 {
+    color: #00d664;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: normal;
+    margin-left: 0;
+  }
 
+  .mining-section h3 {
+    color: #00d664;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: normal;
+    margin-top: 1.2rem;
+  }
+
+  #mining-container {
+    text-align: center;
+    background-image: url(../material/exchange-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    border-radius: 8px;
+    border: 1px solid rgb(30, 49, 30);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    color: #fff;
+    margin-bottom: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    position: relative;
+    width: 98%;
+  }
+
+  .price-chart-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .responsive-container {
+    width: auto;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-bottom: 35rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #price-chart-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -180px;
+  }
+
+  #mining-container .swap-btn-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  #swap-btn {
+    font-size: 0;
+    margin-right: -5px;
+    color: #00d664;
+    background-color: transparent;
+    border: none;
+  }
 
   .progress-bar-container {
     position: relative;
     width: 130px;
     height: 130px;
-
   }
 
   .progress-bar {
     transform: rotate(-90deg);
-    position: relative; 
+    position: relative;
   }
 
   .bg-circle {
@@ -844,7 +769,6 @@ border: none;
     color: red;
   }
 
-
   .timer-text {
     position: absolute;
     top: 70%;
@@ -857,80 +781,78 @@ border: none;
     color: #fff6f6;
   }
 
-
-
   #start-mining-btn {
-  background-color: #0b6736;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 2rem;
+    background-color: #0b6736;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
   }
 
   #start-mining-btn:hover {
-  background-color: #0bc163;
-  border: none; /* Add this line to remove the border */
-  outline: none;
+    background-color: #0bc163;
+    border: none;
+    /* Add this line to remove the border */
+    outline: none;
   }
 
-.top-left {
-position: absolute;
-top: 0;
-left: 0;
-text-align: left;
-padding: 5px;
-font-weight: bold;
-border: 1px solid #0a502a ;
-border-radius: 5px;
-margin: 10px;
-box-shadow: 2px  2px 4px #0e921f9a;
-text-align: center;
-}
+  .top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: left;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid #0a502a;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 2px 2px 4px #0e921f9a;
+    text-align: center;
+  }
 
-.top-left h4 {
-padding: 0;
-margin: 0;
-color: rgb(151, 151, 151);
-}
+  .top-left h4 {
+    padding: 0;
+    margin: 0;
+    color: rgb(151, 151, 151);
+  }
 
-.top-left p {
-padding: 0;
-margin: 0;
-color: #00d664;
-}
+  .top-left p {
+    padding: 0;
+    margin: 0;
+    color: #00d664;
+  }
 
-.top-right {
-position: absolute;
-top: 0;
-right: 0;
-text-align: right;
-padding: 5px;
-font-weight: bold;
-border: 1px solid #0a502a ;
-border-radius: 5px;
-margin: 10px;
-box-shadow: -2px 2px 4px rgba(14, 146, 31, 0.603);
-text-align: center;
-}
+  .top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid #0a502a;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: -2px 2px 4px rgba(14, 146, 31, 0.603);
+    text-align: center;
+  }
 
-.top-right h4 {
-padding: 0;
-margin: 0;
-color: rgb(151, 151, 151);
-}
+  .top-right h4 {
+    padding: 0;
+    margin: 0;
+    color: rgb(151, 151, 151);
+  }
 
-.top-right p {
-padding: 0;
-margin: 0;
-color: #00d664;
-}
+  .top-right p {
+    padding: 0;
+    margin: 0;
+    color: #00d664;
+  }
 
-
-/*     
+  /*     
 footer.section-p1
 {
  
@@ -944,154 +866,131 @@ footer.section-p1
  text-align: start;
  margin-top: 3rem;
 } */
+}
 
-    
-  }
-
-  
 /* Target screens with a width of 360 pixels and below */
 @media (max-width: 360px) {
- 
-  
- 
-.price-chart-section {
+  .price-chart-section {
     display: none;
-    
+  }
 
+  #mining-container .swap-btn-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .progress-bar-container {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin-top: 2rem;
+  }
+
+  .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+  }
+
+  .timer-text {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff6f6;
+  }
+
+  #start-mining-btn {
+    background-color: #0b6736;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+  }
+
+  #start-mining-btn:hover {
+    background-color: #0bc163;
+    border: none;
+    outline: none;
+  }
+
+  .top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: left;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid #0a502a;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 2px 2px 4px #0e921f9a;
+    text-align: center;
+  }
+
+  .top-left h4 {
+    padding: 0;
+    margin: 0;
+    color: rgb(151, 151, 151);
+  }
+
+  .top-left p {
+    padding: 0;
+    margin: 0;
+    color: #00d664;
+  }
+
+  .top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid #0a502a;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: -2px 2px 4px rgba(14, 146, 31, 0.603);
+    text-align: center;
+  }
+
+  .top-right h4 {
+    padding: 0;
+    margin: 0;
+    color: rgb(151, 151, 151);
+  }
+
+  .top-right p {
+    padding: 0;
+    margin: 0;
+    color: #00d664;
+  }
 }
-
-
-
-#mining-container .swap-btn-container {
-position: absolute;
-bottom: 10px;
-right: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-background-color: transparent;
-color: #fff;
-border: none;
-border-radius: 5px;
-padding: 10px;
-cursor: pointer;
-
-}
-
-.progress-bar-container {
-position: relative;
-width: 110px;
-height: 110px;
-margin-top: 2rem;
-}
-
-
-
-.progress-text {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-font-size: 14px;
-font-weight: bold;
-color: red;
-}
-
-
-.timer-text {
-position: absolute;
-top: 70%;
-left: 0;
-width: 100%;
-transform: translateY(-50%);
-text-align: center;
-font-size: 12px;
-font-weight: bold;
-color: #fff6f6;
-}
-
-
-
-#start-mining-btn {
-background-color: #0b6736;
-color: #fff;
-border: none;
-border-radius: 4px;
-padding: 10px 10px;
-font-size: 14px;
-cursor: pointer;
-transition: background-color 0.3s ease;
-margin-top: 2rem;
-}
-
-#start-mining-btn:hover {
-background-color: #0bc163;
-border: none; 
-outline: none;
-}
-
-.top-left {
-position: absolute;
-top: 0;
-left: 0;
-text-align: left;
-padding: 5px;
-font-weight: bold;
-border: 1px solid #0a502a ;
-border-radius: 5px;
-margin: 10px;
-box-shadow: 2px  2px 4px #0e921f9a;
-text-align: center;
-}
-
-.top-left h4 {
-padding: 0;
-margin: 0;
-color: rgb(151, 151, 151);
-}
-
-.top-left p {
-padding: 0;
-margin: 0;
-color: #00d664;
-}
-
-.top-right {
-position: absolute;
-top: 0;
-right: 0;
-text-align: right;
-padding: 5px;
-font-weight: bold;
-border: 1px solid #0a502a ;
-border-radius: 5px;
-margin: 10px;
-box-shadow: -2px 2px 4px rgba(14, 146, 31, 0.603);
-text-align: center;
-}
-
-.top-right h4 {
-padding: 0;
-margin: 0;
-color: rgb(151, 151, 151);
-}
-
-.top-right p {
-padding: 0;
-margin: 0;
-color: #00d664;
-}
-
-
-}
-
-
 
 @media (min-width: 768px) {
- 
-.price-chart-section {
+  .price-chart-section {
     display: none;
-    
-
-}    
+  }
 }
