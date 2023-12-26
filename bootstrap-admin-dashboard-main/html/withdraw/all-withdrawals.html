@@ -55,6 +55,9 @@
                                 <a href="#" class="sidebar-link">Banned Users</a>
                             </li>
                             <li class="sidebar-item">
+                                <a href="../../html/login-logs.html" class="sidebar-link">Login Logs</a>
+                              </li>
+                            <li class="sidebar-item">
                                 <a href="../send-email-all.html" class="sidebar-link">Send Email</a>
                             </li>
                         </ul>
@@ -73,7 +76,7 @@
 
                             <li class="sidebar-item">
                                 <div class="d-flex align-items-center">
-                                    <a href="#" class="sidebar-link me-3">Pending deposits</a>
+                                    <a href="../../html/deposits/pending-deposits.html" class="sidebar-link me-3">Pending deposits</a>
                                     <span id="pendingDeposits" class="badge bg-light text-dark p-2"><a
                                             href="#">0</a></span>
                                 </div>
@@ -81,16 +84,16 @@
 
 
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Approved Deposit</a>
+                                <a href="../../html/deposits/approved-deposits.html" class="sidebar-link">Approved Deposit</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Successful Deposits</a>
+                                <a href="../../html/deposits/successful-deposits.html" class="sidebar-link">Successful Deposits</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Rejected Deposits</a>
+                                <a href="../../html/deposits/rejected-deposits.html" class="sidebar-link">Rejected Deposits</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="../../all-deposits.html" class="sidebar-link">All Deposits</a>
+                                <a href="../../html/deposits/all-deposits.html" class="sidebar-link">All Deposits</a>
                             </li>
                         </ul>
                     </li>
@@ -107,20 +110,20 @@
 
                             <li class="sidebar-item">
                                 <div class="d-flex align-items-center">
-                                    <a href="#" class="sidebar-link me-3">Pending Withdrawals</a>
+                                    <a href="../../html/withdraw/pending-withdrawals.html" class="sidebar-link me-3">Pending Withdrawals</a>
                                     <span id="pendingDeposits" class="badge bg-light text-dark p-2"><a
                                             href="#">0</a></span>
                                 </div>
                             </li>
 
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Approved Withdrawals</a>
+                                <a href="../../html/withdraw/approved-withdrawals.html" class="sidebar-link">Approved Withdrawals</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Successful Withdrawals</a>
+                                <a href="../../html/withdraw/successful-withdrawals.html" class="sidebar-link">Successful Withdrawals</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Rejected Withdrawals</a>
+                                <a href="../../html/withdraw/rejected-withdrawals.html" class="sidebar-link">Rejected Withdrawals</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="../../html/withdraw/all-withdrawals.html" class="sidebar-link active">All Withdrawals</a>
@@ -154,13 +157,13 @@
                         </a>
                         <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Login</a>
+                                <a href="../auth/signin.html" class="sidebar-link">Login</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Register</a>
+                                <a href="../auth/signup.html" class="sidebar-link">Register</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Forgot Password</a>
+                                <a href="../auth/forgot-password.html" class="sidebar-link">Forgot Password</a>
                             </li>
                         </ul>
                     </li>
@@ -210,14 +213,11 @@
 
                 <div class="ml-auto" style="position: absolute; right: 65px;"> <!-- Adjusted for alignment -->
                     <!-- Notification Bell Icon -->
-                    <div class="position-relative"
-                        style="background: transparent; border: none; padding: 0; margin: 0;">
-                        <span style="background: transparent; border: none; padding: 0; margin: 0;">
-                            <!-- Initially hide the badge -->
-                            <i class="fas fa-bell glow"
-                                style="background: #212529; border: none; padding: 0; margin: 0; display: inline-block; border-box-"></i>
-                        </span>
-                        <!-- You can add additional functionality or actions for the notification icon here -->
+                    <div class="ml-auto" style="position: absolute; right: 65px;"> <!-- Adjusted for alignment -->
+                        <!-- Notification Bell Icon -->
+                        <div class="position-relative">
+                          <i class="fas fa-bell notification-icon" style="font-size: 16px; line-height: 16px;"></i>
+                        </div>
                     </div>
                 </div>
 

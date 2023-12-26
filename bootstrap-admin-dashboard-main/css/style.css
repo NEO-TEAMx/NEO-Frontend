@@ -150,14 +150,14 @@ a.sidebar-link {
   margin-bottom: 24px;
 }
 
-.illustration {
-  background-color: var(--bs-primary-bg-subtle);
-  color: var(--bs-emphasis-color);
+.illustration-img-container {
+  width: 210px;
 }
 
+
 .illustration-img {
-  max-width: 150px;
   width: 100%;
+  margin-left: 8px;
 }
 
 /* Sidebar Toggle */
@@ -298,11 +298,9 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
   }
 }
 
-
 /* Custom styles for mobile view */
 @media (max-width: 767px) {
-  
-  .fa-desktop{
+  .fa-desktop {
     font-size: 18px;
     padding: 10px;
     background: #212529;
@@ -348,10 +346,10 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
   }
 }
 
-.fa-desktop{
- font-size: 24px;
- padding: 10px;
- background: #212529;
+.fa-desktop {
+  font-size: 24px;
+  padding: 10px;
+  background: #212529;
 }
 
 /* Custom CSS */
