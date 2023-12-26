@@ -31,10 +31,38 @@ if(isLight()){
 }
 
 document.getElementById('viewAllBtn').addEventListener('click', function() {
-  window.location.href = 'your_destination_page_url'; // Replace 'your_destination_page_url' with the URL of the page you want to navigate to
+  window.location.href = '../html/total-users.html';
 });
 
-    // Example: Trigger glowing effect for notification icon (you can modify this as needed)
+document.getElementById('viewAllBtn1').addEventListener('click', function() {
+  window.location.href = '../html/active-users.html';
+});
+
+document.getElementById('viewAllBtn2').addEventListener('click', function() {
+  window.location.href = '';
+});
+
+document.getElementById('viewAllBtn3').addEventListener('click', function() {
+  window.location.href = '../html/deposits/all-deposits.html';
+});
+
+document.getElementById('viewAllBtn4').addEventListener('click', function() {
+  window.location.href = '../html/deposits/pending-deposits.html';
+});
+
+document.getElementById('viewAllBtn5').addEventListener('click', function() {
+  window.location.href = '../html/withdraw/all-withdrawals.html';
+});
+
+document.getElementById('viewAllBtn6').addEventListener('click', function() {
+  window.location.href = '../html/withdraw/pending-withdrawals.html';
+});
+
+document.getElementById('viewAllBtn7').addEventListener('click', function() {
+  window.location.href = '';
+});
+
+    // Trigger glowing effect for notification icon (you can modify this as needed)
     function triggerGlowEffect() {
       $(".notification-badge").addClass("glow");
       setTimeout(function () {
