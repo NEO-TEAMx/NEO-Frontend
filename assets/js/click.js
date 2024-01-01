@@ -44,10 +44,10 @@
     });
   
     console.log("Contact script file linked successfully!");
-  });
+});
 
 
-  const countElements = document.querySelectorAll('.count');
+const countElements = document.querySelectorAll('.count');
 
 const animateCount = (element) => {
   const endValue = parseInt(element.dataset.counterEnd);
