@@ -28,6 +28,18 @@ function displaysuccess(msg){
     // errorElement.style.display = 'block';
 }
 
+function handleCookie(val){
+    const cookies = val.split(';');
+    cookies.forEach(cookie => {
+        const trimmedCookie = cookie.trim();
+        if(trimmedCookie.startsWith('access_token=')){
+            document.cookie = trimmedCookie;
+        }else if(trimmedCookie.startsWith('refresh_token=')){
+            document.cookie = trimmedCookie;
+        }
+    });
+}
+
 async function submitSignupForm(){
     const usernameInput = document.querySelector("#username");
     const emailInput = document.querySelector("#email");
@@ -88,11 +100,24 @@ async function submitSignupForm(){
             const resp = await response.json(); 
             displayError(resp.msg);
         }
+        if (response.status === 200) {
+            usernameVal = '',
+            emailVal = '',
+            passwordVal = '',
+            confirmPasswordVal = ''
+        }
         if(response.ok){
             const resp = await response.json();
-            const cookies = document.cookie;
+            // const cookies = document.cookie;
+        
             displaysuccess(resp.msg)
-            window.location.href = "/dashboard.html"
+            const setCookieHeader = response.headers.get('set-cookie');
+            if(setCookieHeader){
+                console.log(setCookieHeader)
+                handleCookie(setCookieHeader)
+            }
+
+            window.location.href = "../dacshboard/dashboard.html"
             
             usernameVal = '',
             emailVal = '',
@@ -103,8 +128,8 @@ async function submitSignupForm(){
         
     } catch (error) {
         console.log(error)    
-        return;
-        // displayError('SomeThing went wrong!!')
+        // return;
+        displayError('SomeThing went wrong!!')
     }
 }
 
@@ -135,7 +160,7 @@ async function submitLoginForm(){
         password: passwordVal,
     }
 
-    console.log(data)
+    
     try {
        const response = await fetch(baseUrl+'login', {
             method: 'POST',
@@ -151,9 +176,13 @@ async function submitLoginForm(){
         }
         if(response.ok){
             const resp = await response.json();
-            const cookies = document.cookie;
+            const setCookieHeader = response.headers.get('set-cookie');
+            if(setCookieHeader){
+                console.log(setCookieHeader)
+                handleCookie(setCookieHeader)
+            }
             displaysuccess(resp.msg)
-            window.location.href = "/dashboard.html"
+            window.location.href = "../dashboard/dashboard.html"
             
             usernameVal = '',
             passwordVal = ''
@@ -161,7 +190,8 @@ async function submitLoginForm(){
         }
     } catch (error) {
         console.log(error)       
+        // return;
+        displayError(error.msg || "Something went wrong. Try again!")
         return;
-        // displayError(error.msg || "Something went wrong. Try again!")
     }
 }
