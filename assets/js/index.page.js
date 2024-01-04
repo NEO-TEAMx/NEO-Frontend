@@ -1,6 +1,8 @@
-const baseUrl = 'https://neoprotocol.onrender.com/api/v1/'
+// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+const baseUrl = 'http://localhost:4040/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
+const forgotPassword = document.querySelector("#forgotPassword");
 
 year.innerText = currentYear;
 
@@ -48,10 +50,10 @@ async function submitSignupForm(){
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const usernameVal = usernameInput.value;
-    const emailVal = emailInput.value;
-    const passwordVal = passwordInput.value;
-    const confirmPasswordVal = confirmPasswordInput.value
+    let usernameVal = usernameInput.value;
+    let emailVal = emailInput.value;
+    let passwordVal = passwordInput.value;
+    let confirmPasswordVal = confirmPasswordInput.value
 
     clearErrors();
     // validate inputs
@@ -108,16 +110,15 @@ async function submitSignupForm(){
         }
         if(response.ok){
             const resp = await response.json();
-            // const cookies = document.cookie;
-        
+            
             displaysuccess(resp.msg)
-            const setCookieHeader = response.headers.get('set-cookie');
+            const setCookieHeader = response.headers.get('Set-Cookie');
             if(setCookieHeader){
                 console.log(setCookieHeader)
                 handleCookie(setCookieHeader)
             }
 
-            window.location.href = "../dacshboard/dashboard.html"
+            window.location.href = "../dashboard/dashboard.html"
             
             usernameVal = '',
             emailVal = '',
@@ -129,7 +130,7 @@ async function submitSignupForm(){
     } catch (error) {
         console.log(error)    
         // return;
-        displayError('SomeThing went wrong!!')
+        displayError(error.message || 'SomeThing went wrong!!')
     }
 }
 
@@ -137,8 +138,8 @@ async function submitLoginForm(){
     const usernameInput = document.querySelector("#item");
     const passwordInput = document.querySelector("#password");
     
-    const usernameVal = usernameInput.value;
-    const passwordVal = passwordInput.value;
+    let usernameVal = usernameInput.value;
+    let passwordVal = passwordInput.value;
     
     clearErrors();
     // validate inputs
@@ -169,16 +170,20 @@ async function submitLoginForm(){
             },
             body: JSON.stringify(data)
         });
+        
         if(!response.ok){
             const resp = await response.json(); 
             displayError(resp.msg);
             return;
         }
+       
         if(response.ok){
             const resp = await response.json();
-            const setCookieHeader = response.headers.get('set-cookie');
+            
+            const setCookieHeader = response.headers.get('Set-Cookie');
+            
             if(setCookieHeader){
-                console.log(setCookieHeader)
+                
                 handleCookie(setCookieHeader)
             }
             displaysuccess(resp.msg)
@@ -186,12 +191,50 @@ async function submitLoginForm(){
             
             usernameVal = '',
             passwordVal = ''
+            // fetchCurrentUser();
+            // fetchCurrentUser();
             return;
         }
     } catch (error) {
         console.log(error)       
-        // return;
         displayError(error.msg || "Something went wrong. Try again!")
         return;
     }
 }
+
+forgotPassword.addEventListener('click', async()=>{
+    const emailInput = document.querySelector('#email');
+    let emailVal = emailInput.value;
+
+    // if(!emailVal){
+    //     displayError("Please provide a registered email")
+    // }
+    const data = {
+        email: emailVal
+    }
+
+    try {
+        const response = await fetch(baseUrl+'forget-password',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        if(!response.ok){
+            const resp = await response.json(); 
+            displayError(resp.msg);
+            return;
+        }
+        if(response.ok){
+            const resp = await response.json();
+            displaysuccess(resp.msg||"Reset password link have been sent to your email")
+            
+            return;
+        }   
+        emailVal = ''     
+    } catch (error) {
+        console.log(error)
+        displayError("Something went wrong!")
+    }
+});

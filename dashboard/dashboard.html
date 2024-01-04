@@ -13,8 +13,17 @@
   <link rel="stylesheet" href="sub-dashboard.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-  <title>NEO DASHBOARD</title>
-
+  <title>Dashboard</title>
+  <style>
+     .error{
+            color: rgb(207, 22, 22);
+            margin-top: 5px;
+        }
+        .success{
+            color: rgb(12, 56, 12);
+            margin-top: 5px;
+        }
+  </style>
 
 </head>
 
@@ -48,7 +57,7 @@
             <li class="active"><a href="dashboard.html"><i class="material-icons">dashboard</i>
                 <h3>Dashboard</h3>
               </a></li>
-            <li><a href="../html/index.html"><i class="material-icons">home</i>
+            <li><a href="../index.html"><i class="material-icons">home</i>
                 <h3>Home</h3>
               </a></li>
             <li><a href="hash.html"><i class="material-icons">attach_money</i>
@@ -72,14 +81,17 @@
             <li><a href="transaction.html"><i class="material-icons">history</i>
                 <h3>Transaction History</h3>
               </a></li>
-            <li><a href="../Main.html"><i class="material-icons">logout</i>
+            <li onclick="logoutFunc()"><a><i class="material-icons">logout</i>
                 <h3>Log Out</h3>
-              </a></li>
+            </a></li>
           </ul>
         </div>
       </aside>
 
       <!------------------------------------------------ END OF ASIDE ------------------------------------------------------->
+
+      <div id="errorMsg" class="error"></div>
+      <div id="successMsg" class="success"></div>
 
 
       <main class="mining-section">
@@ -171,11 +183,11 @@
           </div>
 
           <div class="copyright">
-            <p> © 2023, Neo-Protocol, All Rights Resrerved.</p>
+            <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
           </div>
         </footer>
 
-
+        
         <script>
 
 
@@ -228,8 +240,6 @@
 
 
       </main>
-
-
 
       <script>
 
@@ -371,6 +381,26 @@
 
     </div>
   </div>
+  <script>
+    const baseUrl = 'http://localhost:4040/api/v1/';
+
+    async function logoutFunc(){
+      try {
+        console.log('Clicked')
+        const response = await fetch(baseUrl+'logout', {
+          method: 'DELETE',
+        });
+        const data = await response.json()
+        console.log(data)
+      } catch (error) {
+        console.log(error);
+      }
+      // console.log('Clicked')
+    }
+  </script>
+  <script src="../assets/js/main.browser.js"></script>
+  <script src="../assets/js/index.page.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
 </body>
 
 </html>
