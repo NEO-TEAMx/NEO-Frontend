@@ -1,4 +1,5 @@
-const baseUrle = 'http://localhost:4040/api/v1/';
+// const baseUrl = 'http://localhost:4040/api/v1/';
+// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 
@@ -27,24 +28,57 @@ function displaysuccess(msg){
 
 
 async function dashboard(){
+    let yield_balancep = document.querySelector("#yield_balance");
+    let hash_ratep = document.querySelector("#hash_rate");
+    // let hash_ratep = document.getElementById("hash_rate");
+    let yield_percentagep = document.getElementById("percentage");
+    // let yield_percentagep = document.querySelector("#percentage");
+    let total_balancep = document.querySelector("#balance")
+    // console.log("dahsboard")
 
-    console.log("dahsboard")
-    try {
-        const response = await fetch(baseUrle+'user/dashboard', {
-            method: 'GET',
-            mode: 'cors',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-        });
-        const data = await response.json();
-        console.log(data)
-    } catch (error) {
-        console.log(error)
+    // console.log(total_balancep.textContent = 400)
+    // console.log(hash_ratep.textContent = 10)
+    // console.log(yield_percentagep.textContent = 20)
+    // console.log(yield_balancep.text)
+    // console.log(hash_ratep)
+    // console.log(yield_percentagep)
+    if(await isAuthenticated()){
+        const accessToken = localStorage.getItem('accessToken')
+        try {
+            const response = await fetch(baseUrl+'user/dashboard', {
+                method: 'GET',
+                mode: 'cors',
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization': accessToken
+                },
+                credentials: 'include',
+            });
+            const data = await response.json();
+            // console.log(data.user)
+            const {
+                hash_rate,
+                total_balance,
+                yield_balance,
+                yield_percentage,
+                yield_time
+            } = data.user;
+
+            
+            yield_balancep.textContent = yield_balance,
+            total_balancep.textContent = total_balance
+            yield_percentagep.textContent = yield_percentage
+            hash_ratep.textContent = hash_rate
+
+        } catch (error) {
+            console.log(error)
+        }
+    }else{
+         redirectToLogin();
     }
 }
 
 
-dashboard();
+// dashboard();
 
 

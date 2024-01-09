@@ -1,41 +1,37 @@
-// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
-const baseUrl = 'https://localhost:4040/api/v1';
-
-function getCookie(name){
-    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    return match ? match[2] : null
-}
-
-
-async function fetchCurrentUser(){
-    try {
-        // const token = getCookie('access_token');
-        // if(!token){
-        //     window.location.href = '../html/signin.html'
-
-        //     throw new Error("Token not found")
-        // }
-        const response = await fetch(baseUrl+'/show-me',{
-            method: 'GET',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            // 'Authorization': `Bearer ${token}`            
-        });
-        if(!response.ok){
-            return;
+async function isAuthenticated() {
+    const accessToken = localStorage.getItem('accessToken');
+    if(accessToken){
+        const expiraionTime = localStorage.getItem('expires')
+        if(expiraionTime && Date.now() > parseInt(expiraionTime, 10)){
+            const newToken = await response.headers.get('Authorization')
+            if(newToken){
+                setToken(newToken, calcExpTime())
+                return true
+            }else{
+                clearToken();
+                redirectToLogin();
+                return false;
+            }
         }
-        if(response.ok){
-            const resp = await response.json();
-            console.log(resp)
-            console.log("jjj")
-            return;
-        }
-    } catch (error) {
-        // window.location.href = '../html/signin.html'
-        console.log(error)
+        return true;
     }
+    redirectToLogin();
+    return false;
 }
 
+function redirectToLogin(){
+    window.location.href = '../html/signin.html'
+};
 
-document.addEventListener('DOMContentLoaded', fetchCurrentUser)
+
+function clearToken(){
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('expires')
+}
+
+function calcExpTime(){
+    const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
+    return expiraionTime;
+}
+
+document.addEventListener('DOMContentLoaded', isAuthenticated());

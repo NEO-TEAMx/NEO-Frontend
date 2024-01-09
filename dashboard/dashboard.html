@@ -103,23 +103,23 @@
               <circle class="bg-circle" cx="50" cy="50" r="45" />
               <circle class="progress-circle" cx="50" cy="50" r="45" />
             </svg>
-            <div class="progress-text">0%</div>
+            <div class="progress-text"><span id="percentage"></span>%</div>
             <div class="timer-text">00:00:00</div>
           </div>
 
-          <p>Yield Balance: <span id="balance">0</span> NEO</p>
+          <p>Yield Balance: <span id="yield_balance"></span> NEO</p>
           <button id="start-mining-btn" onclick="startMining()">Start Mining</button>
           <div class="top-left">
             <div>
               <h4>Hash Rate</h4>
             </div>
             <div>
-              <p>0.00 NEO/Hr</p>
+               <p><span id="hash_rate"></span>NEO/Hr</p>
             </div>
           </div>
           <div class="top-right">
             <h4>Total Balance</h4>
-            <p id="balance">$0:00</p>
+            <p > <span id="balance"></span>$</p>
           </div>
           <div class="swap-btn-container">
             <a href="swap.html" target="_blank">
@@ -241,7 +241,7 @@
 
       </main>
 
-      <script>
+      <!-- <script>
 
         const MINING_DURATION_SECONDS = 24 * 60 * 60; // 1 day in seconds
         const PROGRESS_UPDATE_INTERVAL_MS = 1000; // Progress update interval in milliseconds
@@ -360,7 +360,7 @@
           startMining();
         }
 
-      </script>
+      </script> -->
 
 
       <script>

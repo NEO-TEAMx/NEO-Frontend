@@ -30,17 +30,12 @@ function displaysuccess(msg){
     // errorElement.style.display = 'block';
 }
 
-function handleCookie(val){
-    const cookies = val.split(';');
-    cookies.forEach(cookie => {
-        const trimmedCookie = cookie.trim();
-        if(trimmedCookie.startsWith('access_token=')){
-            document.cookie = trimmedCookie;
-        }else if(trimmedCookie.startsWith('refresh_token=')){
-            document.cookie = trimmedCookie;
-        }
-    });
+function setToken(val, expDur){
+    localStorage.setItem('accessToken', val)
+    localStorage.setItem('expires', expDur)
 }
+
+// function getToken
 
 async function submitSignupForm(){
     const usernameInput = document.querySelector("#username");
@@ -96,7 +91,8 @@ async function submitSignupForm(){
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            credentials: 'include'
         });
         if(!response.ok){
             const resp = await response.json(); 
@@ -111,20 +107,22 @@ async function submitSignupForm(){
         if(response.ok){
             const resp = await response.json();
             
+            const accessToken = response.headers.get('Authorization')
+            console.log(accessToken)
+            
+            const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
+            console.log(expiraionTime)
+            setToken(accessToken, expiraionTime)
             displaysuccess(resp.msg)
-            const setCookieHeader = response.headers.get('Set-Cookie');
-            if(setCookieHeader){
-                console.log(setCookieHeader)
-                handleCookie(setCookieHeader)
-            }
-
             window.location.href = "../dashboard/dashboard.html"
             
             usernameVal = '',
             emailVal = '',
             passwordVal = '',
             confirmPasswordVal = ''
-            return;
+            return  true;
+        }else{
+            return false;
         }
         
     } catch (error) {
@@ -168,7 +166,8 @@ async function submitLoginForm(){
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            credentials:'include'
         });
         
         if(!response.ok){
@@ -180,19 +179,18 @@ async function submitLoginForm(){
         if(response.ok){
             const resp = await response.json();
             
-            const setCookieHeader = response.headers.get('Set-Cookie');
+            const accessToken = response.headers.get('Authorization')
+        
+            console.log(accessToken)
+            const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
+            setToken(accessToken, expiraionTime)
             
-            if(setCookieHeader){
-                
-                handleCookie(setCookieHeader)
-            }
             displaysuccess(resp.msg)
             window.location.href = "../dashboard/dashboard.html"
             
             usernameVal = '',
             passwordVal = ''
-            // fetchCurrentUser();
-            // fetchCurrentUser();
+            
             return;
         }
     } catch (error) {

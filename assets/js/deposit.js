@@ -8,22 +8,51 @@ const amount = parseFloat(amountInput.value);
 
 year.innerText = currentYear;
 
+function clearErrors(){
+    const errMsg = document.getElementById('errorMsg');
+    const successMsg = document.getElementById('successMsg')
+    errMsg.textContent = '';
+    successMsg.textContent = '';
+}
+
+function displayError(msg){
+    const errMsg = document.getElementById("errorMsg");
+    errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
+    setTimeout(clearErrors,8000)
+}    
+function displaysuccess(msg){
+    const errMsg = document.getElementById("successMsg");
+    errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
+    setTimeout(clearErrors, 9000)
+    
+}
 
 confirmPayment.addEventListener("click", async()=>{
-    try {
-        const response = await fetch(baseUrl+'/deposit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        if(response.ok){
-            const resp = response.json()
-            console.log(resp)
-        } 
-        console.log("Clicked")
-    } catch (error) {
-        console.log(error)
+    if(await isAuthenticated()){
+        const accessToken = localStorage.getItem('accessToken')
+        if(!amount){
+            throw new Error("Error occured! Provide the amount needed")
+        }
+        
+        try {
+            const response = await fetch(baseUrl+'/deposit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': accessToken
+                },
+                credentials: 'include',
+            });
+            if(response.ok){
+                const resp = response.json();
+                console.log(resp)
+            } 
+            console.log("Clicked")
+        } catch (error) {
+            console.log(error)
+        }
+    }else{
+        redirectToLogin();
     }
 });
 
