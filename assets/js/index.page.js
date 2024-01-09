@@ -8,7 +8,7 @@ function clearErrors(){
     const errMsg = document.getElementById('errorMsg');
     const successMsg = document.getElementById('successMsg')
     errMsg.textContent = '';
-    successMsg.textContent = '';
+    successMsg.textContent = 
 }
 
 function displayError(msg){
