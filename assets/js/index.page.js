@@ -1,6 +1,8 @@
-const baseUrl = 'https://neoprotocol.onrender.com/api/v1/'
+// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+const baseUrl = 'http://localhost:4040/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
+const forgotPassword = document.querySelector("#forgotPassword");
 
 year.innerText = currentYear;
 
@@ -28,6 +30,13 @@ function displaysuccess(msg){
     // errorElement.style.display = 'block';
 }
 
+function setToken(val, expDur){
+    localStorage.setItem('accessToken', val)
+    localStorage.setItem('expires', expDur)
+}
+
+// function getToken
+
 async function submitSignupForm(){
     const usernameInput = document.querySelector("#username");
     const emailInput = document.querySelector("#email");
@@ -36,10 +45,10 @@ async function submitSignupForm(){
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const usernameVal = usernameInput.value;
-    const emailVal = emailInput.value;
-    const passwordVal = passwordInput.value;
-    const confirmPasswordVal = confirmPasswordInput.value
+    let usernameVal = usernameInput.value;
+    let emailVal = emailInput.value;
+    let passwordVal = passwordInput.value;
+    let confirmPasswordVal = confirmPasswordInput.value
 
     clearErrors();
     // validate inputs
@@ -82,29 +91,44 @@ async function submitSignupForm(){
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            credentials: 'include'
         });
         if(!response.ok){
             const resp = await response.json(); 
             displayError(resp.msg);
         }
+        if (response.status === 200) {
+            usernameVal = '',
+            emailVal = '',
+            passwordVal = '',
+            confirmPasswordVal = ''
+        }
         if(response.ok){
             const resp = await response.json();
-            const cookies = document.cookie;
+            
+            const accessToken = response.headers.get('Authorization')
+            console.log(accessToken)
+            
+            const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
+            console.log(expiraionTime)
+            setToken(accessToken, expiraionTime)
             displaysuccess(resp.msg)
-            window.location.href = "/dashboard.html"
+            window.location.href = "../dashboard/dashboard.html"
             
             usernameVal = '',
             emailVal = '',
             passwordVal = '',
             confirmPasswordVal = ''
-            return;
+            return  true;
+        }else{
+            return false;
         }
         
     } catch (error) {
         console.log(error)    
-        return;
-        // displayError('SomeThing went wrong!!')
+        // return;
+        displayError(error.message || 'SomeThing went wrong!!')
     }
 }
 
@@ -112,8 +136,8 @@ async function submitLoginForm(){
     const usernameInput = document.querySelector("#item");
     const passwordInput = document.querySelector("#password");
     
-    const usernameVal = usernameInput.value;
-    const passwordVal = passwordInput.value;
+    let usernameVal = usernameInput.value;
+    let passwordVal = passwordInput.value;
     
     clearErrors();
     // validate inputs
@@ -135,9 +159,60 @@ async function submitLoginForm(){
         password: passwordVal,
     }
 
-    console.log(data)
+    
     try {
        const response = await fetch(baseUrl+'login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            credentials:'include'
+        });
+        
+        if(!response.ok){
+            const resp = await response.json(); 
+            displayError(resp.msg);
+            return;
+        }
+       
+        if(response.ok){
+            const resp = await response.json();
+            
+            const accessToken = response.headers.get('Authorization')
+        
+            console.log(accessToken)
+            const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
+            setToken(accessToken, expiraionTime)
+            
+            displaysuccess(resp.msg)
+            window.location.href = "../dashboard/dashboard.html"
+            
+            usernameVal = '',
+            passwordVal = ''
+            
+            return;
+        }
+    } catch (error) {
+        console.log(error)       
+        displayError(error.msg || "Something went wrong. Try again!")
+        return;
+    }
+}
+
+forgotPassword.addEventListener('click', async()=>{
+    const emailInput = document.querySelector('#email');
+    let emailVal = emailInput.value;
+
+    // if(!emailVal){
+    //     displayError("Please provide a registered email")
+    // }
+    const data = {
+        email: emailVal
+    }
+
+    try {
+        const response = await fetch(baseUrl+'forget-password',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -151,17 +226,13 @@ async function submitLoginForm(){
         }
         if(response.ok){
             const resp = await response.json();
-            const cookies = document.cookie;
-            displaysuccess(resp.msg)
-            window.location.href = "/dashboard.html"
+            displaysuccess(resp.msg||"Reset password link have been sent to your email")
             
-            usernameVal = '',
-            passwordVal = ''
             return;
-        }
+        }   
+        emailVal = ''     
     } catch (error) {
-        console.log(error)       
-        return;
-        // displayError(error.msg || "Something went wrong. Try again!")
+        console.log(error)
+        displayError("Something went wrong!")
     }
-}
+});

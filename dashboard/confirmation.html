@@ -288,20 +288,22 @@
 
     <div class="card">
       <div class="card-body">
+        <div id="errorMsg" class="error"></div>
+        <div id="successMsg" class="success"></div>
         <div class="usdt__img">
           <img src="../material/62d315f8a5bd81658000888.jpg" class="card-img-top w-100" alt="TETHER USDT (ERC20)">
         </div>
         <div class="details">
           <ul class="details__list">
             <li class="list-group-item">
-              <p>Amount: <strong>0 </strong> USD</p>
+              <p>Amount: <strong></strong> USD</p>
             </li>
             <li class="list-group-item">
-              <p> Charge:<strong>0</strong> USD </p>
+              <p> Charge: <strong>0</strong> USD </p>
             </li>
-            <li class="list-group-item">
+            <!-- <li class="list-group-item">
               <p>Payable: <strong> 0</strong> USD</p>
-            </li>
+            </li> -->
             <li class="list-group-item">
               <p> Conversion Rate: <strong>1 USD = 1 USDT (ERC 20)</strong></p>
             </li>
@@ -311,7 +313,7 @@
           </ul>
         </div>
         <a href="#" type="button" onclick="showConfirmation()" class="btn.deposit mb-3" data-bs-toggle="modal"
-          data-bs-target="#exampleModal" data-bs-whatever="@mdo">Confirm</a>
+          data-bs-target="#exampleModal" data-bs-whatever="@mdo" id="confirmPayment">Confirm</a>
         <!-- <a href="https://optimum-trade.net/user/deposit/manual" class="btn btn-block py-3 font-weight-bold mt-4 cmn-btn">Confirm</a> -->
       </div>
     </div>
@@ -366,7 +368,7 @@
             </form>
           </div>
           <div class="modal-footers">
-            <a href="#" onclick="" class="btn-confirm">Confirm Payment</a>
+            <a href="#"  class="btn-confirm">Confirm Payment</a>
           </div>
         </div>
       </div>
@@ -446,10 +448,11 @@
 
 
         <div class="copyright">
-          <p> © 2023, Neo-Protocol, All Rights Resrerved.</p>
+          <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
         </div>
       </div>
     </footer>
+    <script src="../assets/js/deposit.js"></script>
     <script src="../contact-script.js"></script>
     <script src="deposit.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

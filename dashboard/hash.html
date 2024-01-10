@@ -164,14 +164,13 @@ input[type="number"]::placeholder {
   <div class="hash-form">
     <h4>BUY HASH WITH USDT</h4>
     <label for="ancAmount">USDT Amount:</label>
-    <input type="number" id="ancAmount" placeholder="Enter USDT Amount" oninput="calculateUSDTAmount()">
+    <input type="number" id="amount" name="amount" placeholder="Enter USDT Amount" oninput="calculateUSDTAmount()">
     
     <label for="usdtAmount">HASH Amount:</label>
-    <input type="number" id="usdtAmount" placeholder="Hash Amount" readonly>
+    <input type="number" id="usdt" name="usdt" placeholder="Hash Amount" readonly>
         
-    <button id="buyHash" onclick="">BUY HASH</button>
+    <button id="buyHash" >BUY HASH</button>
   </div>
-
 </section>
 
 
@@ -221,7 +220,7 @@ input[type="number"]::placeholder {
 
 
     <div class="copyright">
-      <p> © 2023, Neo-Protocol, All Rights Resrerved.</p>
+      <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
     </div>
   </div>      
 </footer>
@@ -248,5 +247,6 @@ input[type="number"]::placeholder {
   });
   
 </script>
+<script src="../assets/js/hash.js"></script>
 </body>
 </html>

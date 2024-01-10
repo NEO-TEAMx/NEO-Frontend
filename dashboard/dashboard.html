@@ -13,8 +13,17 @@
   <link rel="stylesheet" href="sub-dashboard.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-  <title>NEO DASHBOARD</title>
+
+  <title>Dashboard</title>
   <style>
+     .error{
+            color: rgb(207, 22, 22);
+            margin-top: 5px;
+        }
+        .success{
+            color: rgb(12, 56, 12);
+            margin-top: 5px;
+        }
     /* Styles for the loader */
     #loader {
       display: none;
@@ -68,7 +77,7 @@
             <li class="active"><a href="dashboard.html"><i class="material-icons">dashboard</i>
                 <h3>Dashboard</h3>
               </a></li>
-            <li><a href="../html/index.html"><i class="material-icons">home</i>
+            <li><a href="../index.html"><i class="material-icons">home</i>
                 <h3>Home</h3>
               </a></li>
             <li><a href="hash.html"><i class="material-icons">attach_money</i>
@@ -92,14 +101,17 @@
             <li><a href="transaction.html"><i class="material-icons">history</i>
                 <h3>Transaction History</h3>
               </a></li>
-            <li><a href="../Main.html"><i class="material-icons">logout</i>
+            <li onclick="logoutFunc()"><a><i class="material-icons">logout</i>
                 <h3>Log Out</h3>
-              </a></li>
+            </a></li>
           </ul>
         </div>
       </aside>
 
       <!------------------------------------------------ END OF ASIDE ------------------------------------------------------->
+
+      <div id="errorMsg" class="error"></div>
+      <div id="successMsg" class="success"></div>
 
 
       <main class="mining-section">
@@ -114,23 +126,23 @@
               <circle class="bg-circle" cx="50" cy="50" r="45" />
               <circle class="progress-circle" cx="50" cy="50" r="45" />
             </svg>
-            <div class="progress-text">0%</div>
+            <div class="progress-text"><span id="percentage"></span>%</div>
             <div class="timer-text">00:00:00</div>
           </div>
 
-          <p>Yield Balance: <span id="balance">0</span> NEO</p>
+          <p>Yield Balance: <span id="yield_balance"></span> NEO</p>
           <button id="start-mining-btn" onclick="startMining()">Start Mining</button>
           <div class="top-left">
             <div>
               <h4>Hash Rate</h4>
             </div>
             <div>
-              <p>0.00 NEO/Hr</p>
+               <p><span id="hash_rate"></span>NEO/Hr</p>
             </div>
           </div>
           <div class="top-right">
             <h4>Total Balance</h4>
-            <p id="balance">$0:00</p>
+            <p > <span id="balance"></span>$</p>
           </div>
           <div class="swap-btn-container">
             <a href="swap.html" target="_blank">
@@ -194,11 +206,11 @@
           </div>
 
           <div class="copyright">
-            <p> © 2023, Neo-Protocol, All Rights Resrerved.</p>
+            <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
           </div>
         </footer>
 
-
+        
         <script>
 
 
@@ -252,9 +264,7 @@
 
       </main>
 
-
-
-      <script>
+      <!-- <script>
 
         const MINING_DURATION_SECONDS = 24 * 60 * 60; // 1 day in seconds
         const PROGRESS_UPDATE_INTERVAL_MS = 1000; // Progress update interval in milliseconds
@@ -373,7 +383,7 @@
           startMining();
         }
 
-      </script>
+      </script> -->
 
 
       <script>
@@ -394,6 +404,26 @@
 
     </div>
   </div>
+  <script>
+    const baseUrl = 'http://localhost:4040/api/v1/';
+
+    async function logoutFunc(){
+      try {
+        console.log('Clicked')
+        const response = await fetch(baseUrl+'logout', {
+          method: 'DELETE',
+        });
+        const data = await response.json()
+        console.log(data)
+      } catch (error) {
+        console.log(error);
+      }
+      // console.log('Clicked')
+    }
+  </script>
+  <script src="../assets/js/main.browser.js"></script>
+  <script src="../assets/js/index.page.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
 </body>
 
 </html>
