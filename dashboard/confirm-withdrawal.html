@@ -16,6 +16,21 @@
   <title>Confirmation Page</title>
   <!-- Add any required stylesheets or scripts for the confirmation page -->
   <style>
+        .error{
+            color: rgb(207, 22, 22);
+            margin-top: 5px;
+      font-size: 17px;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    .success{
+            color: rgb(12, 56, 12);
+            margin-top: 5px;
+            font-size: 17px;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    
     .card {
 
       display: flex;
@@ -300,7 +315,7 @@
   </style>
 </head>
 
-<body>
+<body onload="loadData()">
 
   <section class="general__container">
     <section id="header">
@@ -327,40 +342,42 @@
 
     <div class="card">
       <div class="card-body">
+        <div id="errorMsg" class="error"></div>
+        <div id="successMsg" class="success"></div>
         <div class="usdt__img">
           <img src="../material/62d315f8a5bd81658000888.jpg" class="card-img-top w-100" alt="TETHER USDT (ERC20)">
         </div>
         <div class="details">
           <ul class="details__list">
             <li class="list-group-item">
-              <p><strong> Amount: 0 USDT</strong> </p>
+              <p>Amount: <strong id="wAmount"></strong> USDT</p>
             </li>
             <li class="list-group-item">
-              <p><strong> Charge: 0 USDT</strong></p>
+              <p>Charge: <strong id="charge"></strong>USDT</p>
             </li>
             <li class="list-group-item">
-              <p> <strong>Payable: 0 USD</strong></p>
+              <p>Payable: <strong id="payAmount"></strong>USD</p>
             </li>
             <li class="list-group-item">
               <p> <strong>Conversion Rate: 1 USD = 1 USDT (BEP20)</strong></p>
             </li>
-            <li class="list-group-item"> <input type="text" placeholder="ENTER USDT(BEP20) WALLET ADDRESS"></li>
+            <li class="list-group-item"> <input type="text" id="walletAdd" placeholder="ENTER USDT(BEP20) WALLET ADDRESS"></li>
           </ul>
 
         </div>
-        <a href="" class=".btn.deposit">Confirm</a>
+        <a href="" onclick="confirmPayment()" class=".btn.deposit">Confirm</a>
         <!-- <a href="https://optimum-trade.net/user/deposit/manual" class="btn btn-block py-3 font-weight-bold mt-4 cmn-btn">Confirm</a> -->
       </div>
     </div>
 
-    <script>
-      // Retrieve the amount from local storage
-      const amount = localStorage.getItem('amount');
+    <!-- <script> -->
+      <!-- // // Retrieve the amount from local storage -->
+      <!-- // const amount = localStorage.getItem('amount'); -->
 
-      // Update the amount on the confirmation page
-      const amountValueElement = document.getElementById('amount-value');
-      amountValueElement.textContent = amount;;
-    </script>
+      <!-- // // Update the amount on the confirmation page -->
+      <!-- // const amountValueElement = document.getElementById('amount-value'); -->
+      <!-- // amountValueElement.textContent = amount;; -->
+    <!-- </script> -->
 
     <footer>
       <div class="footer container py-4 px-4">
@@ -407,10 +424,12 @@
 
 
         <div class="copyright">
-          <p> © 2023, Neo-Protocol, All Rights Resrerved.</p>
+          <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
         </div>
       </div>
     </footer>
+    <script src="../assets/js/main.browser.js"></script>
+    <script src="../assets/js/withdrawal.js"></script>
     <script src="../contact-script.js"></script>
     <script src="deposit.js"></script>
 </body>

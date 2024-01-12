@@ -1,3 +1,4 @@
+
 // const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 const baseUrl = 'http://localhost:4040/api/v1/';
 const currentYear = new Date().getFullYear();
@@ -9,14 +10,14 @@ year.innerText = currentYear;
 function clearErrors(){
     const errMsg = document.getElementById('errorMsg');
     const successMsg = document.getElementById('successMsg')
-    errMsg.textContent = '';
-    successMsg.textContent = 
+    errMsg.textContent = ''
+    successMsg.textContent =  ''
 }
 
 function displayError(msg){
     const errMsg = document.getElementById("errorMsg");
     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-    setTimeout(clearErrors, 4000)
+    setTimeout(clearErrors, 5000)
     // const errorElement = document.getElementById(elementId);
     // errorElement.textContent = msg;
     // errorElement.style.display = 'block';
@@ -24,7 +25,7 @@ function displayError(msg){
 function displaysuccess(msg){
     const errMsg = document.getElementById("successMsg");
     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-    setTimeout(clearErrors, 4000)
+    setTimeout(clearErrors, 5000)
     // const errorElement = document.getElementById(elementId);
     // errorElement.textContent = msg;
     // errorElement.style.display = 'block';
@@ -96,7 +97,8 @@ async function submitSignupForm(){
         });
         if(!response.ok){
             const resp = await response.json(); 
-            displayError(resp.msg);
+            displayError(resp.msg || 'Something went wrong!');
+            return;
         }
         if (response.status === 200) {
             usernameVal = '',

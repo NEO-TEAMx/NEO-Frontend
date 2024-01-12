@@ -13,10 +13,24 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <!----------------------------------------------------------SWIPPER CSS----------------------------------------------------------------------------->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-  <title>Confirmation Page</title>
+  <title>Confirmation Payment</title>
   <!-- Add any required stylesheets or scripts for the confirmation page -->
 
   <style>
+    .error{
+            color: rgb(207, 22, 22);
+            margin-top: 5px;
+      font-size: 17px;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    .success{
+            color: rgb(12, 56, 12);
+            margin-top: 5px;
+            font-size: 17px;
+      text-align: center;
+      text-transform: capitalize;
+    }
     .card {
 
       display: flex;
@@ -260,7 +274,7 @@
   </style>
 </head>
 
-<body>
+<body onload="loadData()">
 
   <section class="general__container">
 
@@ -286,7 +300,7 @@
 
     </section>
 
-    <div class="card">
+    <div class="card" >
       <div class="card-body">
         <div id="errorMsg" class="error"></div>
         <div id="successMsg" class="success"></div>
@@ -296,7 +310,7 @@
         <div class="details">
           <ul class="details__list">
             <li class="list-group-item">
-              <p>Amount: <strong></strong> USD</p>
+              <p>Amount: <strong id="cAmount"></strong> USD</p>
             </li>
             <li class="list-group-item">
               <p> Charge: <strong>0</strong> USD </p>
@@ -335,7 +349,7 @@
 
   </div>
   
-</div> -->
+</div>  -->
 
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -368,7 +382,7 @@
             </form>
           </div>
           <div class="modal-footers">
-            <a href="#"  class="btn-confirm">Confirm Payment</a>
+            <a href="#"  onclick="removeConfirmation()" class="btn-confirm">Confirm Payment</a>
           </div>
         </div>
       </div>
@@ -376,12 +390,21 @@
 
 
     <script>
-      function showConfirmation() {
-        document.getElementById("overlay").style.display = "flex";
+      // function showConfirmation() {
+        // document.getElementById("overlay").style.display = "flex";
+      // }
+      function loadData(){
+        
+        const storedNum = localStorage.getItem('amount')    
+        const amount = parseFloat(storedNum);
+        document.getElementById('cAmount').textContent = amount;
+      
       }
 
+
       function removeConfirmation() {
-        document.getElementById("overlay").style.display = "none";
+        document.getElementById("exampleModal").style.display = "none";
+        window.location.href = './dashboard.html'
       }
 
       function copyToClipboard() {
@@ -393,14 +416,14 @@
     </script>
 
 
-    <script>
+    <!-- <script>
       // Retrieve the amount from local storage
       const amount = localStorage.getItem('amount');
 
       // Update the amount on the confirmation page
       const amountValueElement = document.getElementById('amount-value');
       amountValueElement.textContent = amount;;
-    </script>
+    </script> -->
 
 
     <footer>
@@ -452,6 +475,7 @@
         </div>
       </div>
     </footer>
+    <script src="../assets/js/main.browser.js"></script>
     <script src="../assets/js/deposit.js"></script>
     <script src="../contact-script.js"></script>
     <script src="deposit.js"></script>
