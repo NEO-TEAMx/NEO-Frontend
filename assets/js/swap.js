@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:4040/api/v1/';
-// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+// const baseUrl = 'http://localhost:4040/api/v1/';
+const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 year.innerText = currentYear;
@@ -57,7 +57,9 @@ function calculateUSDTAmount(){
 }
 
 async function swapANCtoUSDT(){
-    if(await isAuthenticated()){
+   
+  clearErrors();
+  if(await isAuthenticated()){
       const accessToken = localStorage.getItem('accessToken')
       const neo_amount = parseFloat(document.getElementById('neoAmount').value);
         

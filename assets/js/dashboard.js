@@ -1,5 +1,5 @@
 // const baseUrl = 'http://localhost:4040/api/v1/';
-// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 
@@ -28,6 +28,7 @@ function displaysuccess(msg){
 
 
 async function dashboard(){
+    clearErrors();
     let yield_balancep = document.querySelector("#yield_balance");
     let hash_ratep = document.querySelector("#hash_rate");
     // let hash_ratep = document.getElementById("hash_rate");

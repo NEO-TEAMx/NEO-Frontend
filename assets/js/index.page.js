@@ -1,6 +1,6 @@
 
-// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
-const baseUrl = 'http://localhost:4040/api/v1/';
+const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+// const baseUrl = 'http://localhost:4040/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 const forgotPassword = document.querySelector("#forgotPassword");
@@ -43,7 +43,7 @@ async function submitSignupForm(){
     const emailInput = document.querySelector("#email");
     const passwordInput = document.querySelector("#password");
     const confirmPasswordInput = document.querySelector("#confirmPassword");
-
+    const urlParams =  new URLSearchParams( window.location.search)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     let usernameVal = usernameInput.value;
@@ -85,7 +85,8 @@ async function submitSignupForm(){
         confirmPassword: confirmPasswordVal
     }
 
-    
+    const referralCode = urlParams.get("referralCode")
+
     try {
         const response = await fetch(baseUrl+'register', {
             method: 'POST',
@@ -203,6 +204,8 @@ async function submitLoginForm(){
 }
 
 forgotPassword.addEventListener('click', async()=>{
+
+    clearErrors();
     const emailInput = document.querySelector('#email');
     let emailVal = emailInput.value;
 
@@ -240,8 +243,13 @@ forgotPassword.addEventListener('click', async()=>{
 });
 
 async function resetPassword(){
+    clearErrors();
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const email = urlParams.get("email");
+    const token = urlParams.get("token");
 
     if(!password || !confirmPassword){
         displayError("Please provide the needed credential(s)")
@@ -256,7 +264,7 @@ async function resetPassword(){
         displayError("Password must match confirm password")
         return;
     }
-    const data = {password,confirmPassword}
+    const data = {email,token,password,confirmPassword}
     try{
         const response = await fetch(baseUrl+'reset-password',{
             method: 'POST',

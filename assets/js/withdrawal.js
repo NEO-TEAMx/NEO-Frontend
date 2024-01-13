@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:4040/api/v1/';
-// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+// const baseUrl = 'http://localhost:4040/api/v1/';
+const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 year.innerText = currentYear;
@@ -23,6 +23,7 @@ function displaysuccess(msg){
 
 
 function nextButton(){
+   clearErrors();
     const amountInput = document.getElementById('amount');
     let amountVal = parseFloat(amountInput.value);
     const regex = /^[0-9.]+$/
@@ -58,6 +59,7 @@ function loadData(){
 }
 
 async function confirmPayment(){
+    clearErrors();
     const addressInput = document.getElementById("walletAdd");
     let walletAddress = addressInput.value;
 
