@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:4040/api/v1/';
-// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+// const baseUrl = 'http://localhost:4040/api/v1/';
+const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 year.innerText = currentYear;
@@ -22,6 +22,7 @@ function displaysuccess(msg){
 }
 
 function nextButton(){
+    clearErrors();
     const amountInput = document.getElementById('amount');
     let amountVal = parseFloat(amountInput.value);
     // amountVal = parseFloat(document.getElementById('amount').value)
@@ -50,7 +51,7 @@ function nextButton(){
 
 
 async function showConfirmation() {
-    
+    clearErrors();
     if (await isAuthenticated()) {
         const accessToken = localStorage.getItem('accessToken')
         const storedNum = localStorage.getItem('amount')    
