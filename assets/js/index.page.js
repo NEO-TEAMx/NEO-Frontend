@@ -87,7 +87,7 @@ async function submitSignupForm(){
 
     
     try {
-       const response = await fetch(baseUrl+'register', {
+        const response = await fetch(baseUrl+'register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -110,10 +110,10 @@ async function submitSignupForm(){
             const resp = await response.json();
             
             const accessToken = response.headers.get('Authorization')
-            console.log(accessToken)
+            // console.log(accessToken)
             
             const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
-            console.log(expiraionTime)
+            // console.log(expiraionTime)
             setToken(accessToken, expiraionTime)
             displaysuccess(resp.msg)
             window.location.href = "../dashboard/dashboard.html"
@@ -206,9 +206,9 @@ forgotPassword.addEventListener('click', async()=>{
     const emailInput = document.querySelector('#email');
     let emailVal = emailInput.value;
 
-    // if(!emailVal){
-    //     displayError("Please provide a registered email")
-    // }
+    if(!emailVal){
+        displayError("Please provide a registered email")
+    }
     const data = {
         email: emailVal
     }
@@ -229,7 +229,7 @@ forgotPassword.addEventListener('click', async()=>{
         if(response.ok){
             const resp = await response.json();
             displaysuccess(resp.msg||"Reset password link have been sent to your email")
-            
+            window.location.href = '../html/password-reset-done'
             return;
         }   
         emailVal = ''     
@@ -238,3 +238,47 @@ forgotPassword.addEventListener('click', async()=>{
         displayError("Something went wrong!")
     }
 });
+
+async function resetPassword(){
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+
+    if(!password || !confirmPassword){
+        displayError("Please provide the needed credential(s)")
+        return;
+    }
+    if(password.length < 8){
+        displayError('Password should be at least 8 characters')
+        return;
+        // throw new Error("Password should be at least 8 character")
+    }
+    if(password !== confirmPassword){
+        displayError("Password must match confirm password")
+        return;
+    }
+    const data = {password,confirmPassword}
+    try{
+        const response = await fetch(baseUrl+'reset-password',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+            credentials: 'include'
+        });
+        if(!response.ok){
+            const resp = await response.json(); 
+            displayError(resp.msg || 'Something went wrong!');
+            return;
+        }
+        if(response.ok){
+            const resp = await response.json();
+            displaysuccess(resp.msg || "You have successfully changed your password!! Proceed to login to your account");
+            password = "",
+            confirmPassword = ""
+        }
+    }catch(err){
+        displayError("Something went wrong. Try again!!")
+        console.log(err)
+    }
+}
