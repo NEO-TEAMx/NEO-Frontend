@@ -44,6 +44,7 @@
 
         .form .mb-3 .input-group-text{
             background: #292d32;
+            border-radius: 0.25rem 0 0 0.25rem;
         }
 
         .form a{
@@ -54,17 +55,17 @@
             color: #00d664;
         }
 
-
+/* 
   .wrapper {
-    box-shadow: #00d664 0px 3px 3px
-} 
+    box-shadow: 0 4px 8px rgba(0, 214, 100, 0.5);
+}  */
 
 @keyframes glowing {
     0% {
         box-shadow: 0 0 40px rgba(88, 88, 88, 0.5);
     }
     50% {
-        box-shadow: 0 0 40px rgba(8, 106, 42, 0.7), 0 0 40px rgba(8, 106, 42, 0.5);
+        box-shadow: 0 0 40px rgba(8, 106, 42, 0.7), 0 0 40px rgba(194, 205, 198, 0.5).5);
     }
     100% {
         box-shadow: 0 0 40px rgba(88, 88, 88, 0.5);
@@ -91,9 +92,16 @@
             object-fit: cover;
             object-position: center;
         } 
-
-
         }
+
+        .show-password-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
@@ -127,7 +135,7 @@
         <div class="row">
             <div class="col-lg-6 px-4 py-4 my-4 m-auto rounded-top wrapper"
                 style="background: white;">
-                <a href="index.html" class="navbar-brand"
+                <a href="../index.html" class="navbar-brand"
                     style="display: flex; align-items: center; justify-content: center">
                     <div class="img-container">
                         <img src="../assets/images/neo-logo.png" alt=""/>
@@ -147,9 +155,9 @@
                
                 <form action="#" class="form">
 
-                    <label for="Contact" class="mb-2">Please Enter Contact Information</label>
+                    <label for="Contact" class="mb-2" style="font-size: 14px;">Please Enter Contact Information</label>
                     <div class="input-group mt-2 mb-3">
-                       <label for="username"></label> 
+                      <label for="username"></label> 
                       <span class="input-group-text"><i class="fa fa-user"></i></span>
                       <input type="text" class="form-control" placeholder="Username" name="username" id="username" required/>
                     </div>
@@ -164,6 +172,7 @@
                         <label for="password"></label>
                       <span class="input-group-text"><i class="fa fa-lock"></i></span>
                       <input type="password" class="form-control" placeholder="Password" id="password" name="password" required/>
+                      <i class="fa-solid fa-eye show-password-icon text-dark"></i>
                   </div>
 
                   <div class="input-group mb-3">
@@ -171,7 +180,7 @@
                       <span class="input-group-text"><i class="fa fa-lock"></i></span>
                       <input type="password" class="form-control" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" required/>
                   </div>
-          
+
                     <div class="d-grid">
                         <button type="button" class="btn btn-dark mb-2" onclick="submitSignupForm()">Sign up</button>
                     </div>
