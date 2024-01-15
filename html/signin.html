@@ -52,7 +52,7 @@
 
 
   .wrapper {
-    box-shadow: #00d664 0px 3px 3px
+    box-shadow: 0 4px 8px rgba(0, 214, 100, 0.5);
 } 
 
 @keyframes glowing {
@@ -88,8 +88,16 @@
             object-position: center;
         } 
 
-
         }
+
+        .show-password-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
@@ -151,6 +159,7 @@
                         <label for="password"></label>
                       <span class="input-group-text"><i class="fa fa-lock"></i></span>
                       <input type="password" class="form-control" placeholder="Password" id="password" name="password" required/>
+                      <i class="fa-solid fa-eye show-password-icon text-dark"></i>
                   </div>
                     <div class="d-grid">
                         <button type="button" id="signinButton" onclick="submitLoginForm()" class="btn btn-dark mb-2">Sign in</button>

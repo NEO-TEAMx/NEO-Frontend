@@ -5,6 +5,10 @@ body {
     , hsla(30, 11%, 4%, 1) 0%, hsla(30, 11%, 4%, 1) 40%, hsla(0, 0%, 0%, 1) 100%);
 }
 
+a{
+  text-decoration: none;
+}
+
 #header {
   position: relative;
   align-items: center;
