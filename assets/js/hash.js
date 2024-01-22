@@ -27,6 +27,8 @@ function displaysuccess(msg){
 
 function calcEquVal(){
     const hash_amount = parseFloat(document.getElementById('amount').value);
+    const accessToken = localStorage.getItem('accessToken')
+    
     fetch(baseUrl+'user/hash_equivalent',{
         method:  'POST',
         mode: 'cors',

@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
 function calculateUSDTAmount(){
+  const accessToken = localStorage.getItem('accessToken')
   const neo_amount = parseFloat(document.getElementById('neoAmount').value);
-    fetch(baseUrl+'user/neo_equivalent',{
+    fetch(baseUrl+'user/neo-equivalent',{
         method:  'POST',
         mode: 'cors',
         headers:{
@@ -52,7 +53,9 @@ function calculateUSDTAmount(){
         body: JSON.stringify({neo_amount})
     }).then(response =>response.json())
       .then(data =>{
+        console.log(document.getElementById('usdtAmount').innerText = data.equ)
         document.getElementById('usdtAmount').innerText = data.usdEqu
+      console.log(data.usdEqu)
     });
 }
 
