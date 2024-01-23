@@ -17,7 +17,7 @@ function clearErrors(){
 function displayError(msg){
     const errMsg = document.getElementById("errorMsg");
     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-    setTimeout(clearErrors, 5000)
+    setTimeout(clearErrors, 7000)
     // const errorElement = document.getElementById(elementId);
     // errorElement.textContent = msg;
     // errorElement.style.display = 'block';
@@ -25,7 +25,7 @@ function displayError(msg){
 function displaysuccess(msg){
     const errMsg = document.getElementById("successMsg");
     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-    setTimeout(clearErrors, 5000)
+    setTimeout(clearErrors, 7000)
     // const errorElement = document.getElementById(elementId);
     // errorElement.textContent = msg;
     // errorElement.style.display = 'block';
@@ -45,6 +45,8 @@ async function submitSignupForm(){
     const confirmPasswordInput = document.querySelector("#confirmPassword");
     const urlParams =  new URLSearchParams( window.location.search)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const formp = document.querySelector(".form");
+    const btn = document.querySelector(".btn");
 
     let usernameVal = usernameInput.value;
     let emailVal = emailInput.value;
@@ -87,6 +89,10 @@ async function submitSignupForm(){
 
     const referralCode = urlParams.get("referralCode")
 
+    btn.textContent = 'Please wait.....';
+    btn.disabled = true;
+    formp.disabled = true;
+
     try {
         const response = await fetch(baseUrl+'register', {
             method: 'POST',
@@ -99,6 +105,10 @@ async function submitSignupForm(){
         if(!response.ok){
             const resp = await response.json(); 
             displayError(resp.msg || 'Something went wrong!');
+            
+            btn.textContent = 'Sign up';
+            btn.disabled = false;
+            formp.disabled = false;
             return;
         }
         if (response.status === 200) {
@@ -123,6 +133,11 @@ async function submitSignupForm(){
             emailVal = '',
             passwordVal = '',
             confirmPasswordVal = ''
+
+            btn.textContent = 'Sign up';
+            btn.disabled = false;
+            formp.disabled = false;
+           
             return  true;
         }else{
             return false;
@@ -130,6 +145,9 @@ async function submitSignupForm(){
         
     } catch (error) {
         console.log(error)    
+        btn.textContent = 'Sign up';
+        btn.disabled = false;
+        formp.disabled = false;
         // return;
         displayError(error.message || 'SomeThing went wrong!!')
     }

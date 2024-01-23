@@ -53,9 +53,9 @@ function calculateUSDTAmount(){
         body: JSON.stringify({neo_amount})
     }).then(response =>response.json())
       .then(data =>{
-        console.log(document.getElementById('usdtAmount').innerText = data.equ)
-        document.getElementById('usdtAmount').innerText = data.usdEqu
-      console.log(data.usdEqu)
+        // console.log(document.getElementById('usdtAmount').innerText = data.equ)
+        // document.getElementById('usdtAmount').innerText = data.usdEqu
+      console.log(data.equ)
     });
 }
 
