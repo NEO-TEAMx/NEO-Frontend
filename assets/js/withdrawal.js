@@ -81,8 +81,21 @@ async function confirmPayment(){
                 credentials: 'include',
                 body: JSON.stringify({amount,walletAddress})
             });
+            if(response.status === 404){
+                
+                redirectToLogin()
+            }
             if(!response.ok){
                 const resp = await response.json();
+                if(resp.msg === "No user with such id"){
+                    
+                    redirectToLogin()
+                }
+                if(resp.statusCode === 404){
+                    
+                    redirectToLogin()
+                }
+
                 displayError(resp.msg || 'Something went wrong. Try again!!')
                 return;
             }

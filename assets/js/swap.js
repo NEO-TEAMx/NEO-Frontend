@@ -53,10 +53,13 @@ function calculateUSDTAmount(){
         body: JSON.stringify({neo_amount})
     }).then(response =>response.json())
       .then(data =>{
-        // console.log(document.getElementById('usdtAmount').innerText = data.equ)
-        // document.getElementById('usdtAmount').innerText = data.usdEqu
-      console.log(data.equ)
-    });
+        
+        document.getElementById('usdtAmount').value = data.usdEqu
+      console.log(data)
+    }).catch((error) =>{
+      console.log(error)
+      displayError("Error occurred")
+    })
 }
 
 async function swapANCtoUSDT(){

@@ -404,30 +404,9 @@
 
     </div>
   </div>
-  <script>
-    const baseUrl = 'http://localhost:4040/api/v1/';
-
-    async function logoutFunc(){
-      try {
-        console.log('Clicked')
-        const response = await fetch(baseUrl+'logout', {
-          method: 'DELETE',
-        });
-        const data = await response.json()
-        console.log(data)
-      } catch (error) {
-        console.log(error);
-      }
-      // console.log('Clicked')
-    }
-  </script>
+  
   <script src="https://cdn.socket.io/4.7.3/socket.io.min.js" integrity="sha384-+miq58Ltmjm+SSP5g8Ok6dpMO/6R4n8xe/x1Yj0Bdb9kiEz25LTnWv/GZQTRQamg" crossorigin="anonymous"></script>
-  <script src="moment.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
-  <!-- <script src="/socket.io/socket.io.js"></script> -->
-  <!-- <script> -->
-    <!-- //  var socket = io("http://localhost:4040");  -->
-  <!-- </script> -->
   <script src="../assets/js/main.browser.js"></script>
   <script src="../assets/js/index.page.js"></script>
   <script src="../assets/js/dashboard.js"></script>

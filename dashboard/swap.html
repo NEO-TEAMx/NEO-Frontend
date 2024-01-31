@@ -14,7 +14,7 @@
     <title>Swap Neo</title>
 
     <style>
-      .error{
+    .error{
             color: rgb(207, 22, 22);
             margin-top: 5px;
       font-size: 17px;
@@ -196,10 +196,11 @@ background: linear-gradient(
  
 
 <section class="swap-section">
-  <div id="errorMsg" class="error"></div>
-  <div id="successMsg" class="success"></div>
+  
   <div class="swap-form">
     <h4>SWAP NEO TO USDT</h4>
+    <div id="errorMsg" class="error"></div>
+    <div id="successMsg" class="success"></div>
     <label for="ancAmount">NEO Amount:</label>
     <input type="number" id="neoAmount" placeholder="Enter Neo Amount" oninput="calculateUSDTAmount()">
     
@@ -265,6 +266,6 @@ background: linear-gradient(
 </footer>
   
   <script src="../assets/js/main.browser.js"></script>
-   <script src="../assets/js/swap.js"></script>
+  <script src="../assets/js/swap.js"></script>
 </body>
 </html>
