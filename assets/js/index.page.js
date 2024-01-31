@@ -1,6 +1,6 @@
 
-const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
-// const baseUrl = 'http://localhost:4040/api/v1/';
+// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+const baseUrl = 'http://localhost:4040/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 const forgotPassword = document.querySelector("#forgotPassword");
@@ -10,7 +10,7 @@ year.innerText = currentYear;
 function clearErrors(){
     const errMsg = document.getElementById('errorMsg');
     const successMsg = document.getElementById('successMsg')
-    errMsg.textContent = ''
+    errMsg.textContent = '',
     successMsg.textContent =  ''
 }
 
@@ -34,6 +34,11 @@ function displaysuccess(msg){
 function setToken(val, expDur){
     localStorage.setItem('accessToken', val)
     localStorage.setItem('expires', expDur)
+}
+
+function getRefCode(){
+    const urlParams = new URLSearchParams(window.location.search)
+    return urlParams.get("referralCode")
 }
 
 // function getToken
@@ -78,16 +83,18 @@ async function submitSignupForm(){
         // throw new Error("Password and confirm password does not match!")
         return;
     }
+    const referralCode = getRefCode();
 
     //req payload
     const data = {
         username: usernameVal,
         email: emailVal,
         password: passwordVal,
-        confirmPassword: confirmPasswordVal
+        confirmPassword: confirmPasswordVal,
+        referralCode
     }
 
-    const referralCode = urlParams.get("referralCode")
+    // const referralCode = urlParams.get("referralCode")
 
     btn.textContent = 'Please wait.....';
     btn.disabled = true;
@@ -121,10 +128,9 @@ async function submitSignupForm(){
             const resp = await response.json();
             
             const accessToken = response.headers.get('Authorization')
-            // console.log(accessToken)
             
             const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
-            // console.log(expiraionTime)
+            
             setToken(accessToken, expiraionTime)
             displaysuccess(resp.msg)
             window.location.href = "../dashboard/dashboard.html"
@@ -156,7 +162,9 @@ async function submitSignupForm(){
 async function submitLoginForm(){
     const usernameInput = document.querySelector("#item");
     const passwordInput = document.querySelector("#password");
-    
+    const formp = document.querySelector(".form");
+    const btn = document.querySelector(".btn");
+
     let usernameVal = usernameInput.value;
     let passwordVal = passwordInput.value;
     
@@ -165,13 +173,11 @@ async function submitLoginForm(){
     if(!usernameVal || !passwordVal){
         displayError('Please provide the needed value(s)')
         return;
-        // throw new Error("Please provide the needed value")
     }
 
     if(passwordVal.length < 8){
         displayError('Password should be at least 8 characters')
         return;
-        // throw new Error("Password should be at least 8 character")
     }
 
     //req payload
@@ -179,6 +185,10 @@ async function submitLoginForm(){
         username: usernameVal,
         password: passwordVal,
     }
+
+    btn.textContent = 'Please wait.....';
+    btn.disabled = true;
+    formp.disabled = true;
 
     
     try {
@@ -194,6 +204,9 @@ async function submitLoginForm(){
         if(!response.ok){
             const resp = await response.json(); 
             displayError(resp.msg);
+            btn.textContent = 'Sign up';
+            btn.disabled = false;
+            formp.disabled = false;
             return;
         }
        
@@ -202,9 +215,12 @@ async function submitLoginForm(){
             
             const accessToken = response.headers.get('Authorization')
         
-            console.log(accessToken)
+            
             const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
             setToken(accessToken, expiraionTime)
+            btn.textContent = 'Sign up';
+            btn.disabled = false;
+            formp.disabled = false;
             
             displaysuccess(resp.msg)
             window.location.href = "../dashboard/dashboard.html"
@@ -216,6 +232,9 @@ async function submitLoginForm(){
         }
     } catch (error) {
         console.log(error)       
+        btn.textContent = 'Sign up';
+        btn.disabled = false;
+        formp.disabled = false;
         displayError(error.msg || "Something went wrong. Try again!")
         return;
     }
@@ -308,3 +327,67 @@ async function resetPassword(){
         console.log(err)
     }
 }
+
+async function logoutFunc(){
+    if(await isAuthenticated()){
+        const accessToken = localStorage.getItem("accessToken")
+
+        try {
+            const response = await fetch(baseUrl+'logout', {
+                method: 'DELETE',
+                mode: 'cors',
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Authorization': accessToken
+                },
+                credentials: 'include'
+            });
+            if(response.status === 404){
+                
+                redirectToLogin()
+            }
+            if(!response.ok){
+                const resp = await response.json();
+                if(resp.msg === "No user with such id"){
+                    
+                    redirectToLogin()
+                }
+                if(resp.msg === "No user with such id"){
+                    
+                    redirectToLogin()
+                }
+                if(resp.statusCode === 404){
+                    
+                    redirectToLogin()
+                }
+
+                displayError('Something went wrong. Try again!!')
+                return;
+            }
+            if(response.ok){
+                const resp = await response.json();
+                // displaysuccess(resp.msg || "Logged out")
+                localStorage.clear();
+                window.location.href = "../html/signin.html"
+            }
+        } catch (error) {
+            console.log(error)
+            redirectToLogin()
+            displayError("Error occurred. Try again")
+        }
+    }else{
+        redirectToLogin();
+    }
+    // try {
+    // //     console.log('Clicked')
+    //     const response = await fetch(baseUrl+'logout', {
+    //       method: 'DELETE',
+    //     });
+    //     const data = await response.json()
+    //     console.log(data)
+    // } catch (error) {
+    //     console.log(error);
+    // }    
+    // console.log('Clicked')
+}
+  
