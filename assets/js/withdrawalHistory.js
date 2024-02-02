@@ -5,19 +5,16 @@ const year = document.querySelector("#currentYear");
 year.innerText = currentYear;
 
 
+async function withdrawalHistory(){
 
-// referral();
-
-async function referral(){
-    let copy = document.querySelector(".refLink");
-    const tablebody = document.querySelector("#refTable tbody")
+    const tablebody = document.querySelector("#witHistory tbody")
     // console.log(tablebody)
     if(await isAuthenticated()){
         const accessToken = localStorage.getItem("accessToken")
 
         try {
             
-            const response = await fetch(baseUrl+'user/referral',{
+            const response = await fetch(baseUrl+'user/withdrawal-history',{
                 method: 'GET',
                 mode: 'cors',
                 headers:{
@@ -45,27 +42,26 @@ async function referral(){
             if(response.ok){
                 const data = await response.json();
                 const {
-                    refLink,
-                    referralData
+                    withdrawal    
                 } = data
 
-                copy.value = refLink
-                console.log(referralData)
-                if(referralData.length === 0){
+                // console.log(data)
+                if(data.msg === "Withdrawal history is empty"){
                     const emptyRow = document.createElement('tr')
                     const emptyCell = document.createElement('td')
-                    emptyCell.setAttribute('colspan', 2)
-                    emptyCell.textContent = "You have not referred any user"
+                    emptyCell.setAttribute('colspan', 4)
+                    emptyCell.textContent = "Withdrawal History is empty"
                     emptyRow.appendChild(emptyCell)
-                    emptyCell.appendChild(emptyRow)
+                    tablebody.appendChild(emptyRow)
+                    // emptyCell.appendChild(emptyRow)
                 }else{
 
-                    referralData.forEach(data => {
+                    withdrawal.forEach(data => {
                         const row = document.createElement("tr");
-                        const display = ["username", "commission"]
+                        const display = ["date", "transaction_id", "amount", "approved"]
                         display.forEach(column =>{
                             const cell = document.createElement("td");
-                            cell.textContent = data[column];
+                            cell.textContent = column === 'date' ? formattedTime : column === 'approved' ? (data[column] ? 'Approved' : 'Pending') : data[column];
                             row.appendChild(cell)
                         });
                         tablebody.appendChild(row)
@@ -83,4 +79,4 @@ async function referral(){
 }
 
 
-window.onload = referral;
+window.onload = withdrawalHistory;

@@ -69,9 +69,21 @@ async function showConfirmation() {
                 body: JSON.stringify({amount}),
             });
             if(!response.ok){
+                if(resp.msg === "No user with such id"){
+                    
+                    redirectToLogin()
+                }
+                if(resp.statusCode === 404){
+                    
+                    redirectToLogin()
+                }
                 const resp = await response.json();
                 displayError(resp.msg || 'Something went wrong. Try again!!')
                 return;
+            }
+            if(response.status === 404){
+                
+                redirectToLogin()
             }
             if(response.ok){
                 const resp = await response.json();

@@ -378,16 +378,6 @@ async function logoutFunc(){
     }else{
         redirectToLogin();
     }
-    // try {
-    // //     console.log('Clicked')
-    //     const response = await fetch(baseUrl+'logout', {
-    //       method: 'DELETE',
-    //     });
-    //     const data = await response.json()
-    //     console.log(data)
-    // } catch (error) {
-    //     console.log(error);
-    // }    
-    // console.log('Clicked')
+    
 }
   

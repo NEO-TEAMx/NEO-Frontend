@@ -96,26 +96,19 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
 
 <section class="table-section container">
     <h1>WITHDRAWAL HISTORY</h1>
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Txn-ID</th>
-        <th>Amount</th>
-        <th>Status</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td><span class="bg-success" style="padding: 5px 7px;border-radius: 9px; font-size: 14px;">Approved</span></td>
-      </tr>
-      
-      <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td><span class="bg-warning" style="padding: 5px 11px; background: #09582e; border-radius: 9px; font-size: 14px;">Pending</span></td>
-      </tr>
+    <table id="witHistory">
+      <thead>
+        <tr>
+            <th>Date</th>
+            <th>Txn-ID</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+     
     </table>
 
 
@@ -168,8 +161,9 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
 
 
     <div class="copyright">
-      <p> © 2023, Neo-Protocol, All Rights Resrerved.</p>
+      <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
     </div>
+
   </div>      
 </footer>
 
@@ -191,9 +185,12 @@ integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2
         menuBtn.style.display = "inline-block";
       });
     
-      console.log("Contact script file linked successfully!");
+      // console.log("Contact script file linked successfully!");
     });
     
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+  <script src="../assets/js/main.browser.js"></script>
+  <script src="../assets/js/withdrawalHistory.js"></script>
 </body>
 </html>
