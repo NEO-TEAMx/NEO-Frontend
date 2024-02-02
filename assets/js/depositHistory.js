@@ -5,19 +5,16 @@ const year = document.querySelector("#currentYear");
 year.innerText = currentYear;
 
 
-
-// referral();
-
-async function referral(){
-    let copy = document.querySelector(".refLink");
-    const tablebody = document.querySelector("#refTable tbody")
+async function depositHistory(){
+    
+    const tablebody = document.querySelector("#depHistory tbody")
     // console.log(tablebody)
     if(await isAuthenticated()){
         const accessToken = localStorage.getItem("accessToken")
 
         try {
             
-            const response = await fetch(baseUrl+'user/referral',{
+            const response = await fetch(baseUrl+'user/deposit-history',{
                 method: 'GET',
                 mode: 'cors',
                 headers:{
@@ -45,27 +42,29 @@ async function referral(){
             if(response.ok){
                 const data = await response.json();
                 const {
-                    refLink,
-                    referralData
+                    deposit
                 } = data
 
-                copy.value = refLink
-                console.log(referralData)
-                if(referralData.length === 0){
+                
+                // console.log(data.deposit)
+                if(data.msg === "Withdrawal history is empty"){
                     const emptyRow = document.createElement('tr')
                     const emptyCell = document.createElement('td')
                     emptyCell.setAttribute('colspan', 2)
-                    emptyCell.textContent = "You have not referred any user"
+                    emptyCell.textContent = "Deposit History Is Empty"
                     emptyRow.appendChild(emptyCell)
                     emptyCell.appendChild(emptyRow)
                 }else{
 
-                    referralData.forEach(data => {
+                    deposit.forEach(data => {
+                        const parsedDate = moment(data.date);
+                        const formattedTime = parsedDate.format('DD/MM/YYYY')
+
                         const row = document.createElement("tr");
-                        const display = ["username", "commission"]
+                        const display = ["date", "transaction_id", "amount", "approved"]
                         display.forEach(column =>{
                             const cell = document.createElement("td");
-                            cell.textContent = data[column];
+                            cell.textContent = column === 'date' ? formattedTime : column === 'approved' ? (data[column] ? 'Approved' : 'Pending') : data[column];
                             row.appendChild(cell)
                         });
                         tablebody.appendChild(row)
@@ -83,4 +82,23 @@ async function referral(){
 }
 
 
-window.onload = referral;
+window.onload = depositHistory;
+
+
+// if(!response.ok){
+//     if(resp.msg === "No user with such id"){
+        
+//         redirectToLogin()
+//     }
+//     if(resp.statusCode === 404){
+        
+//         redirectToLogin()
+//     }
+//     const resp = await response.json();
+//     displayError(resp.msg || 'Something went wrong. Try again!!')
+//     return;
+// }
+// if(response.status === 404){
+    
+//     redirectToLogin()
+// }

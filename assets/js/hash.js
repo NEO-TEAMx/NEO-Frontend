@@ -40,7 +40,7 @@ function calcEquVal(){
         body: JSON.stringify({hash_amount})
     }).then(response =>response.json())
       .then(data =>{
-        document.getElementById('usdt').innerText = data.equivalentVal
+        document.getElementById('usdt').value = data.equivalentVal
     });
 
 }
@@ -70,9 +70,21 @@ buyHash.addEventListener("click", async() =>{
                 body: JSON.stringify({hash_amount}),
             });
             if(!response.ok){
+                if(resp.msg === "No user with such id"){
+                    
+                    redirectToLogin()
+                }
+                if(resp.statusCode === 404){
+                    
+                    redirectToLogin()
+                }
                 const resp = await response.json();
                 displayError(resp.msg || 'Something went wrong. Try again!!')
                 return;
+            }
+            if(response.status === 404){
+                
+                redirectToLogin()
             }
             if(response.ok){
                 const resp = await response.json();
