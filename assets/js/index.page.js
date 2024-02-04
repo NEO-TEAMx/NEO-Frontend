@@ -79,7 +79,7 @@ async function submitSignupForm(){
     }
 
     if(passwordVal !== confirmPasswordVal){
-        displayError("Passwiord and confirm password does not match!")
+        displayError("Password and confirm password does not match")
         // throw new Error("Password and confirm password does not match!")
         return;
     }
@@ -111,7 +111,7 @@ async function submitSignupForm(){
         });
         if(!response.ok){
             const resp = await response.json(); 
-            displayError(resp.msg || 'Something went wrong!');
+            displayError(resp.msg ||'Something went wrong');
             
             btn.textContent = 'Sign up';
             btn.disabled = false;
@@ -132,7 +132,7 @@ async function submitSignupForm(){
             const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
             
             setToken(accessToken, expiraionTime)
-            displaysuccess(resp.msg)
+            displaysuccess("Successfully signed-up")
             window.location.href = "../dashboard/dashboard.html"
             
             usernameVal = '',
@@ -155,7 +155,7 @@ async function submitSignupForm(){
         btn.disabled = false;
         formp.disabled = false;
         // return;
-        displayError(error.message || 'SomeThing went wrong!!')
+        displayError('SomeThing went wrong')
     }
 }
 
@@ -204,7 +204,7 @@ async function submitLoginForm(){
         if(!response.ok){
             const resp = await response.json(); 
             displayError(resp.msg);
-            btn.textContent = 'Sign up';
+            btn.textContent = 'Sign in';
             btn.disabled = false;
             formp.disabled = false;
             return;
@@ -218,11 +218,11 @@ async function submitLoginForm(){
             
             const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
             setToken(accessToken, expiraionTime)
-            btn.textContent = 'Sign up';
+            btn.textContent = 'Sign in';
             btn.disabled = false;
             formp.disabled = false;
             
-            displaysuccess(resp.msg)
+            displaysuccess("Logged in successfully")
             window.location.href = "../dashboard/dashboard.html"
             
             usernameVal = '',
@@ -232,10 +232,10 @@ async function submitLoginForm(){
         }
     } catch (error) {
         console.log(error)       
-        btn.textContent = 'Sign up';
+        btn.textContent = 'Sign in';
         btn.disabled = false;
         formp.disabled = false;
-        displayError(error.msg || "Something went wrong. Try again!")
+        displayError("Something went wrong. Try again")
         return;
     }
 }
