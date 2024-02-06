@@ -1,60 +1,140 @@
-const baseUrl = 'http://localhost:4040/api/v1/';
-// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+// const baseUrl = 'http://localhost:4040/api/v1/';
+const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
-const confirmPayment = document.querySelector("#confirmPayment");
-const amountInput = document.getElementById('amount');
-const amount = parseFloat(amountInput.value);
-
 year.innerText = currentYear;
 
 function clearErrors(){
     const errMsg = document.getElementById('errorMsg');
-    const successMsg = document.getElementById('successMsg')
     errMsg.textContent = '';
-    successMsg.textContent = '';
 }
 
 function displayError(msg){
     const errMsg = document.getElementById("errorMsg");
     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-    setTimeout(clearErrors,8000)
+    setTimeout(clearErrors,5000)
 }    
 function displaysuccess(msg){
     const errMsg = document.getElementById("successMsg");
     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-    setTimeout(clearErrors, 9000)
+    setTimeout(clearErrors, 5000)
     
 }
 
-confirmPayment.addEventListener("click", async()=>{
-    if(await isAuthenticated()){
+function nextButton(){
+    clearErrors();
+    const amountInput = document.getElementById('amount');
+    let amountVal = parseFloat(amountInput.value);
+    // amountVal = parseFloat(document.getElementById('amount').value)
+    const regex = /^[0-9.]+$/
+
+    if(!amountVal){ 
+        displayError("Amount is required!")
+        return;
+    }
+
+    if(!regex.test(amountVal)){
+        displayError("Amount must be a number!!")
+        return;
+    }
+    const amount = Number(amountVal);
+    if(isNaN(amountVal) || amount <=0){
+        displayError("Please enter a valid deposit amount")
+        return;
+    }
+    localStorage.setItem('amount', amount)
+
+    window.location.href = "../dashboard/confirmation.html"
+    return;
+    // return window.location.href = "../dashboard/confirmation.html"
+}
+
+
+async function showConfirmation() {
+    clearErrors();
+    if (await isAuthenticated()) {
         const accessToken = localStorage.getItem('accessToken')
-        if(!amount){
-            throw new Error("Error occured! Provide the amount needed")
-        }
+        const storedNum = localStorage.getItem('amount')    
+        const amount = parseFloat(storedNum);
         
         try {
-            const response = await fetch(baseUrl+'/deposit', {
+            const response = await fetch(baseUrl+'user/deposit', {
                 method: 'POST',
-                headers: {
+                mode: 'cors',
+                headers:{
                     'Content-Type': 'application/json',
                     'Authorization': accessToken
                 },
                 credentials: 'include',
+                body: JSON.stringify({amount}),
             });
+            if(!response.ok){
+                if(resp.msg === "No user with such id"){
+                    
+                    redirectToLogin()
+                }
+                if(resp.statusCode === 404){
+                    
+                    redirectToLogin()
+                }
+                const resp = await response.json();
+                displayError(resp.msg || 'Something went wrong. Try again!!')
+                return;
+            }
+            if(response.status === 404){
+                
+                redirectToLogin()
+            }
             if(response.ok){
-                const resp = response.json();
-                console.log(resp)
-            } 
-            console.log("Clicked")
+                const resp = await response.json();
+                displaysuccess("Your deposit request is being processed!!")
+                document.getElementById("exampleModal").style.display = "flex";
+                localStorage.removeItem('amount')
+                
+                return;
+            }
+
         } catch (error) {
-            console.log(error)
+            
+            displayError("Something went wrong. Try again!!")
+            return;
         }
-    }else{
+    
+    } else {
         redirectToLogin();
     }
-});
+}
+
+
+
+// confirmPayment.addEventListener("click", async()=>{
+//     if(await isAuthenticated()){
+//         const accessToken = localStorage.getItem('accessToken')
+//         if(!amount){
+//             throw new Error("Error occured! Provide the amount needed")
+//         }
+        
+//         try {
+//             const response = await fetch(baseUrl+'/deposit', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                     'Authorization': accessToken
+//                 },
+//                 credentials: 'include',
+//             });
+//             if(response.ok){
+//                 const resp = response.json();
+//                 console.log(resp)
+//             } 
+//             console.log("Clicked")
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }else{
+//         redirectToLogin();
+//     }
+// });
 
 // function handleFormSubmit(event) {
 //   event.preventDefault();

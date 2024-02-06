@@ -25,7 +25,7 @@
 
     <title>Referral Data</title>
   </head>
-  <body>
+  <body class="body">
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -208,9 +208,9 @@
       <div class="refer-code-container">
         <h2>REFFERALS</h2>
         <p>Refer And Earn Hash</p>
-        <p>Get 2 Hash as Referral Commission per Active Referral</p>
+        <p>Get 0.0000075 Hash as Referral Commission per Active Referral</p>
         <p>
-          When your referred users become active members, you'll receive 2 Hash
+          When your referred users become active members, you'll receive 0.0000075 Hash
           as a referral commission for each of them.
         </p>
         <h3>Your Referral Link</h3>
@@ -219,7 +219,7 @@
             <input
               type="text"
               id="referralCode"
-              value="Anchor-protocol?rid=23456765"
+              class="refLink"
               readonly
             />
           </div>
@@ -232,72 +232,16 @@
 
     <section class="table-section container">
       <h1>Referral Data Table</h1>
-      <table>
-        <tr>
-          <th>Referrals</th>
-          <th>Purchased Hash</th>
-          <th>Commission</th>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
+      <table id="refTable">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Commission</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
       </table>
     </section>
 
@@ -364,8 +308,9 @@
         </div>
 
         <div class="copyright">
-          <p>© 2023, Neo-Protocol, All Rights Resrerved.</p>
+          <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
         </div>
+  
       </div>
     </footer>
 
@@ -387,7 +332,7 @@
           menuBtn.style.display = "inline-block";
         });
 
-        console.log("Contact script file linked successfully!");
+        // console.log("Contact script file linked successfully!");
       });
 
       function copyToClipboard() {
@@ -397,5 +342,7 @@
         alert("Wallet address copied to clipboard!");
       }
     </script>
+    <script src="../assets/js/main.browser.js"></script>
+    <script src="../assets/js/referral.js"></script>
   </body>
 </html>
