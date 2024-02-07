@@ -55,10 +55,12 @@ async function withdrawalHistory(){
                     tablebody.appendChild(emptyRow)
                     // emptyCell.appendChild(emptyRow)
                 }else{
+                    const parsedDate = moment(data.date);
+                    const formattedTime = parsedDate.format('DD/MM/YYYY')
 
                     withdrawal.forEach(data => {
                         const row = document.createElement("tr");
-                        const display = ["date", "transaction_id", "amount", "approved"]
+                        const display = ["date", "transaction_id", "total_amount", "approved"]
                         display.forEach(column =>{
                             const cell = document.createElement("td");
                             cell.textContent = column === 'date' ? formattedTime : column === 'approved' ? (data[column] ? 'Approved' : 'Pending') : data[column];

@@ -21,7 +21,7 @@ async function depositHistory(){
                     'Content-Type': 'application/json',
                     'Authorization': accessToken
                 },
-                credentials:'include'
+                credentials: 'include'    
             });
             if(response.status === 404){
                 
@@ -47,7 +47,7 @@ async function depositHistory(){
 
                 
                 // console.log(data.deposit)
-                if(data.msg === "Withdrawal history is empty"){
+                if(data.msg === "Deposit history is empty"){
                     const emptyRow = document.createElement('tr')
                     const emptyCell = document.createElement('td')
                     emptyCell.setAttribute('colspan', 2)

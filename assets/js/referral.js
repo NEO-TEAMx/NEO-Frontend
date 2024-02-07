@@ -50,15 +50,15 @@ async function referral(){
                 } = data
 
                 copy.value = refLink
-                console.log(referralData)
-                if(referralData.length === 0){
-                    const emptyRow = document.createElement('tr')
-                    const emptyCell = document.createElement('td')
-                    emptyCell.setAttribute('colspan', 2)
-                    emptyCell.textContent = "You have not referred any user"
-                    emptyRow.appendChild(emptyCell)
-                    emptyCell.appendChild(emptyRow)
-                }else{
+                // console.log(referralData)
+                // if(referralData.length === 0){
+                //     const emptyRow = document.createElement('tr')
+                //     const emptyCell = document.createElement('td')
+                //     emptyCell.setAttribute('colspan', 2)
+                //     emptyCell.textContent = "You have not referred any user"
+                //     emptyRow.appendChild(emptyCell)
+                //     emptyCell.appendChild(emptyRow)
+                // }else{
 
                     referralData.forEach(data => {
                         const row = document.createElement("tr");
@@ -70,7 +70,7 @@ async function referral(){
                         });
                         tablebody.appendChild(row)
                     });
-                }    
+                // }    
             }
         } catch (error) {
             console.log(error)

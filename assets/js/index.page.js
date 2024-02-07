@@ -160,17 +160,17 @@ async function submitSignupForm(){
 }
 
 async function submitLoginForm(){
-    const usernameInput = document.querySelector("#item");
+    const usernameOrEmailInput = document.querySelector("#item");
     const passwordInput = document.querySelector("#password");
     const formp = document.querySelector(".form");
     const btn = document.querySelector(".btn");
 
-    let usernameVal = usernameInput.value;
+    let usernameOrEmailVal = usernameOrEmailInput.value;
     let passwordVal = passwordInput.value;
     
     clearErrors();
     // validate inputs
-    if(!usernameVal || !passwordVal){
+    if(!usernameOrEmailVal || !passwordVal){
         displayError('Please provide the needed value(s)')
         return;
     }
@@ -180,10 +180,17 @@ async function submitLoginForm(){
         return;
     }
 
+    const isEmail = usernameOrEmailVal.includes('@')
+
     //req payload
     const data = {
-        username: usernameVal,
         password: passwordVal,
+    }
+
+    if(isEmail){
+        data.email = usernameOrEmailVal
+    }else{
+        data.username = usernameOrEmailVal
     }
 
     btn.textContent = 'Please wait.....';

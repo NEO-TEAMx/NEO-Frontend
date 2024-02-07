@@ -4,9 +4,6 @@ const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 year.innerText = currentYear;
 
-
-// const amount = document.querySelector("#amount");
-// const usdt = document.querySelector("#usdt");
 const buyHash = document.querySelector("#buyHash");
 
 function clearErrors(){
@@ -60,7 +57,7 @@ buyHash.addEventListener("click", async() =>{
         
             
             const response = await fetch(baseUrl+'user/buy-hash',{
-                method: "POST",
+                method: "PATCH",
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
@@ -70,6 +67,7 @@ buyHash.addEventListener("click", async() =>{
                 body: JSON.stringify({hash_amount}),
             });
             if(!response.ok){
+                const resp = await response.json();
                 if(resp.msg === "No user with such id"){
                     
                     redirectToLogin()
@@ -78,7 +76,7 @@ buyHash.addEventListener("click", async() =>{
                     
                     redirectToLogin()
                 }
-                const resp = await response.json();
+                
                 displayError(resp.msg || 'Something went wrong. Try again!!')
                 return;
             }
@@ -96,7 +94,7 @@ buyHash.addEventListener("click", async() =>{
 
           }catch(error){
             console.log(error)
-            displayError("Something went wrong. Try again!!")
+            displayError("Error occurred")
             return;
           }  
         } else {
