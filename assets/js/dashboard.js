@@ -5,7 +5,7 @@
 // const year = document.querySelector("#currentYear");
 // year.innerText = currentYear;
 
-dashboard();
+// dashboard();
 
 function clearErrors(){
     const errMsg = document.getElementById('errorMsg');
@@ -36,12 +36,6 @@ async function dashboard(){
     let time = document.querySelector("#timer");
     const startMiningBtn = document.querySelector('#start-mining-btn');
     // console.log("dahsboard")
-
-    const checkPercent = yield_percentagep.value
-    const checkTime = time.value
-
-    
-
     
     if(await isAuthenticated()){
         const accessToken = localStorage.getItem('accessToken')
@@ -89,7 +83,7 @@ async function dashboard(){
             yield_balancep.textContent = yield_balance.toFixed(8),
             total_balancep.textContent = total_balance,
             yield_percentagep.textContent = Math.ceil(yield_percentage),
-            hash_ratep.textContent = hash_rate.toFixed(4),
+            hash_ratep.textContent = hash_rate === 0 ? hash_rate.toFixed(4) : hash_rate,
             time.textContent = yield_time === null ? "24:00:00" : formattedTime
 
             
@@ -110,9 +104,8 @@ async function dashboard(){
     }
 }
 
+window.onload = dashboard;
 
-
-// dashboard();
 const startMiningBtn = document.querySelector('#start-mining-btn');
 async function startMining(){
 
@@ -148,7 +141,6 @@ async function startMining(){
         socket.on('miningData',(data) =>{
             // console.log({data})
             const {
-                mining_status,
                 yield_balance,
                 yield_percentage,
                 yield_time
@@ -160,10 +152,6 @@ async function startMining(){
             yield_percentagep.textContent = yield_percentage
             time.textContent = formattedTime
             
-            // console.log(mining_status)
-            // console.log(yield_balance)
-            // console.log(yield_time)
-            // console.log(yield_percentage)
         });
 
     }else{

@@ -21,8 +21,13 @@ function displaysuccess(msg){
     
 }
 
+// function nextButton(){
+//     console.log("btn clicked")
+//     // throw Error("Clicked")
+// }
 
 function nextButton(){
+    console.log("clicked")
    clearErrors();
     const amountInput = document.getElementById('amount');
     let amountVal = parseFloat(amountInput.value);
@@ -42,18 +47,22 @@ function nextButton(){
         return;
     }
     localStorage.setItem('withdrawalAmount', amount)
+    // console.log(amount)
     window.location.href = "../dashboard/confirm-withdrawal.html"
+    // window.location.href = "../dashboard/confirmation.html"
     return;
 }
 
 function loadData(){
     const storedNum = localStorage.getItem('withdrawalAmount')    
     const amount = parseFloat(storedNum);
-    
-    const charge = (5*2)/100;
-    const payable = amount-x;
+    // const payable_amount = (total_amount * charge)/100;
 
-    document.getElementById('WAmount').textContent = amount;
+    // user.total_balance -= total_amount;
+    const charge = amount * (5/100);
+    const payable = amount - charge;
+
+    document.getElementById('wAmount').textContent = amount;
     document.getElementById('charge').textContent = charge;
     document.getElementById('payAmount').textContent = payable;
 }
@@ -66,7 +75,7 @@ async function confirmPayment(){
     if(await isAuthenticated()){
         const accessToken = localStorage.getItem('accessToken');
         const storedNum = localStorage.getItem('withdrawalAmount');
-        const amount = parseFloat(storedNum);
+        const total_amount = parseFloat(storedNum);
         if(!walletAddress){
             displayError("Please provide a valid wallet address!")
         }
@@ -79,7 +88,7 @@ async function confirmPayment(){
                     'Authorization': accessToken
                 },
                 credentials: 'include',
-                body: JSON.stringify({amount,walletAddress})
+                body: JSON.stringify({total_amount,walletAddress})
             });
             if(response.status === 404){
                 
