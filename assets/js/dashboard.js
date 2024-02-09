@@ -49,6 +49,9 @@ async function dashboard(){
                 },
                 credentials: 'include',
             });
+            
+            const data = await response.json();
+            
             if(response.status === 404){
                 
                 redirectToLogin()
@@ -65,7 +68,7 @@ async function dashboard(){
                 }
                 
             }
-            const data = await response.json();
+            
             
             
             const {
