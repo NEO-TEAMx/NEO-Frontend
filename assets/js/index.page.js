@@ -230,7 +230,7 @@ async function submitLoginForm(){
             formp.disabled = false;
             
             displaysuccess("Logged in successfully")
-            window.location.href = "../dashboard/dashboard.html"
+            // window.location.href = "../dashboard/dashboard.html"
             
             usernameVal = '',
             passwordVal = ''
