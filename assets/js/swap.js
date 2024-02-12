@@ -36,18 +36,21 @@ document.addEventListener('DOMContentLoaded', function() {
       menuBtn.style.display = "inline-block";
     });
   
-    console.log("Contact script file linked successfully!");
-  });
-  
+    console.log("Contact script file linked successfully!");  
+});
+
 function calculateUSDTAmount(){
-  const accessToken = localStorage.getItem('accessToken')
+  const accessToken = getCookie("accessToken")
+  const refreshToken = getCookie("refreshToken")
+  
   const neo_amount = parseFloat(document.getElementById('neoAmount').value);
     fetch(baseUrl+'user/neo-equivalent',{
         method:  'POST',
         mode: 'cors',
         headers:{
             'Content-Type': 'application/json',
-            'Authorization': accessToken
+            'AccessToken': accessToken,
+            'Refresh_Token': refreshToken,
         },
         credentials: 'include',
         body: JSON.stringify({neo_amount})
@@ -55,7 +58,7 @@ function calculateUSDTAmount(){
       .then(data =>{
         
         document.getElementById('usdtAmount').value = data.usdEqu
-      console.log(data)
+      // console.log(data)
     }).catch((error) =>{
       console.log(error)
       displayError("Error occurred")
@@ -66,7 +69,9 @@ async function swapANCtoUSDT(){
    
   clearErrors();
   if(await isAuthenticated()){
-      const accessToken = localStorage.getItem('accessToken')
+    const accessToken = getCookie("accessToken")
+    const refreshToken = getCookie("refreshToken")
+    
       const neo_amount = parseFloat(document.getElementById('neoAmount').value);
         
       if(!neo_amount){
@@ -80,14 +85,15 @@ async function swapANCtoUSDT(){
           mode: 'cors',
           headers:{
               'Content-Type': 'application/json',
-              'Authorization': accessToken
+              'AccessToken': accessToken,
+              'Refresh_Token': refreshToken,
           },
           credentials: 'include',
           body: JSON.stringify({neo_amount}),
         });
         if(!response.ok){
           const resp = await response.json();
-          displayError(resp.msg || 'Something went wrong. Try again!!')
+          displayError('Something went wrong')
           return;
         }
         if(response.ok){
@@ -99,7 +105,7 @@ async function swapANCtoUSDT(){
         }
       } catch (error) {
         console.log(error)
-        displayError("Something went wrong. Try again!!")
+        displayError("Error occurred")
         return;
       }
     }else{

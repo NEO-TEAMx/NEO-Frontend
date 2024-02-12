@@ -10,8 +10,9 @@ async function depositHistory(){
     const tablebody = document.querySelector("#depHistory tbody")
     // console.log(tablebody)
     if(await isAuthenticated()){
-        const accessToken = localStorage.getItem("accessToken")
-
+        const accessToken = getCookie("accessToken")
+        const refreshToken = getCookie("refreshToken")
+        
         try {
             
             const response = await fetch(baseUrl+'user/deposit-history',{
@@ -19,7 +20,8 @@ async function depositHistory(){
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': accessToken
+                    'AccessToken': accessToken,
+                    'Refresh_Token': refreshToken,
                 },
                 credentials: 'include'    
             });

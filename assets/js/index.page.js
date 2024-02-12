@@ -127,11 +127,18 @@ async function submitSignupForm(){
         if(response.ok){
             const resp = await response.json();
             
-            const accessToken = response.headers.get('Authorization')
+            const accessToken = resp.accessToken;
+            const refreshToken = resp.refreshToken;
+
+            const expiraionTime = new Date();
+            expiraionTime.setTime(expiraionTime.getTime() + (1 * 24 *60 * 60 * 1000))
+
+            const expiresD = new Date();
+            expiresD.setTime(expiresD.getTime() + (3 * 24 * 60 * 60 * 1000))
+        
+            document.cookie = `accessToken=${accessToken}; expires=${expiraionTime.toUTCString()}; path=/; `;
+            document.cookie = `refreshToken=${refreshToken}; expires=${expiresD.toUTCString()}; path=/; `;
             
-            const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
-            
-            setToken(accessToken, expiraionTime)
             displaysuccess("Successfully signed-up")
             window.location.href = "../dashboard/dashboard.html"
             
@@ -220,11 +227,19 @@ async function submitLoginForm(){
         if(response.ok){
             const resp = await response.json();
             
-            const accessToken = response.headers.get('Authorization')
+            const accessToken = resp.accessToken;
+            const refreshToken = resp.refreshToken;
+
+            const expiraionTime = new Date();
+            expiraionTime.setTime(expiraionTime.getTime() + (3 * 24 *60 * 60 * 1000))
+
+            const expiresD = new Date();
+            expiresD.setTime(expiresD.getTime() + (4 * 24 * 60 * 60 * 1000))
         
+            document.cookie = `accessToken=${accessToken}; expires=${expiraionTime.toUTCString()}; path=/; `;
+            document.cookie = `refreshToken=${refreshToken}; expires=${expiresD.toUTCString()}; path=/; `;
             
-            const expiraionTime = Date.now() + 2 * 24 *60 * 60 * 1000;
-            setToken(accessToken, expiraionTime)
+
             btn.textContent = 'Sign in';
             btn.disabled = false;
             formp.disabled = false;
@@ -337,15 +352,17 @@ async function resetPassword(){
 
 async function logoutFunc(){
     if(await isAuthenticated()){
-        const accessToken = localStorage.getItem("accessToken")
-
+        const accessToken = getCookie("accessToken")
+        const refreshToken = getCookie("refreshToken")
+        
         try {
             const response = await fetch(baseUrl+'logout', {
                 method: 'DELETE',
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': accessToken
+                    'AccessToken': accessToken,
+                    'Refresh_Token': refreshToken,
                 },
                 credentials: 'include'
             });
@@ -373,7 +390,7 @@ async function logoutFunc(){
             }
             if(response.ok){
                 const resp = await response.json();
-                // displaysuccess(resp.msg || "Logged out")
+               clearCookie()
                 localStorage.clear();
                 window.location.href = "../html/signin.html"
             }
@@ -388,3 +405,13 @@ async function logoutFunc(){
     
 }
   
+
+function clearCookie(){
+    let cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i]
+        const eqPos = cookie.indexOf("=")
+        const accessToken = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+        document.cookie = accessToken + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'        
+    }
+}

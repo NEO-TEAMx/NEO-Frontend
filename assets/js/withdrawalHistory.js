@@ -10,8 +10,9 @@ async function withdrawalHistory(){
     const tablebody = document.querySelector("#witHistory tbody")
     // console.log(tablebody)
     if(await isAuthenticated()){
-        const accessToken = localStorage.getItem("accessToken")
-
+        const accessToken = getCookie("accessToken")
+        const refreshToken = getCookie("refreshToken")
+       
         try {
             
             const response = await fetch(baseUrl+'user/withdrawal-history',{
@@ -19,7 +20,8 @@ async function withdrawalHistory(){
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': accessToken
+                    'AccessToken': accessToken,
+                    'Refresh_Token': refreshToken,
                 },
                 credentials:'include'
             });
@@ -53,13 +55,14 @@ async function withdrawalHistory(){
                     emptyCell.textContent = "Withdrawal History is empty"
                     emptyRow.appendChild(emptyCell)
                     tablebody.appendChild(emptyRow)
-                    // emptyCell.appendChild(emptyRow)
+                   
                 }else{
-                    const parsedDate = moment(data.date);
-                    const formattedTime = parsedDate.format('DD/MM/YYYY')
-
+                   
                     withdrawal.forEach(data => {
                         const row = document.createElement("tr");
+                        const parsedDate = moment(data.date);
+                        const formattedTime = parsedDate.format('DD/MM/YYYY')
+
                         const display = ["date", "transaction_id", "total_amount", "approved"]
                         display.forEach(column =>{
                             const cell = document.createElement("td");

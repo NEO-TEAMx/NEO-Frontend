@@ -38,14 +38,17 @@ async function dashboard(){
     // console.log("dahsboard")
     
     if(await isAuthenticated()){
-        const accessToken = localStorage.getItem('accessToken')
+        const accessToken = getCookie("accessToken")
+        const refreshToken = getCookie("refreshToken")
+        
         try {
             const response = await fetch(baseUrl+'user/dashboard', {
                 method: 'GET',
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': accessToken
+                    'AccessToken': accessToken,
+                    'Refresh_Token': refreshToken,
                 },
                 credentials: 'include',
             });
@@ -86,7 +89,7 @@ async function dashboard(){
             yield_balancep.textContent = yield_balance.toFixed(8),
             total_balancep.textContent = total_balance,
             yield_percentagep.textContent = Math.ceil(yield_percentage),
-            hash_ratep.textContent = hash_rate === 0 ? hash_rate.toFixed(4) : hash_rate,
+            hash_ratep.textContent = hash_rate === 0 ? hash_rate.toFixed(4) : hash_rate.toFixed(7),
             time.textContent = yield_time === null ? "24:00:00" : formattedTime
 
             
@@ -117,7 +120,8 @@ async function startMining(){
     let yield_percentagep = document.getElementById("percentage");
 
     if(await isAuthenticated()){
-        const accessToken = localStorage.getItem('accessToken')
+        const accessToken = getCookie("accessToken")
+        
         const socket = io('https://neoprotocol.onrender.com',{
         // const socket = io("http://localhost:4040",{
             query:{

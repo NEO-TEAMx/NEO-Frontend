@@ -1,5 +1,5 @@
-// const baseUrl = 'http://localhost:4040/api/v1/';
-const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+const baseUrl = 'http://localhost:4040/api/v1/';
+// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 year.innerText = currentYear;
@@ -13,8 +13,9 @@ async function referral(){
     const tablebody = document.querySelector("#refTable tbody")
     // console.log(tablebody)
     if(await isAuthenticated()){
-        const accessToken = localStorage.getItem("accessToken")
-
+        const accessToken = getCookie("accessToken")
+        const refreshToken = getCookie("refreshToken")
+        
         try {
             
             const response = await fetch(baseUrl+'user/referral',{
@@ -22,7 +23,8 @@ async function referral(){
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': accessToken
+                    'AccessToken': accessToken,
+                    'Refresh_Token': refreshToken,
                 },
                 credentials:'include'
             });
@@ -50,16 +52,7 @@ async function referral(){
                 } = data
 
                 copy.value = refLink
-                // console.log(referralData)
-                // if(referralData.length === 0){
-                //     const emptyRow = document.createElement('tr')
-                //     const emptyCell = document.createElement('td')
-                //     emptyCell.setAttribute('colspan', 2)
-                //     emptyCell.textContent = "You have not referred any user"
-                //     emptyRow.appendChild(emptyCell)
-                //     emptyCell.appendChild(emptyRow)
-                // }else{
-
+                
                     referralData.forEach(data => {
                         const row = document.createElement("tr");
                         const display = ["username", "commission"]
@@ -70,7 +63,7 @@ async function referral(){
                         });
                         tablebody.appendChild(row)
                     });
-                // }    
+                 
             }
         } catch (error) {
             console.log(error)

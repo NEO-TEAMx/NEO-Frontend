@@ -27,18 +27,18 @@ function displaysuccess(msg){
 // }
 
 function nextButton(){
-    console.log("clicked")
+    
    clearErrors();
     const amountInput = document.getElementById('amount');
     let amountVal = parseFloat(amountInput.value);
     const regex = /^[0-9.]+$/
 
     if(!amountVal){ 
-        displayError("Amount is required!")
+        displayError("Amount is required")
         return;
     }
     if(!regex.test(amountVal)){
-        displayError("Amount must be a number!!")
+        displayError("Amount must be a number")
         return;
     }
     const amount = Number(amountVal);
@@ -47,7 +47,7 @@ function nextButton(){
         return;
     }
     localStorage.setItem('withdrawalAmount', amount)
-    // console.log(amount)
+    
     window.location.href = "../dashboard/confirm-withdrawal.html"
     // window.location.href = "../dashboard/confirmation.html"
     return;
@@ -73,11 +73,14 @@ async function confirmPayment(){
     let walletAddress = addressInput.value;
 
     if(await isAuthenticated()){
-        const accessToken = localStorage.getItem('accessToken');
+        const accessToken = getCookie("accessToken")
+        const refreshToken = getCookie("refreshToken")
+       
         const storedNum = localStorage.getItem('withdrawalAmount');
         const total_amount = parseFloat(storedNum);
         if(!walletAddress){
-            displayError("Please provide a valid wallet address!")
+            // return false
+            return displayError("Please provide a valid wallet address!")
         }
         try {
             const response = await fetch(baseUrl+'user/withdrawal',{
@@ -85,7 +88,8 @@ async function confirmPayment(){
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': accessToken
+                    'AccessToken': accessToken,
+                    'Refresh_Token': refreshToken,
                 },
                 credentials: 'include',
                 body: JSON.stringify({total_amount,walletAddress})

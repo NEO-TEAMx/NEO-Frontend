@@ -24,14 +24,16 @@ function displaysuccess(msg){
 
 function calcEquVal(){
     const hash_amount = parseFloat(document.getElementById('amount').value);
-    const accessToken = localStorage.getItem('accessToken')
-    
+    const accessToken = getCookie("accessToken")
+    const refreshToken = getCookie("refreshToken")
+        
     fetch(baseUrl+'user/hash_equivalent',{
         method:  'POST',
         mode: 'cors',
         headers:{
             'Content-Type': 'application/json',
-            'Authorization': accessToken
+            'AccessToken': accessToken,
+            'Refresh_Token': refreshToken,
         },
         credentials: 'include',
         body: JSON.stringify({hash_amount})
@@ -46,8 +48,10 @@ function calcEquVal(){
 buyHash.addEventListener("click", async() =>{
     clearErrors()   
     if (await isAuthenticated()) {
-            const accessToken = localStorage.getItem('accessToken')
+            
             const hash_amount = parseFloat(document.getElementById('amount').value);
+            const accessToken = getCookie("accessToken")
+            const refreshToken = getCookie("refreshToken")
         
             if(!hash_amount){
                 displayError("Please input a valid amount")
@@ -61,7 +65,8 @@ buyHash.addEventListener("click", async() =>{
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': accessToken
+                    'AccessToken': accessToken,
+                    'Refresh_Token': refreshToken,
                 },
                 credentials: 'include',
                 body: JSON.stringify({hash_amount}),
