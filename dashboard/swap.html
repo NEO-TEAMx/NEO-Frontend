@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <title>Swap Neo</title>
 
@@ -53,13 +54,12 @@
     padding: 1rem 1rem;
     animation: glowing-border 2s infinite;
     text-align: start!important;
-    
-    
   }
 
   .swap-form h4 {
   color: white;
-  margin: 1rem 8rem 2rem 8rem;
+  margin: 1rem 0rem 2rem 0rem;
+  text-align: center;
   font-size: 20px;
   }
 
@@ -123,7 +123,7 @@ input[type="number"]::placeholder {
   }
   
      
-  footer.section-p1
+  /* footer.section-p1
   {
    background-color: #000000;
    margin: 40px 0; 
@@ -132,9 +132,29 @@ input[type="number"]::placeholder {
    margin-left: -25px;
    text-align: start;
    
-}     
+}      */
   
 @media screen and (max-width: 768px) {
+
+  .swap-form {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: black;
+    background-clip: border-box;
+    border-radius: 1.25rem;
+    margin-top: 7rem;
+    padding: 1rem 1rem;
+    animation: glowing-border 2s infinite;
+    text-align: start!important;
+    
+    
+  }
 
   .swap-section {
     display: flex;
@@ -147,11 +167,12 @@ input[type="number"]::placeholder {
   
   .swap-form h4 {
     color: white;
-    margin: 1rem 6rem 2rem 6rem;
+    margin: 1rem 0rem 2rem 0rem;
     font-size: 16px;
+    text-align: center;
     }  
 
-footer.section-p1
+/* footer.section-p1
 {
  
  background-color: #000000;
@@ -163,9 +184,105 @@ footer.section-p1
  flex-direction: column;
  text-align: start;
  margin-top: 3rem;
+} */
 }
 
+/*------------------------------------------------------------  FOOTER BEGINS--------------------------------------------------------------*/
+
+.fixed-footer {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  padding: 30px 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
 }
+
+.footer-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.footer-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-icon i {
+  font-size: 24px;
+  margin-bottom: 5px;
+  border-radius: 9px !important ;
+}
+
+.footer-icon span {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-icon i {
+    font-size: 24px; /* Adjust the font size of the icons as needed */
+    margin-bottom: 5px;
+  }
+
+  .footer-icon span {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (max-width: 1400px) {
+  .fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+/*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
+
+
     </style>
 </head>
 <body style="font-family: 'Times New Roman', Times, serif; 
@@ -214,7 +331,7 @@ background: linear-gradient(
 
 
 
-
+<!-- 
 <footer>
   <div class="footer container py-4 px-4">
     <div class="cols">
@@ -263,7 +380,7 @@ background: linear-gradient(
       <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
     </div>
   </div>      
-</footer>
+</footer> -->
   
   <script src="../assets/js/main.browser.js"></script>
   <script src="../assets/js/swap.js"></script>
