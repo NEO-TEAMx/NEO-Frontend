@@ -245,10 +245,12 @@ span {
   
 }
 
+
+
 @media screen and (max-width: 768px) {
   .aside li:last-child a {
     position: relative;
-    top: 200px;
+    top: 100px;
     width: 100%;
   }
 
@@ -1135,17 +1137,10 @@ span {
     padding: 0 15px;
     position: absolute;
     left: 0;
-    bottom: -250px;
+    /* bottom: -250px; */
     width: 100%;
     z-index: 2;
   }
-}
-
-@media screen and (max-width: 377px) {
-  .tip-section {
-    display: none;
-  }
-
 }
 
 /*------------------------------------------------------------  TIP SECTION ENDS--------------------------------------------------------------*/
@@ -1200,9 +1195,7 @@ footer .section-p1 {
 
 @media screen and (max-width: 768px) {
   .fixed-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     background-color: #000000;
     color: white;
@@ -1211,6 +1204,7 @@ footer .section-p1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 60px;
   }
 
   .footer-icons {
