@@ -21,19 +21,24 @@ function displaysuccess(msg){
     
 }
 
+// function nextButton(){
+//     console.log("btn clicked")
+//     // throw Error("Clicked")
+// }
 
 function nextButton(){
+    
    clearErrors();
     const amountInput = document.getElementById('amount');
     let amountVal = parseFloat(amountInput.value);
     const regex = /^[0-9.]+$/
 
     if(!amountVal){ 
-        displayError("Amount is required!")
+        displayError("Amount is required")
         return;
     }
     if(!regex.test(amountVal)){
-        displayError("Amount must be a number!!")
+        displayError("Amount must be a number")
         return;
     }
     const amount = Number(amountVal);
@@ -42,18 +47,22 @@ function nextButton(){
         return;
     }
     localStorage.setItem('withdrawalAmount', amount)
+    
     window.location.href = "../dashboard/confirm-withdrawal.html"
+    // window.location.href = "../dashboard/confirmation.html"
     return;
 }
 
 function loadData(){
     const storedNum = localStorage.getItem('withdrawalAmount')    
     const amount = parseFloat(storedNum);
-    
-    const charge = (5*2)/100;
-    const payable = amount-x;
+    // const payable_amount = (total_amount * charge)/100;
 
-    document.getElementById('WAmount').textContent = amount;
+    // user.total_balance -= total_amount;
+    const charge = amount * (5/100);
+    const payable = amount - charge;
+
+    document.getElementById('wAmount').textContent = amount;
     document.getElementById('charge').textContent = charge;
     document.getElementById('payAmount').textContent = payable;
 }
@@ -64,11 +73,14 @@ async function confirmPayment(){
     let walletAddress = addressInput.value;
 
     if(await isAuthenticated()){
-        const accessToken = localStorage.getItem('accessToken');
+        const accessToken = getCookie("accessToken")
+        const refreshToken = getCookie("refreshToken")
+       
         const storedNum = localStorage.getItem('withdrawalAmount');
-        const amount = parseFloat(storedNum);
+        const total_amount = parseFloat(storedNum);
         if(!walletAddress){
-            displayError("Please provide a valid wallet address!")
+            // return false
+            return displayError("Please provide a valid wallet address!")
         }
         try {
             const response = await fetch(baseUrl+'user/withdrawal',{
@@ -76,10 +88,11 @@ async function confirmPayment(){
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': accessToken
+                    'AccessToken': accessToken,
+                    'Refresh_Token': refreshToken,
                 },
                 credentials: 'include',
-                body: JSON.stringify({amount,walletAddress})
+                body: JSON.stringify({total_amount,walletAddress})
             });
             if(response.status === 404){
                 

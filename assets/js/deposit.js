@@ -53,7 +53,8 @@ function nextButton(){
 async function showConfirmation() {
     clearErrors();
     if (await isAuthenticated()) {
-        const accessToken = localStorage.getItem('accessToken')
+        const accessToken = getCookie("accessToken")
+        const refreshToken = getCookie("refreshToken")
         const storedNum = localStorage.getItem('amount')    
         const amount = parseFloat(storedNum);
         
@@ -63,7 +64,8 @@ async function showConfirmation() {
                 mode: 'cors',
                 headers:{
                     'Content-Type': 'application/json',
-                    'Authorization': accessToken
+                    'AccessToken': accessToken,
+                    'Refresh_Token': refreshToken,
                 },
                 credentials: 'include',
                 body: JSON.stringify({amount}),
