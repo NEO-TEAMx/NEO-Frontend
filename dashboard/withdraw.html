@@ -12,6 +12,7 @@
   <!----------------------------------------------------------SWIPPER CSS----------------------------------------------------------------------------->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ 
   <title>withdrawal page</title>
 
   <style>
@@ -144,7 +145,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.7);
       z-index: -1;
       align-items: center !important;
       justify-content: center !important;
@@ -156,17 +157,12 @@
       border-radius: 5px;
       max-width: 500px;
       padding: 20px;
-      position: relative;
-      top: 0;
-      left: 32%;
-      right: 0;
-      bottom: 0;
-      align-self: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
-    .modal-content:hover {
-      box-shadow: 0 0 10px #00d664;
-    }
 
     .modal-header {
       display: flex;
@@ -387,14 +383,30 @@
       .modal-content {
         background-color: black;
         border-radius: 5px;
-        max-width: 500px;
+        max-width: 90%;
         padding: 20px;
-        position: relative;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        align-self: center;
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @keyframes glowing {
+        0% {
+          box-shadow: 0 0 40px rgba(88, 88, 88, 0.5);
+        }
+
+        50% {
+          box-shadow: 0 0 40px rgba(8, 106, 42, 0.7), 0 0 40px rgba(8, 106, 42, 0.5);
+        }
+
+        100% {
+          box-shadow: 0 0 40px rgba(88, 88, 88, 0.5);
+        }
+      }
+
+      .modal-content:hover {
+        animation: glowing 2s infinite;
       }
 
       .card_body {
@@ -474,9 +486,7 @@
 
     @media screen and (max-width: 768px) {
       .fixed-footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        position: relative;
         width: 100%;
         background-color: #000000;
         color: white;
@@ -485,6 +495,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 200px;
       }
 
       .footer-icons {
@@ -514,9 +525,7 @@
 
     @media screen and (max-width: 1400px) {
       .fixed-footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        position: relative;
         width: 100%;
         background-color: #000000;
         color: white;
@@ -525,6 +534,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 240px;
       }
 
     }
@@ -644,8 +654,30 @@
         </div>
       </div>
     </footer>
-
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menu = document.querySelector("#navbar");
+      const menuBtn = document.querySelector("#open-menu-btn");
+      const closeBtn = document.querySelector("#close-menu-btn");
+
+      menuBtn.addEventListener('click', () => {
+        menu.style.display = "flex"
+        closeBtn.style.display = "inline-block";
+        menuBtn.style.display = "none";
+      });
+
+      closeBtn.addEventListener('click', () => {
+        menu.style.display = "none";
+        closeBtn.style.display = "none";
+        menuBtn.style.display = "inline-block";
+      });
+
+      // console.log("Contact script file linked successfully!");
+    });
+
+  </script>
 
   <script>
     // Get the modal element
@@ -656,6 +688,9 @@
 
     // Get the close button inside the modal
     const closeButton = document.querySelector(".btn-closes");
+
+    // Get the form element
+    // const form = document.getElementById("confirmation-form");
 
     // Get the close button inside the modal
     const closeBtn = document.querySelector(".close");
