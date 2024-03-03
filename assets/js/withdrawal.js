@@ -1,8 +1,6 @@
 // const baseUrl = 'http://localhost:4040/api/v1/';
 const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
-const currentYear = new Date().getFullYear();
-const year = document.querySelector("#currentYear");
-year.innerText = currentYear;
+
 
 function clearErrors(){
     const errMsg = document.getElementById('errorMsg');
@@ -23,7 +21,7 @@ function displaysuccess(msg){
 
 // function nextButton(){
 //     console.log("btn clicked")
-//     // throw Error("Clicked")
+//     throw Error("Clicked")
 // }
 
 function nextButton(){
@@ -47,18 +45,16 @@ function nextButton(){
         return;
     }
     localStorage.setItem('withdrawalAmount', amount)
+    // console.log(amount)
     
     window.location.href = "../dashboard/confirm-withdrawal.html"
-    // window.location.href = "../dashboard/confirmation.html"
+    
     return;
 }
 
 function loadData(){
     const storedNum = localStorage.getItem('withdrawalAmount')    
     const amount = parseFloat(storedNum);
-    // const payable_amount = (total_amount * charge)/100;
-
-    // user.total_balance -= total_amount;
     const charge = amount * (5/100);
     const payable = amount - charge;
 
