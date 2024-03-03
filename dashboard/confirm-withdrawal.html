@@ -13,6 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <!----------------------------------------------------------SWIPPER CSS----------------------------------------------------------------------------->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <title>Confirmation Page</title>
   <!-- Add any required stylesheets or scripts for the confirmation page -->
   <style>
@@ -56,23 +57,22 @@
       animation: glowing-border 2s infinite;
     }
 
-
-
-    @keyframes glowing-border {
-      0% {
-        box-shadow: 0 0 5px #00d664;
-      }
-
-      50% {
-        box-shadow: 0 0 20px #00d664;
-      }
-
-      100% {
-        box-shadow: 0 0 5px #00d664;
-      }
+    @media screen and (max-width: 768px) {
+     .card-body {
+      width: 93%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: black;
+      background-clip: border-box;
+      border-radius: 1.25rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      padding: 1rem 1rem;
+      animation: glowing-border 2s infinite;
     }
-
-
 
     .card-body .usdt__img {
       width: 6rem;
@@ -147,45 +147,95 @@
     }
 
 
-
-    /* .overlay {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background-color: rgba(0, 0, 0, 0.93);
- display: none;
- justify-content: center;
- align-items: center;
- z-index: 1000;
 }
 
-.overlay p {
- text-align: justify;
- font-size: 15px;
-}
+    @keyframes glowing-border {
+      0% {
+        box-shadow: 0 0 5px #00d664;
+      }
 
-/* Styling for the confirmation container */
-    /* .confirmation-container {
- text-align: center;
- position: relative;
- color: #ffff;
- border: 2px solid #035228;
- border-radius: 8px;
- padding: 20px;
- background-color: #000;
- z-index: 1001;
+      50% {
+        box-shadow: 0 0 20px #00d664;
+      }
 
-}
-
-.close-ovarlay-btn {
- font-size: 20px;
- font-weight: 600;
- color: #00d664 !important;
-}  */
+      100% {
+        box-shadow: 0 0 5px #00d664;
+      }
+    }
 
 
+
+    .card-body .usdt__img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+      margin-top: 1rem;
+      border: 0.5rem solid #035228;
+      margin-bottom: 2rem;
+    }
+
+
+    .card-body P {
+      color: white;
+    }
+
+
+
+
+    .details {
+      margin-bottom: 1rem;
+      border: 1px solid #00d664;
+      border-bottom: none;
+
+
+    }
+
+    .details .details__list li {
+      color: white;
+      padding: 1rem 6rem;
+      border-bottom: 1px solid #00d664;
+
+    }
+
+    .details .details__list li:last-child {
+      color: white;
+      padding: 0.5rem;
+      border-bottom: 1px solid #00d664;
+    }
+
+    .list-group-item input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #00d664;
+      border-radius: 5px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .list-group-item input[type="text"]::placeholder {
+      color: #035228;
+      text-align: center;
+      font-weight: 600;
+    }
+
+
+
+    .card .card-body a {
+      text-decoration: none;
+      background-color: #18452b;
+      width: 100%;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      font-style: initial;
+      font-family: 'Times New Roman', Times, serif;
+      cursor: pointer;
+    }
 
     label {
       color: #cccccc;
@@ -312,7 +362,100 @@
         box-shadow: 0 0 5px #00d664;
       }
     }
+
+    /*------------------------------------------------------------  FOOTER BEGINS--------------------------------------------------------------*/
+
+.fixed-footer {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  padding: 30px 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.footer-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-icon i {
+  font-size: 24px;
+  margin-bottom: 5px;
+  border-radius: 9px !important ;
+}
+
+.footer-icon span {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .fixed-footer {
+    position: relative;
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-icon i {
+    font-size: 24px; /* Adjust the font size of the icons as needed */
+    margin-bottom: 5px;
+  }
+
+  .footer-icon span {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (max-width: 1400px) {
+  .fixed-footer {
+    position: relative;
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+/*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
+
   </style>
+
 </head>
 
 <body onload="loadData()">
@@ -379,55 +522,23 @@
       <!-- // amountValueElement.textContent = amount;; -->
     <!-- </script> -->
 
-    <footer>
-      <div class="footer container py-4 px-4">
-        <div class="cols">
-          <h4>Contact</h4>
-          <p><span><strong><i class="uil uil-envelope"></i></strong> </span><a
-              href="mailto:Neo-protocol@mail.com">Neo-protocol@mail.com</a></p>
-          <p> <span><strong><i class="uil uil-location-point"></i></strong></span> 562 Willingtom Road, Street 32, San
-            Francisco</p>
-          <p><span><strong><i class="uil uil-clock-nine"></i></strong> </span> 10:00 - 18:00, Mon - Sat</p>
-          <div class="follow">
-            <h4>Follow Us On</h4>
-            <div class="icon">
-              <a href=" https://twitter.com/@Neo_Blockchain" target="_blank"><i class="uil uil-twitter-alt"></i></a>
-              <a href=" https://linkedin.com" target="_blank"><i class="uil uil-linkedin-alt"></i></a>
-              <a href=" https://youtube.com" target="_blank"><i class="uil uil-youtube"></i></a>
-
-            </div>
-          </div>
+    <footer class="fixed-footer">
+      <div class="footer-icons">
+        <div class="footer-icon">
+          <a href="deposit.html"><i class="material-icons">credit_card</i></a>
         </div>
-
-        <div class="cols">
-          <h4>About</h4>
-          <a href="#about-us">About Us</a>
-          <a href="contact.html">Contact Us</a>
+        <div class="footer-icon">
+          <a href="withdraw.html"><i class="material-icons">arrow_downward</i></a>
         </div>
-
-        <div class="cols">
-          <h4>My Account</h4>
-          <a href="signin.html">Sign In</a>
-          <a href="contact.html">Help</a>
+        <div class="footer-icon">
+          <a href="hash.html"><i class="material-icons">attach_money</i></a>
         </div>
-        <div class="cols install">
-          <h4>Install App</h4>
-          <p></p>
-          <p>Coming Soon To App Store &amp Google Play!!</p>
-          <div class="row">
-            <a href="#"> <img src="../assets/images/app_store.svg" alt=""></a>
-            <a href="#"><img src="../assets/images/google_play.svg" alt=""></a>
-          </div>
-          <p>Secured Payment Gateways</p>
-          <img src="pay.png" alt="">
-        </div>
-
-
-        <div class="copyright">
-          <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
+        <div class="footer-icon">
+          <a href="mailto:Neo-protocol@mail.com"><i class="material-icons">email</i></a>
         </div>
       </div>
     </footer>
+
     <script src="../assets/js/main.browser.js"></script>
     <script src="../assets/js/withdrawal.js"></script>
     <script src="../contact-script.js"></script>
