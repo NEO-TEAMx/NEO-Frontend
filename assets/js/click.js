@@ -159,28 +159,32 @@ var swiper = new Swiper(".slide-content", {
   },
 });
 
-function togglePasswordVisibility() {
+
+
+
+function togglePasswordVisibility(inputField, icon) {
+  if (inputField.type === "password") {
+      inputField.type = "text";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+  } else {
+      inputField.type = "password";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
   const passwordInput = document.getElementById("password");
   const confirmInput = document.getElementById("confirmPassword");
   const showPasswordIcon = document.querySelector(".show-password-icon");
 
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    showPasswordIcon.classList.remove("fa-eye");
-    showPasswordIcon.classList.add("fa-eye-slash");
-  } else {
-    passwordInput.type = "password";
-    showPasswordIcon.classList.remove("fa-eye-slash");
-    showPasswordIcon.classList.add("fa-eye");
-  }
 
-  if (confirmInput.type === "password") {
-    confirmInput.type = "text";
-    showPasswordIcon.classList.remove("fa-eye");
-    showPasswordIcon.classList.add("fa-eye-slash");
-  } else {
-    confirmInput.type = "password";
-    showPasswordIcon.classList.remove("fa-eye-slash");
-    showPasswordIcon.classList.add("fa-eye");
-  }
-}
+  showPasswordIcon.style.display = "inline-block";
+
+
+  showPasswordIcon.addEventListener("click", function () {
+      togglePasswordVisibility(passwordInput, showPasswordIcon);
+      togglePasswordVisibility(confirmInput, showPasswordIcon);
+  });
+});

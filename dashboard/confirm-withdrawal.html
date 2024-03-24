@@ -513,14 +513,7 @@
       </div>
     </div>
 
-    <!-- <script> -->
-      <!-- // // Retrieve the amount from local storage -->
-      <!-- // const amount = localStorage.getItem('amount'); -->
 
-      <!-- // // Update the amount on the confirmation page -->
-      <!-- // const amountValueElement = document.getElementById('amount-value'); -->
-      <!-- // amountValueElement.textContent = amount;; -->
-    <!-- </script> -->
 
     <footer class="fixed-footer">
       <div class="footer-icons">
@@ -539,6 +532,29 @@
       </div>
     </footer>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const menu = document.querySelector("#navbar");
+        const menuBtn = document.querySelector("#open-menu-btn");
+        const closeBtn = document.querySelector("#close-menu-btn");
+  
+        menuBtn.addEventListener('click', () => {
+          menu.style.display = "flex"
+          closeBtn.style.display = "inline-block";
+          menuBtn.style.display = "none";
+        });
+  
+        closeBtn.addEventListener('click', () => {
+          menu.style.display = "none";
+          closeBtn.style.display = "none";
+          menuBtn.style.display = "inline-block";
+        });
+  
+        // console.log("Contact script file linked successfully!");
+      });
+  
+    </script>
+    
     <script src="../assets/js/main.browser.js"></script>
     <script src="../assets/js/withdrawal.js"></script>
     <script src="../contact-script.js"></script>
