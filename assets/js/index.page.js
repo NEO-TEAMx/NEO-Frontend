@@ -346,7 +346,36 @@ async function resetPassword(){
         }
     }catch(err){
         displayError("Something went wrong. Try again!!")
-        console.log(err)
+        // console.log(err)
+    }
+}
+
+async function newLetter(){
+    const email = document.querySelector("#newLetterEmail").value;
+    console.log(email)
+    console.log("newsLetter")
+    if(!email){
+        displayError('Please provide the needed value')
+        return;
+    }
+    try {
+        const response = await fetch(baseUrl+'subscribe',{
+            method: 'POST',
+            body:JSON.stringify(email)
+        });
+        if(!response.ok){
+            const resp = await response.json();
+            displayError(resp.msg);
+            return;
+        }
+        if(response.ok){
+            displaysuccess("You have successfully subscribed to our news letter")
+            email = ""
+            return;
+        }
+    } catch (error) {
+        displayError("Something went wrong. Try again!!")
+        return error;
     }
 }
 

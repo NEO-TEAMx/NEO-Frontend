@@ -15,7 +15,16 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-
+<style>
+    .error{
+            color: rgb(207, 22, 22);
+            margin-top: 5px;
+        }
+        .success{
+            color: rgb(12, 56, 12);
+            margin-top: 5px;
+        }
+</style>
 <body class="" style="font-family: 'Times New Roman', Times, serif; 
 background: linear-gradient(
 90deg
@@ -626,14 +635,17 @@ background: linear-gradient(
 
     <section class="newsletter">
       <div id="newsletter" class="container section-p1 section-m1 hidden container py-4">
+         <!-- Display error -->
+         <div id="errorMsg" class="error"></div>
+         <div id="successMsg" class="success"></div>
 
         <div class="newstext">
           <h4>Sign Up For Newsletters</h4>
           <P>Get E-mail updates about our lastest updates and <span>special offers.</span></P>
         </div>
         <div class="form">
-          <input type="text" placeholder="your email">
-          <button class="normal">sign up</button>
+          <input type="email" id="newLetterEmail" placeholder="Your Email Address">
+          <button class="normal" onclick="newLetter()">Submit</button>
         </div>
       </div>
     </section>
