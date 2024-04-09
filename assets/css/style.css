@@ -1792,7 +1792,6 @@ footer .install .row img {
 
   footer .install .row {
     display: flex;
-    flex-direction: column;
   }
 
   footer .install img {
