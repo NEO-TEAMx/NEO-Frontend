@@ -71,6 +71,42 @@
     animation: glowing 2s infinite;
 }
 
+        .icons i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            display: block !important;
+        }
+
+        .wrapper:hover {
+            animation: glowing 2s infinite;
+        }
+
+        /* Override Bootstrap's focus styles for input fields */
+
+        .form-control:focus {
+            border-color: #ced4da;
+        }
+
+        /* Ensure the eye icon remains visible */
+        .icons {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Ensure the border remains visible */
+        .input-group {
+            position: relative;
+        }
+
+        .input-group .form-control {
+            position: relative;
+            z-index: 1;
+            /* Ensure the input field stays above the eye icon */
+        }
+
         @media screen and (max-width: 768px) {
             .img-container {
             width: 40px;
@@ -88,14 +124,6 @@
             object-position: center;
         } 
 
-        }
-
-        .show-password-icon {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            cursor: pointer;
         }
 
     </style>
@@ -158,9 +186,15 @@
                     <div class="input-group mb-3">
                         <label for="password"></label>
                       <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                      <input type="password" class="form-control" placeholder="Password" id="password" name="password" required/>
-                      <i class="fa-solid fa-eyes show-password-icon text-dark"></i>
+                      <!-- <input type="password" class="form-control" placeholder="Password" id="password" name="password" required/>
+                      <i class="fa-solid fa-eyes show-password-icon text-dark"></i> -->
+                      <input type="password" class="form-control pass" placeholder="Password" id="password"
+                      name="password" required />
+                  <div class="icons">
+                      <i class="fa-regular fa-eye"></i>
                   </div>
+                  </div>
+
                     <div class="d-grid">
                         <button type="button" id="signinButton" onclick="submitLoginForm()" class="btn btn-dark mb-2">Sign in</button>
                         <span class="text-center"><a href="forgot-password.html">Forgot My Password?</a></span>
@@ -223,6 +257,23 @@
           </div>
         </div>      
       </footer>
+
+      
+    <script>
+        const btn = document.querySelector('.fa-eye');
+        const password = document.querySelector('.pass');
+
+        btn.addEventListener('click', () => {
+            if (password.type === "password") {
+                password.type = "text";
+                btn.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                password.type = "password";
+                btn.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        });
+    </script>
+
     <script src="../assets/js/index.page.js"></script>
     <!-- <script src="../assets/js/index.page.js"></script> -->
     <!-- <script src="../assets//js/main.browser.js"></script> -->
