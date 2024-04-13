@@ -57,9 +57,6 @@
             color: #00d664;
         }
 
-        .icons {
-            position: relative;
-        }
 
         .icons i {
             position: absolute;
@@ -67,12 +64,36 @@
             right: 10px;
             transform: translateY(-50%);
             cursor: pointer;
+            display: block !important;
         }
-
 
         .wrapper:hover {
             animation: glowing 2s infinite;
         }
+
+        /* Override Bootstrap's focus styles for input fields */
+
+        .form-control:focus {
+            border-color: #ced4da;
+        }
+
+        /* Ensure the eye icon remains visible */
+        .icons {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Ensure the border remains visible */
+        .input-group {
+            position: relative;
+        }
+
+        .input-group .form-control {
+            position: relative;
+            z-index: 1;
+            /* Ensure the input field stays above the eye icon */
+        }
+
 
         @media screen and (max-width: 768px) {
             .img-container {
@@ -91,7 +112,6 @@
                 object-position: center;
             }
         }
-
     </style>
 </head>
 
@@ -171,10 +191,10 @@
                     <div class="input-group mb-3">
                         <label for="confirmPassword"></label>
                         <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                        <input type="password" class="form-control pass" placeholder="Confirm Password"
+                        <input type="password" class="form-control passw" placeholder="Confirm Password"
                             id="confirmPassword" name="confirmPassword" required />
                         <div class="icons">
-                            <i class="fa-regular fa-eye"></i>
+                            <i class="fa-regular fa-eye fa-eyes"></i>
                         </div>
                     </div>
 
@@ -258,6 +278,19 @@
             } else {
                 password.type = "password";
                 btn.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        });
+
+        const btn2 = document.querySelector('.fa-eyes');
+        const password2 = document.querySelector('.passw');
+
+        btn2.addEventListener('click', () => {
+            if (password2.type === "password") {
+                password2.type = "text";
+                btn2.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                password2.type = "password";
+                btn2.classList.replace("fa-eye-slash", "fa-eye");
             }
         });
 
