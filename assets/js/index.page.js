@@ -18,17 +18,11 @@ function displayError(msg){
     const errMsg = document.getElementById("errorMsg");
     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
     setTimeout(clearErrors, 7000)
-    // const errorElement = document.getElementById(elementId);
-    // errorElement.textContent = msg;
-    // errorElement.style.display = 'block';
 }
 function displaysuccess(msg){
     const errMsg = document.getElementById("successMsg");
     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
     setTimeout(clearErrors, 7000)
-    // const errorElement = document.getElementById(elementId);
-    // errorElement.textContent = msg;
-    // errorElement.style.display = 'block';
 }
 
 function setToken(val, expDur){
@@ -352,8 +346,8 @@ async function resetPassword(){
 
 async function newLetter(){
     const email = document.querySelector("#newLetterEmail").value;
-    console.log(email)
-    console.log("newsLetter")
+    // console.log(email)
+    // console.log("newsLetter")
     if(!email){
         displayError('Please provide the needed value')
         return;
@@ -433,7 +427,49 @@ async function logoutFunc(){
     }
     
 }
-  
+ 
+async function contactForm(){
+ 
+    const username = document.querySelector("#username").value;
+    const subject = document.querySelector("#subject").value
+    const email = document.querySelector("#email").value;
+    const body = document.querySelector("#body").value;
+    console.log(username)
+    console.log(subject)
+    console.log(email)
+    console.log(body)
+
+    if(!username||!subject||!email||!body){
+        displayError("Provide the needed details");
+        return;
+    }
+
+    const data  = {username,subject,email,body}
+    console.log(data)
+    try {
+        const response = await fetch(`${baseUrl}contact`,{
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
+        if(!response.ok){
+            const resp = await response.json();
+            displayError(resp.msg);
+            return;
+        }
+        if(response.ok){
+            displaysuccess("Message sent successfully");
+            email = "",
+            subject = "",
+            username = "",
+            body = ""
+            return; 
+        }
+    } catch (error) {
+        displayError("Something Went Wrong!")
+    }
+    
+}
+
 
 function clearCookie(){
     let cookies = document.cookie.split(";");

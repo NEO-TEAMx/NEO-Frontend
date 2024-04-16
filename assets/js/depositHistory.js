@@ -71,7 +71,9 @@ async function depositHistory(){
                 }    
             }
         } catch (error) {
-            console.log(error)
+            // return error
+            // console.log(error)
+            displayError("Something Went Wrong")
         }
     }else{
         redirectToLogin();
