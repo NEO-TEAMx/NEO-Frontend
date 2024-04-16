@@ -445,7 +445,7 @@ async function contactForm(){
     }
 
     const data  = {username,subject,email,body}
-    console.log(data)
+    // console.log(data)
     try {
         const response = await fetch(`${baseUrl}contact`,{
             method: 'POST',
