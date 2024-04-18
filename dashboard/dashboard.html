@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="dashboard.css">
   <link rel="stylesheet" href="sub-dashboard.css">
   <link rel="stylesheet" href="../assets/css/style.css">
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 
   <title>Dashboard</title>
   <style>
@@ -56,7 +55,8 @@
 </head>
 
 <body class="body">
-  <div class="">
+  <div>
+    
     <div class="hide">
       <div class="small-header">
         <div class="open" id="open-btn">
@@ -304,7 +304,7 @@
           </div>
         </footer> -->
 
-
+<!-- 
         <script>
 
 
@@ -353,7 +353,7 @@
             }
 
           );
-        </script>
+        </script> -->
 
 
       </main>
@@ -479,127 +479,8 @@
 
       </script> -->
 
-      <script>
 
-        const MINING_DURATION_SECONDS = 24 * 60 * 60; // 1 day in seconds
-        const PROGRESS_UPDATE_INTERVAL_MS = 1000; // Progress update interval in milliseconds
-        let progress = 0;
-        let progressInterval = null;
-        let balance = 0;
 
-        // Retrieve the progress and balance from Local Storage
-        const storedProgress = localStorage.getItem('progress');
-        const storedBalance = localStorage.getItem('balance');
-
-        // Check if progress and balance data exist and update the display
-        if (storedProgress && storedBalance) {
-          progress = parseFloat(storedProgress);
-          balance = parseFloat(storedBalance);
-          updateProgressBar();
-          updateBalance();
-        }
-
-        function startMining() {
-          // Check if mining is already in progress
-          if (progressInterval !== null) {
-            return;
-          }
-
-          const progressCircle = document.querySelector('.progress-circle');
-          const progressText = document.querySelector('.progress-text');
-          const balanceElement = document.querySelector('#balance');
-          const startMiningBtn = document.querySelector('#start-mining-btn');
-          const timerText = document.querySelector('.timer-text'); // Timer element
-
-          const startTime = Date.now();
-          const endTime = startTime + MINING_DURATION_SECONDS * 1000;
-
-          // Update button text and disable it during mining
-          startMiningBtn.textContent = 'Currently Mining';
-          startMiningBtn.disabled = true;
-
-          progressInterval = setInterval(() => {
-            const currentTime = Date.now();
-            const elapsedTime = currentTime - startTime;
-            const remainingTime = Math.max(0, endTime - currentTime); // Remaining time in milliseconds
-
-            if (currentTime >= endTime) {
-              clearInterval(progressInterval);
-              progressInterval = null;
-              progressCircle.style.strokeDasharray = `100, 100`;
-              progressText.textContent = `100%`;
-              timerText.textContent = '00:00:00'; // Set timer text to 00:00:00
-
-              // Update button text and enable it after mining
-              startMiningBtn.textContent = 'Start Mining';
-              startMiningBtn.disabled = false;
-
-              // Clear progress and balance from Local Storage
-              localStorage.removeItem('progress');
-              localStorage.removeItem('balance');
-
-              return;
-            }
-
-            progress = (elapsedTime / (MINING_DURATION_SECONDS * 1000)) * 100;
-            updateProgressBar();
-
-            // Update balance display
-            balance += 0.5; // Example: Increment balance by 0.5 USDT per interval
-            updateBalance();
-
-            // Update timer text
-            const formattedTime = formatTime(remainingTime);
-            timerText.textContent = formattedTime;
-
-            // Store the progress and balance in Local Storage
-            localStorage.setItem('progress', progress.toFixed(2));
-            localStorage.setItem('balance', balance.toFixed(2));
-          }, PROGRESS_UPDATE_INTERVAL_MS);
-        }
-
-        function updateProgressBar() {
-          const progressCircle = document.querySelector('.progress-circle');
-          const progressText = document.querySelector('.progress-text');
-          progressCircle.style.strokeDasharray = `${progress}, 100`;
-          progressText.textContent = `${Math.round(progress)}%`;
-        }
-
-        function updateBalance() {
-          const balanceElement = document.querySelector('#balance');
-          balanceElement.textContent = balance.toFixed(2);
-        }
-
-        // Format time in HH:MM:SS format
-        function formatTime(milliseconds) {
-          const seconds = Math.floor(milliseconds / 1000);
-          const minutes = Math.floor(seconds / 60);
-          const hours = Math.floor(minutes / 60);
-
-          const formattedHours = padZero(hours);
-          const formattedMinutes = padZero(minutes % 60);
-          const formattedSeconds = padZero(seconds % 60);
-
-          return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-        }
-
-        // Add leading zero if the number is less than 10
-        function padZero(number) {
-          return number < 10 ? `0${number}` : `${number}`;
-        }
-
-        // Attach event listener to start mining button
-        const startMiningBtn = document.querySelector('#start-mining-btn');
-        startMiningBtn.addEventListener('click', startMining);
-
-        // Start mining if progress and balance are available
-        if (progress > 0 && balance > 0) {
-          startMining();
-        }
-
-      </script>
-
-<!-- 
       <script>
         const sideMenu = document.querySelector(".aside");
         const menuBtn = document.querySelector("#open-menu-btn")
@@ -613,8 +494,29 @@
           sideMenu.style.display = "none";
         });
 
+        function startMining() {
+  const progressBar = document.querySelector('.progress-circle');
+  let progress = 0;
 
-      </script> -->
+  // Start the progress animation
+  const interval = setInterval(() => {
+    progress += 5; // Increment progress with a smaller value
+    progressBar.style.strokeDasharray = `${progress}, 100`;
+    if (progress >= 100) {
+      progress = 0; // Reset progress to 0 when it reaches 100%
+    }
+  }, 10); // Update progress every 10 milliseconds for quick filling
+
+  // Other mining logic goes here...
+}
+
+// Add event listener to the "Start Mining" button
+const strtMiningBtn = document.getElementById('start-mining-btn');
+strtMiningBtn.addEventListener('click', startMining);
+
+
+
+      </script>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
