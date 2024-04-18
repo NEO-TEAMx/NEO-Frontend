@@ -52,7 +52,7 @@ async function referral(){
                 
                     referralData.forEach(data => {
                         const row = document.createElement("tr");
-                        const display = ["username", "commission"]
+                        const display = ["username"]
                         display.forEach(column =>{
                             const cell = document.createElement("td");
                             cell.textContent = data[column];
