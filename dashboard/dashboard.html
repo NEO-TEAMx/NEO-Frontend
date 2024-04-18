@@ -56,7 +56,7 @@
 
 <body class="body">
   <div>
-    
+
     <div class="hide">
       <div class="small-header">
         <div class="open" id="open-btn">
@@ -190,7 +190,8 @@
                   <i class="fa-solid fa-sack-dollar"></i>
                 </div>
                 <div class="tip-text">
-                  <p>To mitigate the risk of fund loss, make certain to deposit into the BEP20 wallet address provided and withdraw  to a BEP20 wallet address.</p>
+                  <p>To mitigate the risk of fund loss, make certain to deposit into the BEP20 wallet address provided
+                    and withdraw to a BEP20 wallet address.</p>
                 </div>
               </div>
             </div>
@@ -204,7 +205,8 @@
                   <i class="fa-solid fa-bolt"></i>
                 </div>
                 <div class="tip-text">
-                  <p>To enhance your daily earnings, consider acquiring additional hash power, as this can effectively increase your overall hashrate and help you earn more.</p>
+                  <p>To enhance your daily earnings, consider acquiring additional hash power, as this can effectively
+                    increase your overall hashrate and help you earn more.</p>
                 </div>
               </div>
             </div>
@@ -218,7 +220,8 @@
                   <i class="fa-solid fa-user-plus"></i>
                 </div>
                 <div class="tip-text">
-                  <p>Referring individuals can earn you a referral bonus in the form of hashrate, effectively boosting your mining speed and overall earnings.</p>
+                  <p>Referring individuals can earn you a referral bonus in the form of hashrate, effectively boosting
+                    your mining speed and overall earnings.</p>
                 </div>
               </div>
             </div>
@@ -232,7 +235,8 @@
                   <i class="fa-solid fa-lock"></i>
                 </div>
                 <div class="tip-text">
-                  <p>Protect your assets by safeguarding your login details to prevent any potential asset loss. Keep your account information secure to ensure the safety of your assets.</p>
+                  <p>Protect your assets by safeguarding your login details to prevent any potential asset loss. Keep
+                    your account information secure to ensure the safety of your assets.</p>
                 </div>
               </div>
             </div>
@@ -253,8 +257,7 @@
               <a href="hash.html"><i class="material-icons">attach_money</i></a>
             </div>
             <div class="footer-icon">
-              <a
-                href="mailto:Neo-protocol@mail.com"><i class="material-icons">email</i></a>
+              <a href="mailto:Neo-protocol@mail.com"><i class="material-icons">email</i></a>
             </div>
           </div>
         </footer>
@@ -304,7 +307,7 @@
           </div>
         </footer> -->
 
-<!-- 
+        <!-- 
         <script>
 
 
@@ -494,25 +497,24 @@
           sideMenu.style.display = "none";
         });
 
-        function startMining() {
-  const progressBar = document.querySelector('.progress-circle');
-  let progress = 0;
+        
+        function startProgressBarAnimation() {
+          const progressBar = document.querySelector('.progress-circle');
+          let progress = 0;
 
-  // Start the progress animation
-  const interval = setInterval(() => {
-    progress += 5; // Increment progress with a smaller value
-    progressBar.style.strokeDasharray = `${progress}, 100`;
-    if (progress >= 100) {
-      progress = 0; // Reset progress to 0 when it reaches 100%
-    }
-  }, 10); // Update progress every 10 milliseconds for quick filling
+          // Start the progress animation
+          const interval = setInterval(() => {
+            progress += 5; // Increment progress
+            progressBar.style.strokeDasharray = `${progress}, 100`;
+            if (progress >= 100) {
+              progress = 0; 
+            }
+          }, 10); 
+        }
 
-  // Other mining logic goes here...
-}
-
-// Add event listener to the "Start Mining" button
-const strtMiningBtn = document.getElementById('start-mining-btn');
-strtMiningBtn.addEventListener('click', startMining);
+    
+        const strtMiningBtn = document.getElementById('start-mining-btn');
+        strtMiningBtn.addEventListener('click', startProgressBarAnimation);
 
 
 
