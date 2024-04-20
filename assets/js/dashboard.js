@@ -1,26 +1,26 @@
 
-function clearErrors(){
-    const errMsg = document.getElementById('errorMsg');
-    const successMsg = document.getElementById('successMsg')
-    errMsg.textContent = '';
-    successMsg.textContent = '';
-}
+// function clearErrors(){
+//     const errMsg = document.getElementById('errorMsg');
+//     const successMsg = document.getElementById('successMsg')
+//     errMsg.textContent = '';
+//     successMsg.textContent = '';
+// }
 
-function displayError(msg){
-    const errMsg = document.getElementById("errorMsg");
-    errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-    setTimeout(clearErrors, 4000)
-}    
-function displaysuccess(msg){
-    const errMsg = document.getElementById("successMsg");
-    errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-    setTimeout(clearErrors, 4000)
+// function displayError(msg){
+//     const errMsg = document.getElementById("errorMsg");
+//     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
+//     setTimeout(clearErrors, 4000)
+// }    
+// function displaysuccess(msg){
+//     const errMsg = document.getElementById("successMsg");
+//     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
+//     setTimeout(clearErrors, 4000)
     
-}
+// }
 
 
 async function dashboard(){
-    clearErrors();
+    // clearErrors();
     let yield_balancep = document.querySelector("#yield_balance");
     let hash_ratep = document.querySelector("#hash_rate");
     let yield_percentagep = document.getElementById("percentage");
