@@ -108,17 +108,29 @@ customHiddenElements.forEach((el) => customObserver.observe(el));
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+      entry.target.classList.add('showup');
     } else {
-      entry.target.classList.remove('show');
+      entry.target.classList.remove('showup');
     }
   });
 });
 
-const hiddenElements = document.querySelectorAll('.flexy1.hidden');
+const hiddenElements = document.querySelectorAll('.hiddendown');
 hiddenElements.forEach((el) => observer.observe(el));
 
 
+const observerBlur = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('showblur');
+    } else {
+      entry.target.classList.remove('showblur');
+    }
+  });
+});
+
+const hiddenBlur = document.querySelectorAll('.hiddenblur');
+hiddenBlur.forEach((el) => observer.observe(el));
 
 
 
