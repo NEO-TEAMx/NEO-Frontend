@@ -9,6 +9,43 @@ a{
   text-decoration: none;
 }
 
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translate(-100%);
+  transition: all 1s;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(0);
+}
+
+.hiddenblur{
+  opacity: 0;
+  filter: blur(5px);
+  transition: all 2s;
+}
+
+.showblur {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.hiddendown {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(100%);
+  transition: all 1s;
+}
+
+.showup {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
 #header {
   position: relative;
   align-items: center;
