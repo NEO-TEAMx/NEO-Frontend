@@ -1,11 +1,14 @@
-
+document.addEventListener('DOMContentLoaded', function() {
 const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 // const baseUrl = 'http://localhost:4040/api/v1/';
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 const forgotPassword = document.querySelector("#forgotPassword");
 
-year.innerText = currentYear;
+// year.innerText = currentYear;
+if (year) {
+    year.innerText = currentYear;
+}
 
 function clearErrors(){
     const errMsg = document.getElementById('errorMsg');
@@ -256,44 +259,89 @@ async function submitLoginForm(){
     }
 }
 
-forgotPassword.addEventListener('click', async()=>{
+// forgotPassword.addEventListener('click', async()=>{
 
-    clearErrors();
-    const emailInput = document.querySelector('#email');
-    let emailVal = emailInput.value;
+//     clearErrors();
+//     const emailInput = document.querySelector('#email');
+//     let emailVal = emailInput.value;
 
-    if(!emailVal){
-        displayError("Please provide a registered email")
-    }
-    const data = {
-        email: emailVal
-    }
+//     if(!emailVal){
+//         displayError("Please provide a registered email")
+//     }
+//     const data = {
+//         email: emailVal
+//     }
 
-    try {
-        const response = await fetch(baseUrl+'forget-password',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+//     try {
+//         const response = await fetch(baseUrl+'forget-password',{
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(data)
+//         });
+//         if(!response.ok){
+//             const resp = await response.json(); 
+//             displayError(resp.msg);
+//             return;
+//         }
+//         if(response.ok){
+//             const resp = await response.json();
+//             displaysuccess(resp.msg||"Reset password link have been sent to your email")
+//             window.location.href = '../html/password-reset-done'
+//             return;
+//         }   
+//         emailVal = ''     
+//     } catch (error) {
+//         console.log(error)
+//         displayError("Something went wrong!")
+//     }
+// });
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+    const forgotPassword = document.querySelector("#forgotPassword");
+    if (forgotPassword) {
+        forgotPassword.addEventListener('click', async() => {
+            clearErrors();
+            const emailInput = document.querySelector('#email');
+            let emailVal = emailInput.value;
+
+            if(!emailVal){
+                displayError("Please provide a registered email")
+            }
+            const data = {
+                email: emailVal
+            }
+
+            try {
+                const response = await fetch(baseUrl+'forget-password',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                if(!response.ok){
+                    const resp = await response.json(); 
+                    displayError(resp.msg);
+                    return;
+                }
+                if(response.ok){
+                    const resp = await response.json();
+                    displaysuccess(resp.msg||"Reset password link have been sent to your email")
+                    window.location.href = '../html/password-reset-done'
+                    return;
+                }   
+                emailVal = ''     
+            } catch (error) {
+                console.log(error)
+                displayError("Something went wrong!")
+            }
         });
-        if(!response.ok){
-            const resp = await response.json(); 
-            displayError(resp.msg);
-            return;
-        }
-        if(response.ok){
-            const resp = await response.json();
-            displaysuccess(resp.msg||"Reset password link have been sent to your email")
-            window.location.href = '../html/password-reset-done'
-            return;
-        }   
-        emailVal = ''     
-    } catch (error) {
-        console.log(error)
-        displayError("Something went wrong!")
     }
 });
+
 
 async function resetPassword(){
     clearErrors();
@@ -480,3 +528,5 @@ function clearCookie(){
         document.cookie = accessToken + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'        
     }
 }
+
+});

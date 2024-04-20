@@ -1667,6 +1667,14 @@ footer {
   align-items: flex-start;
   margin-bottom: 20px;
 }
+
+.footer .cols1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
 .footer .logo {
   margin-top: 0;
   margin-bottom: 30px;
@@ -1744,11 +1752,14 @@ footer .follow i {
   color: #13da5a;
 }
 
-.footer .install .row {
+.footer .install .row-flex {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-footer .install .row img {
+footer .install .row-flex img {
   border: 1px solid #00d664;
   border-radius: 6px;
   width: 140px;
@@ -1769,7 +1780,7 @@ footer .install .row img {
   margin-top: 2rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   html {
     font-size: 12px;
   }
@@ -1790,13 +1801,20 @@ footer .install .row img {
     margin-top: 3rem;
   }
 
-  footer .install .row {
+  .footer .cols1 {
+    display: none;
+  }
+  
+  footer .install .row-flex {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
   }
 
   footer .install img {
     margin: 0;
+    padding: 0;
   }
 }
 
@@ -1808,22 +1826,4 @@ footer .install .row img {
     margin-top: 80px;
     padding: 30px;
   }
-}
-
-
-@media (min-width: 767px) {
-
-
-footer.section-p1
-{
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 80px;
-  padding: 30px;
-  
-
-}
-
 }
