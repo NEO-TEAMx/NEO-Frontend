@@ -477,25 +477,30 @@ async function logoutFunc(){
  
 async function contactForm(){
  
-    const username = document.querySelector("#username").value;
-    const subject = document.querySelector("#subject").value
-    const email = document.querySelector("#email").value;
-    const body = document.querySelector("#body").value;
-    console.log(username)
-    console.log(subject)
-    console.log(email)
-    console.log(body)
-
+    let username = document.querySelector("#username").value;
+    let subject = document.querySelector("#subject").value
+    let email = document.querySelector("#email").value;
+    let body = document.querySelector("#body").value;
+    
     if(!username||!subject||!email||!body){
         displayError("Provide the needed details");
         return;
     }
 
-    const data  = {username,subject,email,body}
+    const data  = {
+       username: username,
+        subject: subject,
+        email: email,
+        body: body
+    }
     // console.log(data)
     try {
-        const response = await fetch(`${baseUrl}contact`,{
+        console.log("prod log")
+        const response = await fetch(baseUrl+'contact',{
             method: 'POST',
+            headers:{
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify(data)
         });
         if(!response.ok){
@@ -504,14 +509,15 @@ async function contactForm(){
             return;
         }
         if(response.ok){
-            displaysuccess("Message sent successfully");
             email = "",
             subject = "",
             username = "",
             body = ""
+            displaysuccess("Message sent successfully");
             return; 
         }
     } catch (error) {
+        console.log(error)
         displayError("Something Went Wrong!")
     }
     
