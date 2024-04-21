@@ -1,8 +1,13 @@
 body {
   font-family: 'Times New Roman', Times, serif;
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg
-    , hsla(30, 11%, 4%, 1) 0%, hsla(30, 11%, 4%, 1) 40%, hsla(0, 0%, 0%, 1) 100%);
+    , hsla(30, 11%, 4%, 1) 0%, hsla(30, 11%, 4%, 1) 40%, hsla(0, 0%, 0%, 1) 100%); */
+    background: linear-gradient(
+  90deg,
+  hsla(30, 11%, 4%, 1) 0%,
+  rgb(14, 13, 13) 100%
+);
 }
 
 a{
@@ -17,6 +22,19 @@ a{
 }
 
 .show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(0);
+}
+
+.hiddenright {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translate(10%);
+  transition: all 1.2s;
+}
+
+.showright {
   opacity: 1;
   filter: blur(0);
   transform: translate(0);
@@ -161,7 +179,7 @@ a{
 
 /*///////////////////////////////////////////////////////Media querie for header777777777777777777777777777777777777777777777777777777777*/
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   #header .logo {
     display: block;
     width: 45px;

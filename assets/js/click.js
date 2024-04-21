@@ -103,8 +103,6 @@ const customHiddenElements = document.querySelectorAll('.hidden');
 customHiddenElements.forEach((el) => customObserver.observe(el));
 
 
-
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -114,7 +112,6 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 });
-
 const hiddenElements = document.querySelectorAll('.hiddendown');
 hiddenElements.forEach((el) => observer.observe(el));
 
@@ -130,7 +127,20 @@ const observerBlur = new IntersectionObserver((entries) => {
 });
 
 const hiddenBlur = document.querySelectorAll('.hiddenblur');
-hiddenBlur.forEach((el) => observer.observe(el));
+hiddenBlur.forEach((el) => observerBlur.observe(el));
+
+
+const observerRight = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('showright');
+    } else {
+      entry.target.classList.remove('showright');
+    }
+  });
+});
+const hiddenRight = document.querySelectorAll('.hiddenright');
+hiddenRight.forEach((el) => observer.observe(el));
 
 
 
