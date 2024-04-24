@@ -517,13 +517,14 @@
 
               <div class="mb-3">
                 <div class="input-flexs">
-                  <div class="input-groups" style="display: none;">
-                    <input type="text" id="walletAddress" class="form-control text-light"
-                      value="0x69Db4E29f006B89A4f728995aF7C1519189E00f7" readonly>
+                  <div class="input-groups" style="position: absolute; left: -9999px;">
+                      <input type="text" id="walletAddress" class="form-control text-light"
+                             value="0x69Db4E29f006B89A4f728995aF7C1519189E00f7" readonly>
                   </div>
                   <button id="copyButton" class="copy-button" onclick="copyToClipboard()">Copy Wallet Address <i
-                      class="fa-solid fa-link copy"></i></button>
-                </div>
+                          class="fa-solid fa-link copy"></i></button>
+              </div>
+              
               </div>
 
             </form>
