@@ -24,8 +24,7 @@ async function isAuthenticated(){
 
 
 
-
-async function issAuthenticated() {
+async function isAuthenticated() {
     const accessToken = localStorage.getItem('accessToken');
     if(accessToken){
         const expiraionTime = localStorage.getItem('expires')
@@ -62,3 +61,5 @@ function calcExpTime(){
 }
 
 document.addEventListener('DOMContentLoaded', isAuthenticated());
+
+

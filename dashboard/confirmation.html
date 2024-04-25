@@ -55,7 +55,10 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(90deg, hsla(30, 11%, 4%, 1) 0%, hsla(30, 11%, 4%, 1) 40%, hsla(0, 0%, 0%, 1) 100%);
+      background: linear-gradient(90deg,
+          hsla(30, 11%, 4%, 1) 0%,
+          rgb(14, 13, 13) 100%);
+
     }
 
     .card-body {
@@ -184,7 +187,7 @@
     }
 
     .modal-header {
-      background: black;
+      background: #3c3b3b;
     }
 
     .input-flexs {
@@ -255,7 +258,7 @@
 
 
 
-    .modal-content:hover {
+    .modal-content {
       width: auto;
       position: relative;
       display: flex;
@@ -275,15 +278,15 @@
 
     @keyframes glowing-border {
       0% {
-        box-shadow: 0 0 5px #00d664;
+        box-shadow: 0 0 2px #00d664;
       }
 
       50% {
-        box-shadow: 0 0 20px #00d664;
+        box-shadow: 0 0 9px #00d664;
       }
 
       100% {
-        box-shadow: 0 0 5px #00d664;
+        box-shadow: 0 0 2px #00d664;
       }
     }
 
@@ -303,6 +306,25 @@
         margin-bottom: 3rem;
         padding: 1rem 1rem;
         animation: glowing-border 2s infinite;
+      }
+
+
+      .modal-content {
+        width: auto;
+        height: 300px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        word-wrap: break-word;
+        background-color: #3c3b3b !important;
+        background-clip: border-box;
+        border-radius: 2rem !important;
+        margin-top: 10rem;
+        margin-bottom: 3rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        padding: 1rem 1rem;
+        animation: none;
       }
     }
 
@@ -489,7 +511,8 @@
           <div class="modal-header">
             <div class="col text-center">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                <label for="">COPY ADDRESS</label>
+                <label for="" style="color: #e2cfea !important; font-family: 'Times New Roman', Times, serif;">COPY
+                  ADDRESS</label>
               </h1>
             </div>
             <button type="button" class="btn btn-close btn-danger bg-success" data-bs-dismiss="modal"
@@ -497,10 +520,12 @@
           </div>
           <div class="modal-body">
             <form>
-              <div class="mb-3">
-                <p class="text-light" style="font-size: 16px;">Thank you for your deposit request.</br>Please send your
-                  deposit to the wallet
-                  address below, and click confirm payment when done.</p>
+              <div class="mb-5">
+                <p class="" style="font-size: 16px; color: #b3a0bb;">
+                  Thank you for your deposit request.<br>
+                  Please send your deposit to the wallet address below.
+
+                </p>
               </div>
 
               <!-- 
@@ -518,20 +543,21 @@
               <div class="mb-3">
                 <div class="input-flexs">
                   <div class="input-groups" style="position: absolute; left: -9999px;">
-                      <input type="text" id="walletAddress" class="form-control text-light"
-                             value="0x69Db4E29f006B89A4f728995aF7C1519189E00f7" readonly>
+                    <input type="text" id="walletAddress" class="form-control text-light"
+                      value="0x69Db4E29f006B89A4f728995aF7C1519189E00f7" readonly>
                   </div>
-                  <button id="copyButton" class="copy-button" onclick="copyToClipboard()">Copy Wallet Address <i
-                          class="fa-solid fa-link copy"></i></button>
-              </div>
-              
+                  <button id="copyButton" class="copy-button" onclick="copyToClipboard()">Copy Wallet Address
+                    <i class="fa-solid fa-link copy"></i>
+                  </button>
+                </div>
+
               </div>
 
             </form>
           </div>
-          <div class="modal-footers">
+          <!-- <div class="modal-footers">
             <a href="#" onclick="removeConfirmation()" class="btn-confirm">Confirm Payment</a>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
