@@ -1,23 +1,16 @@
+function startProgressBarAnimation() {
+          const progressBar = document.querySelector('.progress-circle');
+          let progress = 0;
 
-// function clearErrors(){
-//     const errMsg = document.getElementById('errorMsg');
-//     const successMsg = document.getElementById('successMsg')
-//     errMsg.textContent = '';
-//     successMsg.textContent = '';
-// }
-
-// function displayError(msg){
-//     const errMsg = document.getElementById("errorMsg");
-//     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-//     setTimeout(clearErrors, 4000)
-// }    
-// function displaysuccess(msg){
-//     const errMsg = document.getElementById("successMsg");
-//     errMsg.innerHTML += `<p class="text-center lead mb-4" >${msg}</p>`
-//     setTimeout(clearErrors, 4000)
-    
-// }
-
+          // Start the progress animation
+          const interval = setInterval(() => {
+            progress += 5; // Increment progress
+            progressBar.style.strokeDasharray = `${progress}, 100`;
+            if (progress >= 100) {
+              progress = 0; 
+            }
+          }, 10); 
+};
 
 async function dashboard(){
     // clearErrors();
@@ -27,8 +20,19 @@ async function dashboard(){
     let total_balancep = document.querySelector("#balance")
     let time = document.querySelector("#timer");
     const startMiningBtn = document.querySelector('#start-mining-btn');
+    const progressBar = document.querySelector(".progress-circle")
+    let progress = 0;
     // console.log("dahsboard")
     
+    const interval = setInterval(() =>{
+        progress += 5;
+        progressBar.style.strokeDasharray = `${progress}, 100`;
+        if(progress >= 100){
+            progress = 0;
+            clearInterval(interval)
+        }
+    },10)
+
     if(await isAuthenticated()){
         const accessToken = getCookie("accessToken")
         const refreshToken = getCookie("refreshToken")
@@ -84,6 +88,11 @@ async function dashboard(){
             hash_ratep.textContent = hash_rate === 0 ? hash_rate.toFixed(4) : hash_rate.toFixed(7),
             time.textContent = yield_time === null ? "24:00:00" : formattedTime
 
+            window.onbeforeunload = function(){
+                if(mining_status){
+                    return 'Mining is in progress. Are you sure you want to leave?'
+                }
+            }
             
             if( mining_status){
                 startMiningBtn.textContent = 'Currently Mining';
@@ -115,16 +124,16 @@ async function startMining(){
     if(await isAuthenticated()){
         const accessToken = getCookie("accessToken")
         
-        const socket = io('https://neoprotocol.onrender.com',{
-        // const socket = io("http://localhost:4040",{
+        // const socket = io('https://neoprotocol.onrender.com',{
+        const socket = io("http://localhost:4040",{
             query:{
                 accessToken: accessToken                
             },
             withCredentials:true,
             extraHeaders: {
-                'Access-Contorl-Allow-Origin': 'https://https://neoprotocol.netlify.app'
+                // 'Access-Contorl-Allow-Origin': 'https://https://neoprotocol.netlify.app'
 
-                // 'Access-Contorl-Allow-Origin': 'http://localhost:8081'
+                'Access-Contorl-Allow-Origin': 'http://localhost:8081'
             }
         });
         if( socket.emit("startMining")){
@@ -146,7 +155,7 @@ async function startMining(){
                 yield_time
             } = data;
             const parsedDate = moment(yield_time);
-            const formattedTime = parsedDate.format('HH:mm:ss')
+            const formattedTime = parsedDate == "Invalid Date" ? "00:00:00" : parsedDate.format('HH:mm:ss')
 
             yield_balancep.textContent = yield_balance.toFixed(8), 
             yield_percentagep.textContent = yield_percentage

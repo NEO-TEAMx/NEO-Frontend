@@ -461,23 +461,23 @@
         });
 
 
-        function startProgressBarAnimation() {
-          const progressBar = document.querySelector('.progress-circle');
-          let progress = 0;
+        // function startProgressBarAnimation() {
+        //   const progressBar = document.querySelector('.progress-circle');
+        //   let progress = 0;
 
-          // Start the progress animation
-          const interval = setInterval(() => {
-            progress += 5; // Increment progress
-            progressBar.style.strokeDasharray = `${progress}, 100`;
-            if (progress >= 100) {
-              progress = 0; 
-            }
-          }, 10); 
-        };
+        //   // Start the progress animation
+        //   const interval = setInterval(() => {
+        //     progress += 5; // Increment progress
+        //     progressBar.style.strokeDasharray = `${progress}, 100`;
+        //     if (progress >= 100) {
+        //       progress = 0; 
+        //     }
+        //   }, 10); 
+        // };
 
     
-        const strtMiningBtn = document.getElementById('start-mining-btn');
-        strtMiningBtn.addEventListener('click', startProgressBarAnimation);
+        // const strtMiningBtn = document.getElementById('start-mining-btn');
+        // strtMiningBtn.addEventListener('click', startProgressBarAnimation);
 
 
 

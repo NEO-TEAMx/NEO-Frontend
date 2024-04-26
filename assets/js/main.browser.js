@@ -9,7 +9,6 @@ function getCookie(cookieName){
     return null;
 }
 
-
 async function isAuthenticated(){
     const accessToken = getCookie("accessToken");
     const refreshToken = getCookie("refreshToken");
@@ -21,8 +20,6 @@ async function isAuthenticated(){
         return false
     }
 }
-
-
 
 
 async function issAuthenticated() {
@@ -61,4 +58,5 @@ function calcExpTime(){
     return expiraionTime;
 }
 
-document.addEventListener('DOMContentLoaded', isAuthenticated());
+// document.addEventListener("")
+// document.addEventListener('DOMContentLoaded', isAuthenticated());
