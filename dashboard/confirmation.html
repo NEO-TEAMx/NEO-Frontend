@@ -20,7 +20,7 @@
 
   <style>
     .copy-button {
-      background-color: green;
+      background-color: #18452b;
       color: white;
       border: none;
       border-radius: 40px;
@@ -73,7 +73,7 @@
       border-radius: 1.25rem;
       margin-top: 3rem;
       margin-bottom: 3rem;
-      padding: 1rem 1rem;
+      padding: 0.5rem 1rem;
       animation: glowing-border 2s infinite;
     }
 
@@ -96,22 +96,20 @@
 
 
     .card-body .usdt__img {
-      width: 6rem;
-      height: 6rem;
+      width: 5rem;
+      height: 5rem;
       border-radius: 50%;
       overflow: hidden;
-      margin: 0 auto 1rem;
-      margin-top: 2rem;
+      margin: 0 auto 0.5rem;
+      margin-top: 1rem;
       border: 0.5rem solid #035228;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
 
     .card-body P {
       color: white;
     }
-
-
 
 
     .details {
@@ -124,7 +122,7 @@
 
     .details .details__list li {
       color: white;
-      padding: 1rem 6rem;
+      padding: 0.5rem 6rem;
       border-bottom: 1px solid #00d664;
 
     }
@@ -168,9 +166,9 @@
     }
 
     label {
-      color: #cccccc;
-      font-family: "Josefin Sans", sans-serif;
-      font-size: 16px;
+      /* color: #cccccc;
+      font-family: "Josefin Sans", sans-serif; */
+      font-size: 18px;
       font-weight: 600;
     }
 
@@ -184,10 +182,6 @@
     ol,
     ul {
       padding-left: 0rem !important;
-    }
-
-    .modal-header {
-      background: #3c3b3b;
     }
 
     .input-flexs {
@@ -230,12 +224,15 @@
       cursor: pointer;
     }
 
+    .modal-header {
+      background: #212A31;
+    }
 
-    .modal-footers .btn-confirm {
+    /* .modal-footers .btn-confirm {
       align-self: center;
       background-color: #18452b;
       width: fit-content;
-      color: white;
+      color: black;
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
@@ -244,9 +241,9 @@
       font-family: 'Times New Roman', Times, serif;
       cursor: pointer;
       margin-bottom: 20px;
-    }
+    } */
 
-    .modal-footers a {
+    /* .modal-footers a {
       text-decoration: none;
     }
 
@@ -254,7 +251,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
+    } */
 
 
 
@@ -265,28 +262,26 @@
       flex-direction: column;
       min-width: 0;
       word-wrap: break-word;
-      background-color: black;
+      background-color: #212A31 !important;
       background-clip: border-box;
       border-radius: 1.25rem;
       margin-top: 3rem;
       margin-bottom: 3rem;
       padding: 1rem 1rem;
-      animation: glowing-border 2s infinite;
+      animation: glowing-border 2s infinite; 
     }
-
-
 
     @keyframes glowing-border {
       0% {
-        box-shadow: 0 0 2px #00d664;
+        box-shadow: 0 0 5px #00d664;
       }
 
       50% {
-        box-shadow: 0 0 9px #00d664;
+        box-shadow: 0 0 20px #00d664;
       }
 
       100% {
-        box-shadow: 0 0 2px #00d664;
+        box-shadow: 0 0 5px #00d664;
       }
     }
 
@@ -316,7 +311,7 @@
         display: flex;
         flex-direction: column;
         word-wrap: break-word;
-        background-color: #3c3b3b !important;
+        background-color: #212A31 !important;
         background-clip: border-box;
         border-radius: 2rem !important;
         margin-top: 10rem;
@@ -408,9 +403,7 @@
 
     @media screen and (max-width: 1400px) {
       .fixed-footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        position: relative;
         width: 100%;
         background-color: #000000;
         color: white;
@@ -507,7 +500,7 @@
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content rounded" style="background: black;">
+        <div class="modal-content" style="background: black;">
           <div class="modal-header">
             <div class="col text-center">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
