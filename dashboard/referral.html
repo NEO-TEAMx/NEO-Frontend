@@ -109,18 +109,25 @@
     }
 
     .copy {
-      position: relative;
-      top: 2px;
-      font-size: 20px;
-      border: 1px solid #09582e;
-      border-radius: 0 0.25rem 0.25rem 0;
-      padding: 6px;
+      font-size: 12px;
       font-weight: 600;
-      line-height: normal;
-      color: #00d664;
-      background-color: transparent;
+      color: #ffff;
+      cursor: pointer;
+    } 
+
+    .copy-button {
+      background-color: #18452b;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      padding: 10px 20px;
       cursor: pointer;
     }
+
+    .copy-button:hover {
+      background-color: #2e8b57;
+    }
+
 
     #referralCode {
       flex: 1;
@@ -338,12 +345,13 @@
         </p> -->
         <!-- <h3>Your Referral Link  Is</h3> -->
         <div class="input-flexs">
-          <div class="input-groups">
+          <div class="input-groups" style="position: absolute; left: -9999px;">
             <input type="text" id="referralCode" class="refLink" readonly />
           </div>
-          <a href="#" onclick="copyToClipboard()"><i class="uil uil-copy copy"></i></a>
-          
+          <button id="copyButton" class="copy-button" onclick="copyToClipboard()">Copy Refferal Link <i
+            class="fa-solid fa-link copy"></i></button>
         </div>
+
       </div>
     
     </div>

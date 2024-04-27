@@ -21,7 +21,6 @@ async function isAuthenticated(){
     }
 }
 
-
 async function issAuthenticated() {
     const accessToken = localStorage.getItem('accessToken');
     if(accessToken){
@@ -59,4 +58,4 @@ function calcExpTime(){
 }
 
 // document.addEventListener("")
-// document.addEventListener('DOMContentLoaded', isAuthenticated());
+// document.addEventListener('DOMContentLoaded');

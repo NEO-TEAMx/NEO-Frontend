@@ -1,13 +1,16 @@
 body {
   font-family: 'Times New Roman', Times, serif;
-  /* background: linear-gradient(
-    90deg
-    , hsla(30, 11%, 4%, 1) 0%, hsla(30, 11%, 4%, 1) 40%, hsla(0, 0%, 0%, 1) 100%); */
-    background: linear-gradient(
+  background: linear-gradient(
+    90deg,
+    hsla(30, 11%, 4%, 1) 0%,
+    rgb(14, 13, 13) 100%
+  );
+  
+    /* background: linear-gradient(
   90deg,
   hsla(30, 11%, 4%, 1) 0%,
   rgb(14, 13, 13) 100%
-);
+); */
 }
 
 a{
