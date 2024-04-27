@@ -19,6 +19,7 @@ function displaysuccess(msg){
     
 }
 
+
 function calcEquVal(){
     const hash_amount = parseFloat(document.getElementById('amount').value);
     const accessToken = getCookie("accessToken")
@@ -42,64 +43,124 @@ function calcEquVal(){
 }
 
 
-buyHash.addEventListener("click", async() =>{
-    clearErrors()   
-    if (await isAuthenticated()) {
+// buyHash.addEventListener("click", async() =>{
+//     clearErrors()   
+//     if (await isAuthenticated()) {
             
+//             const hash_amount = parseFloat(document.getElementById('amount').value);
+//             const accessToken = getCookie("accessToken")
+//             const refreshToken = getCookie("refreshToken")
+        
+//             if(!hash_amount){
+//                 displayError("Please input a valid amount")
+//                 return;
+//             }
+//           try{
+        
+            
+//             const response = await fetch(baseUrl+'user/buy-hash',{
+//                 method: "PATCH",
+//                 mode: 'cors',
+//                 headers:{
+//                     'Content-Type': 'application/json',
+//                     'AccessToken': accessToken,
+//                     'Refresh_Token': refreshToken,
+//                 },
+//                 credentials: 'include',
+//                 body: JSON.stringify({hash_amount}),
+//             });
+//             if(!response.ok){
+//                 const resp = await response.json();
+//                 if(resp.msg === "No user with such id"){
+                    
+//                     redirectToLogin()
+//                 }
+//                 if(resp.statusCode === 404){
+                    
+//                     redirectToLogin()
+//                 }
+                
+//                 displayError(resp.msg || 'Something went wrong. Try again!!')
+//                 return;
+//             }
+//             if(response.status === 404){
+                
+//                 redirectToLogin()
+//             }
+//             if(response.ok){
+//                 const resp = await response.json();
+//                 displaysuccess("You have successfully purchased hash!!")
+//                 console.log(resp)
+//                 window.location.href = '../dashboard/dashboard.html'
+//                 return;
+//             }
+
+//           }catch(error){
+//             console.log(error)
+//             displayError("Error occurred")
+//             return;
+//           }  
+//         } else {
+//             redirectToLogin()
+//         }
+// });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById("myModal");
+    const btn = document.getElementById("buyHash");
+    const gotIt = document.getElementById("closeButton");
+
+    btn.addEventListener("click", async function() {
+        clearErrors();
+        if (await isAuthenticated()) {
             const hash_amount = parseFloat(document.getElementById('amount').value);
-            const accessToken = getCookie("accessToken")
-            const refreshToken = getCookie("refreshToken")
-        
-            if(!hash_amount){
-                displayError("Please input a valid amount")
-                return;
-            }
-          try{
-        
-            
-            const response = await fetch(baseUrl+'user/buy-hash',{
-                method: "PATCH",
-                mode: 'cors',
-                headers:{
-                    'Content-Type': 'application/json',
-                    'AccessToken': accessToken,
-                    'Refresh_Token': refreshToken,
-                },
-                credentials: 'include',
-                body: JSON.stringify({hash_amount}),
-            });
-            if(!response.ok){
-                const resp = await response.json();
-                if(resp.msg === "No user with such id"){
-                    
-                    redirectToLogin()
-                }
-                if(resp.statusCode === 404){
-                    
-                    redirectToLogin()
-                }
-                
-                displayError(resp.msg || 'Something went wrong. Try again!!')
-                return;
-            }
-            if(response.status === 404){
-                
-                redirectToLogin()
-            }
-            if(response.ok){
-                const resp = await response.json();
-                displaysuccess("You have successfully purchased hash!!")
-                console.log(resp)
-                window.location.href = '../dashboard/dashboard.html'
+            const accessToken = getCookie("accessToken");
+            const refreshToken = getCookie("refreshToken");
+
+            if (!hash_amount) {
+                displayError("Please input a valid amount");
                 return;
             }
 
-          }catch(error){
-            console.log(error)
-            displayError("Error occurred")
-            return;
-          }  
+            try {
+                const response = await fetch(baseUrl+'user/buy-hash',{
+                    method: "PATCH",
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'AccessToken': accessToken,
+                        'Refresh_Token': refreshToken,
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({hash_amount}),
+                });
+
+                if (!response.ok) {
+                    const resp = await response.json();
+                    if (resp.msg === "No user with such id" || resp.statusCode === 404) {
+                        redirectToLogin();
+                    }
+                    displayError(resp.msg || 'Something went wrong. Try again!!');
+                    return;
+                }
+
+                const resp = await response.json();
+                displaysuccess("You have successfully purchased hash!!");
+                modal.style.display = "block";
+            } catch (error) {
+                console.log(error);
+                displayError("Error occurred");
+            }
         } else {
-            redirectToLogin()
+            redirectToLogin();
         }
+    });
+
+    gotIt.addEventListener("click", function() {
+        modal.style.display = "none";
+        window.location.replace('./dashboard.html');
+    });
+    
+    
 });
