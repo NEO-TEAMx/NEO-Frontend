@@ -24,8 +24,8 @@
       font-family: Arial, sans-serif;
     }
 
-      /* Custom styles for mobile view */
-      /* @media (max-width: 767px) {
+    /* Custom styles for mobile view */
+    /* @media (max-width: 767px) {
       table {
         display: block;
         width: 100%;
@@ -108,12 +108,10 @@
 
     td:nth-child(2) {
       border-right: 1px solid #09582e;
-      /* Add line after "Bought Hash" column */
     }
 
     tr:last-child td {
       border-bottom: none;
-      /* Remove border at the last row */
     }
 
     .table-section {
@@ -132,8 +130,8 @@
     /*------------------------------------------------------------  FOOTER BEGINS--------------------------------------------------------------*/
 
     .fixed-footer {
-      position: relative;
-      width: 100%;
+      position: absolute;
+      bottom: 0;
       background-color: #000000;
       color: white;
       padding: 30px 10px;
@@ -169,17 +167,14 @@
 
     @media screen and (max-width: 768px) {
       .fixed-footer {
-        position: fixed;
+        position: absolute;
+        bottom: 0; 
         bottom: 0;
-        left: 0;
         width: 100%;
         background-color: #000000;
         color: white;
         padding: 20px 10px;
         text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
 
       .footer-icons {
@@ -197,7 +192,6 @@
 
       .footer-icon i {
         font-size: 24px;
-        /* Adjust the font size of the icons as needed */
         margin-bottom: 5px;
       }
 
@@ -209,9 +203,8 @@
 
     @media screen and (max-width: 1400px) {
       .fixed-footer {
-        position: fixed;
+        position: absolute;
         bottom: 0;
-        left: 0;
         width: 100%;
         background-color: #000000;
         color: white;
@@ -237,7 +230,7 @@
       </div>
       <div class="">
         <ul id="navbar">
-          <li><a href="Main.html">Home</a></li>
+          <li><a href="../index.html">Home</a></li>
           <li><a class="active" href="deposit-history.html">Dep-history</a></li>
           <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
@@ -262,7 +255,7 @@
       <tbody>
 
       </tbody>
-     
+
     </table>
 
 
@@ -281,8 +274,7 @@
         <a href="hash.html"><i class="material-icons">attach_money</i></a>
       </div>
       <div class="footer-icon">
-        <a
-          href="mailto:Neo-protocol@mail.com"><i class="material-icons">email</i></a>
+        <a href="mailto:Neo-protocol@mail.com"><i class="material-icons">email</i></a>
       </div>
     </div>
   </footer>

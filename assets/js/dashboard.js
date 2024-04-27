@@ -14,16 +14,27 @@ function startProgressBarAnimation() {
 
 function showPreloader(){
     document.querySelector(".spinner").style.display = 'block';
-    document.querySelector(".mining-section").style.display = "none";
-    document.body.classList.add("overlay")
+    document.querySelector(".dashboard").classList.add("hidden");
+    document.body.classList.add("overlay");
 }
 
 function hidePreloader(){
     document.querySelector(".spinner").style.display = 'none';
-    document.querySelector(".mining-section").style.display = "block";
-    document.body.classList.remove("overlay")
-    
+    document.querySelector(".dashboard").classList.remove("hidden");
+    document.body.classList.remove("overlay");
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    showPreloader();
+});
+
+window.addEventListener("load", function() {
+    window.addEventListener("load", function() {
+        hidePreloader();
+    });
+});
+
+
 
 async function dashboard(){
     // clearErrors();
