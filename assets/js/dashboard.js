@@ -160,16 +160,16 @@ async function startMining(){
     if(await isAuthenticated()){
         const accessToken = getCookie("accessToken")
         
-        // const socket = io('https://neoprotocol.onrender.com',{
-        const socket = io("http://localhost:4040",{
+        const socket = io('https://neoprotocol.onrender.com',{
+        // const socket = io("http://localhost:4040",{
             query:{
                 accessToken: accessToken                
             },
             withCredentials:true,
             extraHeaders: {
-                // 'Access-Contorl-Allow-Origin': 'https://neo-protocol.com'
+                'Access-Contorl-Allow-Origin': 'https://neo-protocol.com'
 
-                'Access-Contorl-Allow-Origin': 'http://localhost:8081'
+                // 'Access-Contorl-Allow-Origin': 'http://localhost:8081'
             }
         });
         if( socket.emit("startMining")){
