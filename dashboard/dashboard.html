@@ -17,6 +17,11 @@
   <title>Dashboard</title>
 
   <style>
+
+    .hidden {
+        display: none;
+    }
+
     .spinner {
           position: absolute;
           top: 50%;
@@ -75,7 +80,16 @@
 
 <body class="body">
    
-  <div>
+       
+<div class="spinner">
+  <div></div>   
+  <div></div>    
+  <div></div>    
+  <div></div>    
+</div>
+
+
+  <div class="dashboard hidden">
     <div class="container">
 
       <div class="hide">
@@ -143,35 +157,14 @@
 
       <!------------------------------------------------ END OF ASIDE ------------------------------------------------------->
 
-     
-<div class="spinner">
-      <div></div>   
-      <div></div>    
-      <div></div>    
-      <div></div>    
-  </div>
 
 
       <main class="mining-section">
         <div class="word">
           <h2>DASHBOARD</h2>
         </div>
-        <!-- spinner shit -->
-        <!-- <div class="spinner">
-          <div></div>   
-          <div></div>    
-          <div></div>    
-          <div></div>    
-      </div> -->
+
         <div id="mining-container">
-          <!-- spinner shit -->
-          <!-- <div class="spinner">
-              <div></div>   
-              <div></div>    
-              <div></div>    
-              <div></div>    
-          </div>
-     -->
           <h3 style="  font-family: 'Times New Roman', Times, serif;">Mining</h3>
           <div class="progress-bar-container">
             <svg class="progress-bar" viewBox="0 0 100 100">

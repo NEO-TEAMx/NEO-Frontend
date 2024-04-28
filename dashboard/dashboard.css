@@ -11,8 +11,7 @@
   background: linear-gradient(
     90deg,
     hsla(30, 11%, 4%, 1) 0%,
-    hsla(30, 11%, 4%, 1) 40%,
-    rgb(17, 16, 16) 100%
+    rgb(14, 13, 13) 100%
   );
 }
 
@@ -51,7 +50,6 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
   padding-left: 2rem;
   padding-right: 2rem;
   background: linear-gradient(
