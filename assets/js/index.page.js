@@ -1,5 +1,5 @@
-const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
-// const baseUrl = 'http://localhost:4040/api/v1/';
+// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+const baseUrl = 'http://localhost:4040/api/v1/';
 
 const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
@@ -400,10 +400,18 @@ async function newLetter(){
         displayError('Please provide the needed value')
         return;
     }
+    // console.log(email)
+    const data = {
+        email:email
+    }
     try {
+        console.log(data)
         const response = await fetch(baseUrl+'subscribe',{
             method: 'POST',
-            body:JSON.stringify(email)
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
         });
         if(!response.ok){
             const resp = await response.json();
@@ -416,7 +424,7 @@ async function newLetter(){
             return;
         }
     } catch (error) {
-        displayError("Something went wrong. Try again!!")
+        // displayError("Something went wrong. Try again!!")
         return error;
     }
 }
@@ -496,7 +504,7 @@ async function contactForm(){
     }
     // console.log(data)
     try {
-        console.log("prod log")
+        // console.log("prod log")
         const response = await fetch(baseUrl+'contact',{
             method: 'POST',
             headers:{
