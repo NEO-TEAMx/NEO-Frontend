@@ -29,12 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 window.addEventListener("load", function() {
-    window.addEventListener("load", function() {
-        hidePreloader();
-    });
+    hidePreloader();
 });
-
-
 
 async function dashboard(){
     // clearErrors();
