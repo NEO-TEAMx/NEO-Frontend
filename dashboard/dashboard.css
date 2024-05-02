@@ -43,6 +43,7 @@ span {
 
 .hide {
   display: none;
+  margin:0;
 }
 
 .small-header {
@@ -53,6 +54,7 @@ span {
   justify-content: space-between;
   padding-left: 2rem;
   padding-right: 2rem;
+  margin:0;
   background: linear-gradient(
     90deg,
     hsla(30, 11%, 4%, 1) 0%,
@@ -67,7 +69,13 @@ span {
   display: inline-block;
   cursor: pointer;
   font-size: 25px;
-  Margin-top:0;
+  margin-top:0;
+  margin:0;
+}
+
+.small-header .open{
+  margin-top:0;
+  margin:0;
 }
 
 .container {
