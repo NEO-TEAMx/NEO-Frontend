@@ -43,13 +43,17 @@ span {
 
 .small-header {
   width: auto;
-  display: flex;
+  display: none;
   align-items: center;
   Overflow:hidden;
   justify-content: space-between;
   padding-left: 2rem;
   padding-right: 2rem;
-  background: red;
+  background: linear-gradient(
+    90deg,
+    hsla(30, 11%, 4%, 1) 0%,
+    rgb(14, 13, 13) 100%
+  );
 }
 .small-header h1{
   margin:0;
