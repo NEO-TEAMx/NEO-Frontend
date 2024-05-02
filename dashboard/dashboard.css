@@ -8,7 +8,11 @@
   font-size: 0.88rem;
   user-select: none;
   overflow-x: hidden;
-  background: #000;
+  background: linear-gradient(
+  90deg,
+  hsla(30, 11%, 4%, 1) 0%,
+  rgb(14, 13, 13) 100%
+);
 }
 
 a {
