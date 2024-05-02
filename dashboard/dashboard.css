@@ -84,6 +84,8 @@ span {
   margin: 0 auto;
   gap: 1.8rem;
   grid-template-columns: 16rem auto;
+  position: relative;
+  top: -70px;
 }
 
 .aside {
