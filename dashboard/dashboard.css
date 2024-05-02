@@ -43,7 +43,7 @@ span {
 
 .small-header {
   width: auto;
-  display: none;
+  display: flex;
   align-items: center;
   Overflow:hidden;
   justify-content: space-between;
@@ -1202,11 +1202,7 @@ span {
 
 .tip-card {
   width: auto;
-  background: linear-gradient(
-    90deg,
-    hsla(30, 11%, 4%, 1) 0%,
-    rgb(14, 13, 13) 100%
-  );
+  background: black;
   color: white;
   border-radius: 10px;
   overflow: hidden;
