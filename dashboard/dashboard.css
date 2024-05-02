@@ -56,6 +56,7 @@ span {
   width: 100%;
   background: #100f0f;
   margin-bottom: 1.5rem;
+  z-index: 999;
 }
 
 .d-small-header {
