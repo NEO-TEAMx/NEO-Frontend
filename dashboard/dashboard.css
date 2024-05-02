@@ -4,6 +4,7 @@
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+  overflow: hidden;
   font-family: poppins, sans-serif;
   font-size: 0.88rem;
   user-select: none;
@@ -49,6 +50,7 @@ span {
   width: auto;
   display: flex;
   align-items: center;
+  Overflow:hidden;
   justify-content: space-between;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -59,11 +61,15 @@ span {
     hsla(0, 0%, 0%, 1) 100%
   );
 }
+.small-header h1{
+  margin:0;
+}
 
 .small-header .open button {
   display: inline-block;
   cursor: pointer;
   font-size: 25px;
+  Margin-top:0;
 }
 
 .container {
@@ -73,7 +79,9 @@ span {
   gap: 1.8rem;
   grid-template-columns: 16rem auto;
 }
-
+.dashboard {
+  margin:0;
+}
 .aside {
   height: 100vh;
   background-color: #101112;
@@ -248,7 +256,7 @@ span {
 @media screen and (max-width: 768px) {
   .aside li:last-child a {
     position: relative;
-    top: 100px;
+    top: 70px;
     width: 100%;
   }
 
@@ -271,7 +279,7 @@ span {
 @media (min-width: 300px) and (max-width: 400px) {
   .aside li:last-child a {
     position: relative;
-    top: 260px;
+    top: 230px;
     width: 100%;
   }
 
