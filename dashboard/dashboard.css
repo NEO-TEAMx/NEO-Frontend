@@ -84,8 +84,11 @@ span {
   margin: 0 auto;
   gap: 1.8rem;
   grid-template-columns: 16rem auto;
+}
+
+.dashboard {
   position: relative;
-  top: -40px;
+  top: -20px;
 }
 
 .aside {
@@ -606,6 +609,8 @@ span {
 @media screen and (max-width: 1200px) {
   .hide {
     display: block;
+    position: relative;
+    bottom: -10px;
   }
 
   .small-header .open button {
