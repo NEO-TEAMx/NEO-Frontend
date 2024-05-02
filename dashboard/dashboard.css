@@ -50,7 +50,8 @@ span {
 
 .hide {
   display: none;
-  position: relative;
+  position: fixed;
+  top: 0;
   margin:0;
   margin-bottom: 1.5rem;
 }
@@ -64,8 +65,8 @@ span {
   padding: 20px;
   background: #100f0f;
   z-index: 999;
-  position: absolute;
-  top: 0;
+  /* position: absolute;
+  top: 0; */
 }
 
 .d-small-header button {
@@ -649,7 +650,6 @@ color: #036c34;
 @media screen and (max-width: 1200px) {
   .hide {
     display: block;
-    position: relative;
   }
 
   .d-small-header button {
