@@ -8,11 +8,18 @@
   font-size: 0.88rem;
   user-select: none;
   overflow-x: hidden;
+  box-sizing: border-box;
   background: linear-gradient(
   90deg,
   hsla(30, 11%, 4%, 1) 0%,
   rgb(14, 13, 13) 100%
 );
+}
+
+.dashboard {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -43,10 +50,47 @@ span {
 
 .hide {
   display: none;
+  position: fixed;
+  top: 0;
   margin:0;
+  width: 100%;
+  background: #100f0f;
+  margin-bottom: 1.5rem;
+  z-index: 999;
 }
 
-.small-header {
+.d-small-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  /* position: absolute;
+  top: 0; */
+}
+
+.d-small-header button {
+display: none;
+background: none;
+border: none;
+cursor: pointer;
+font-size: 24px;
+color: #00d664;
+transition: color 0.3s ease;
+}
+
+.d-small-header button:hover {
+color: #036c34;
+}
+.small-header .open button {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+
+
+/* .small-header {
   width: auto;
   display: flex;
   align-items: center;
@@ -61,11 +105,13 @@ span {
     rgb(14, 13, 13) 100%
   );
 }
+
 .small-header h1{
   margin:0;
-}
+} */
 
-.small-header .open button {
+/* 
+.d-small-header .open button {
   display: inline-block;
   cursor: pointer;
   font-size: 25px;
@@ -73,10 +119,10 @@ span {
   margin:0;
 }
 
-.small-header .open{
+.d-small-header .open{
   margin-top:0;
   margin:0;
-}
+} */
 
 .container {
   display: grid;
@@ -203,6 +249,14 @@ span {
 
 /*------------------------------------------------------------  SIDEBAR MEDIA QUERIES BEGINS--------------------------------------------------------------*/
 @media screen and (max-width: 1200px) {
+  hmtl,body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  } 
   .container {
     width: 100%;
     grid-template-columns: auto;
@@ -258,6 +312,14 @@ span {
 
 
 @media screen and (max-width: 768px) {
+  hmtl,body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  } 
   .aside li:last-child a {
     position: relative;
     top: 60px;
@@ -281,6 +343,14 @@ span {
 }
 
 @media (min-width: 300px) and (max-width: 400px) {
+  hmtl,body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  } 
   .aside li:last-child a {
     position: relative;
     top: 230px;
@@ -319,6 +389,15 @@ span {
 
 
 @media screen and (max-width: 360px) {
+  hmtl,body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  } 
+  
  .aside li:last-child a {
     position: relative;
     top: 90px;
@@ -573,10 +652,22 @@ span {
     display: block;
   }
 
-  .small-header .open button {
+  .d-small-header button {
     display: inline-block;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    font-size: 35px;
+    font-size: 2.3rem;
+    color: #00d664;
+    transition: color 0.3s ease;
+  }
+
+  .d-small-header button:hover {
+    color: white;
+  }
+
+  .d-small-header #close-menu-btn {
+    display: none;
   }
 
   .mining-section {
@@ -592,7 +683,7 @@ span {
     font-weight: 500;
     font-size: 1.6rem;
     line-height: normal;
-    margin-left: -500px;
+    text-align: center;
   }
 
   .mining-section h3 {
@@ -662,7 +753,7 @@ span {
 
 @media screen and (max-width: 768px) {
   .mining-section {
-    margin-top: 0.5rem;
+    margin-top: 4rem;
     padding: 0 10px;
     display: flex;
     flex-direction: column;
@@ -676,7 +767,7 @@ span {
     font-size: 1.6rem;
     line-height: normal;
     margin-left: 0;
-    /* margin-top: -0.3rem; */
+    margin-top: 2rem;
   }
 
   .mining-section h3 {
