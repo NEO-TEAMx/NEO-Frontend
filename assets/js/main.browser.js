@@ -57,5 +57,5 @@ function calcExpTime(){
     return expiraionTime;
 }
 
-// document.addEventListener("")
+document.addEventListener("DOMContentLoaded", isAuthenticated())
 // document.addEventListener('DOMContentLoaded');
