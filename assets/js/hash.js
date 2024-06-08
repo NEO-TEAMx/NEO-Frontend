@@ -46,6 +46,7 @@ function calcEquVal(){
 // buyHash.addEventListener("click", async() =>{
 //     clearErrors()   
 //     if (await isAuthenticated()) {
+
             // x
 //             const hash_amount = parseFloat(document.getElementById('amount').value);
 //             const accessToken = getCookie("accessToken")

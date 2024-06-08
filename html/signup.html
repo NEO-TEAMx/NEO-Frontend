@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="../x/css/main.css" /> -->
     <script src="https://kit.fontawesome.com/1b9f7a129a.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="./assets/images/neo-logo.png" sizes="16x16 32x32">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
@@ -111,13 +112,23 @@
                 object-fit: cover;
                 object-position: center;
             }
+
+            #navbar li a {
+                background: #010b13 !important;
+                box-shadow: 4rem 6rem 10rem rgba(0, 0, 0, 0.6);
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-items: center;
+                margin-bottom: 39px;
+            }
         }
     </style>
 </head>
 
-<body>
-    <section id="header">
-        <div class="small-header container">
+<body style="background: #010b13;">
+    <section id="header" style="background: #010b13;">
+        <div class="small-header container" style="background: #010b13;">
             <div class="sidebside">
                 <div class="logo"><img src="../assets/images/neo-logo.png" alt=""></div>
                 <h2>
@@ -135,10 +146,8 @@
             <button id="close-menu-btn"><i class="uil uil-times"></i></button>
         </div>
 
-
-
-
-
+        <hr>
+        
     </section>
 
     <div class="container my-4 px-4">
@@ -213,55 +222,57 @@
         </div>
     </div>
 
+    <hr>
+    <footer style="background: #010b13;">
+        <div class="footer container py-4 px-4" style="background: #010b13;">
+            <div class="cols">
+                <h4>Contact</h4>
+                <p><span><strong><i class="uil uil-envelope"></i></strong> </span><a
+                        href="mailto:Neoprotocol.help@gmail.com">Neo-protocol@mail.com</a></p>
+                <p> <span><strong><i class="uil uil-location-point"></i></strong></span> 562 Willingtom Road, Street 32,
+                    San
+                    Francisco</p>
+                <p><span><strong><i class="uil uil-clock-nine"></i></strong> </span> 10:00 - 18:00, Mon - Sat</p>
+                <div class="follow">
+                    <div class="icon">
+                        <a href=" https://twitter.com/@Neo_Blockchain" target="_blank"><i
+                                class="uil uil-twitter-alt"></i></a>
+                        <a href=" https://telegram.com" target="_blank"><i class="uil uil-telegram"></i></a>
+                        <a href=" https://youtube.com" target="_blank"><i class="uil uil-youtube"></i></a>
 
-    <footer>
-        <div class="footer container py-4 px-4">
-          <div class="cols">
-            <h4>Contact</h4>
-            <p><span><strong><i class="uil uil-envelope"></i></strong> </span><a
-                href="mailto:Neoprotocol.help@gmail.com">Neo-protocol@mail.com</a></p>
-            <p> <span><strong><i class="uil uil-location-point"></i></strong></span> 562 Willingtom Road, Street 32, San
-              Francisco</p>
-            <p><span><strong><i class="uil uil-clock-nine"></i></strong> </span> 10:00 - 18:00, Mon - Sat</p>
-            <div class="follow">
-              <div class="icon">
-                <a href=" https://twitter.com/@Neo_Blockchain" target="_blank"><i class="uil uil-twitter-alt"></i></a>
-                <a href=" https://telegram.com" target="_blank"><i class="uil uil-telegram"></i></a>
-                <a href=" https://youtube.com" target="_blank"><i class="uil uil-youtube"></i></a>
-  
-              </div>
+                    </div>
+                </div>
             </div>
-          </div>
-  
-          <div class="cols1">
-            <h4>About</h4>
-            <a href="#about-us">About Us</a>
-            <a href="contact.html">Contact Us</a>
-          </div>
-  
-          <div class="cols1">
-            <h4>My Account</h4>
-            <a href="signin.html">Sign In</a>
-            <a href="contact.html">Help</a>
-          </div>
-          <div class="cols install">
-            <h4>Install App</h4>
-            <p></p>
-            <p>Coming Soon To App Store &amp Google Play!!</p>
-            <div class="row-flex">
-              <div><a href="#"> <img src="../assets/images/app_store.svg" alt=""></a></div>
-              <div><a href="#"><img src="../assets/images/google_play.svg" alt=""></a></div>
+
+            <div class="cols1">
+                <h4>About</h4>
+                <a href="#about-us">About Us</a>
+                <a href="contact.html">Contact Us</a>
             </div>
-            <!-- <p>Secured Payment Gateways</p>
+
+            <div class="cols1">
+                <h4>My Account</h4>
+                <a href="signin.html">Sign In</a>
+                <a href="contact.html">Help</a>
+            </div>
+            <div class="cols install">
+                <h4>Install App</h4>
+                <p></p>
+                <p>Coming Soon To App Store &amp Google Play!!</p>
+                <div class="row-flex">
+                    <div><a href="#"> <img src="../assets/images/app_store.svg" alt=""></a></div>
+                    <div><a href="#"><img src="../assets/images/google_play.svg" alt=""></a></div>
+                </div>
+                <!-- <p>Secured Payment Gateways</p>
             <img src="pay.png" alt=""> -->
-          </div>
-  
-  
-          <div class="copyright">
-            <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
-          </div>
+            </div>
+
+
+            <div class="copyright">
+                <p> © <span id="currentYear"></span> Neo-Protocol, All Rights Resrerved.</p>
+            </div>
         </div>
-      </footer>
+    </footer>
 
 
     <script>
@@ -314,7 +325,7 @@
     </script>
 
     <script src="../assets/js/index.page.js"></script>
-    <!-- <script src="../assets/js/click.js"></script> -->
+    <script src="../assets/js/click.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>

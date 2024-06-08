@@ -20,6 +20,9 @@
   <!-- Add any required stylesheets or scripts for the confirmation page -->
 
   <style>
+        :root {
+      --green: #01ef68;
+    }
     .copy-button {
       background-color: #18452b;
       color: white;
@@ -58,9 +61,10 @@
       text-align: center;
       margin-top: 1rem;
       margin-bottom: 1rem;
-      background: linear-gradient(90deg,
+      background: #010b13;
+      /* background: linear-gradient(90deg,
           hsla(30, 11%, 4%, 1) 0%,
-          rgb(14, 13, 13) 100%);
+          rgb(14, 13, 13) 100%); */
 
     }
 
@@ -71,7 +75,7 @@
       flex-direction: column;
       min-width: 0;
       word-wrap: break-word;
-      background-color: black;
+      background-color: rgba(0,0,0,.26);
       background-clip: border-box;
       border-radius: 1.25rem;
       margin-top: 3rem;
@@ -297,13 +301,14 @@
         flex-direction: column;
         min-width: 0;
         word-wrap: break-word;
-        background-color: black;
+        background-color: rgba(0,0,0,.26);
         background-clip: border-box;
         border-radius: 1.25rem;
         margin-top: 3rem;
         margin-bottom: 3rem;
         padding: 1rem 1rem;
-        animation: glowing-border 2s infinite;
+        animation: none;
+        border: 1px solid #035228;
       }
 
 
@@ -329,9 +334,11 @@
     /*------------------------------------------------------------  FOOTER BEGINS--------------------------------------------------------------*/
 
     .fixed-footer {
-      position: relative;
+      position: fixed;
+      bottom: 0;
+      left: 0;
       width: 100%;
-      background-color: #000000;
+      background: #010b13;
       color: white;
       padding: 30px 10px;
       text-align: center;
@@ -370,7 +377,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: #000000;
+        background: #010b13;
         color: white;
         padding: 20px 10px;
         text-align: center;
@@ -407,7 +414,7 @@
     @media screen and (max-width: 1400px) {
       .fixed-footer {
         width: 100%;
-        background-color: #000000;
+        background: #010b13;
         color: white;
         padding: 20px 10px;
         text-align: center;
@@ -421,13 +428,12 @@
     /*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
   </style>
 </head>
-
-<body onload="loadData()">
+<body onload="loadData()" style=" background: #010b13;">
 
   <section class="general__container">
 
-    <section id="header">
-      <div class="small-header container">
+    <section id="header" style="background: #02111d;">
+      <div class="small-header container" style="background: #02111d;">
         <div class="sidebside">
           <div class="logo"><img src="../assets/images/neo-logo.png" alt=""></div>
           <h2>
@@ -537,7 +543,8 @@
 
               <div class="mb-3">
                 <div class="input-flexs">
-                  <div class="input-groups" style="position: absolute; left: -9999px;">
+                  <div class="input-groups" style="position: absolute; left: -99999px;">
+
                     <input type="text" id="walletAddress" class="form-control text-light"
                       value="0x69Db4E29f006B89A4f728995aF7C1519189E00f7" readonly>
                   </div>
@@ -581,10 +588,8 @@
         walletAddress.select();
         document.execCommand("copy");
         alert("Wallet address copied to clipboard!");
-        window.location.href = "../dashboard/dashboard.html"; 
+        window.location.href = "../dashboard/dashboard.html";
       }
-
-      
 
     </script>
 

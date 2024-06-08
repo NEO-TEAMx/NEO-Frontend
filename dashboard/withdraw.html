@@ -78,24 +78,25 @@
       margin: 0 auto 1rem;
       margin-top: 2rem;
       border: 0.5rem solid #09582e;
-      margin-bottom: 2rem;
+      margin-bottom: 5px;
     }
-
+    
     .detail {
       margin-bottom: 2rem;
-      border: 1px solid #00d664;
+      /* border: 1px solid #00d664; */
+      border: none;
       border-radius: 8px;
     }
 
     .detail .details__list li {
       color: white;
-      padding: 1rem 6rem;
-      border-bottom: 1px solid #00d664;
+      padding: 0 6rem;
+      border: none;
     }
 
     .detail .details__list li:last-child {
-      margin-top: 2rem;
-      margin-bottom: 4rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
       border-bottom: none;
     }
 
@@ -417,7 +418,7 @@
         flex-direction: column;
         min-width: 0;
         word-wrap: break-word;
-        background-color: black;
+        background-color: rgba(0, 0, 0, .26);
         background-clip: border-box;
         border-radius: 1.25rem;
         margin-top: 3rem;
@@ -437,13 +438,14 @@
         flex-direction: column;
         min-width: 0;
         word-wrap: break-word;
-        background-color: black;
+        background-color: rgba(0, 0, 0, .26);
         background-clip: border-box;
         border-radius: 1.25rem;
         margin-top: 7rem;
         margin-bottom: 3rem;
         padding: 1rem 1rem;
-        animation: glowing-border 2s infinite;
+        animation: none;
+        border: 1px solid #00d664;
       }
     }
 
@@ -452,7 +454,7 @@
     .fixed-footer {
       position: relative;
       width: 100%;
-      background-color: #000000;
+      /* background-color: #000000; */
       color: white;
       padding: 30px 10px;
       text-align: center;
@@ -489,7 +491,7 @@
       .fixed-footer {
         position: relative;
         width: 100%;
-        background-color: #000000;
+        /* background-color: #000000; */
         color: white;
         padding: 20px 10px;
         text-align: center;
@@ -528,7 +530,6 @@
       .fixed-footer {
         position: relative;
         width: 100%;
-        background-color: #000000;
         color: white;
         padding: 20px 10px;
         text-align: center;
@@ -544,10 +545,10 @@
   </style>
 </head>
 
-<body>
+<body style=" background:#010b13;">
   <section class="general__container">
-    <section id="header">
-      <div class="small-header container">
+    <section id="header" style="background: #02111d">
+      <div class="small-header container" style="background: #02111d">
         <div class="sidebside">
           <div class="logo">
             <img src="../assets/images/neo-logo.png" alt="" />
@@ -574,15 +575,20 @@
         <div class="usdt__img">
           <img src="../material/62d315f8a5bd81658000888.jpg" class="card-img-top w-100" alt="TETHER USDT (ERC20)" />
         </div>
+        <hr>
         <div class="detail">
           <ul class="details__list">
             <li class="list-group-item"><strong>USDT (BEP20)</strong></li>
+            <hr>
             <li class="list-group-item">
               <strong>Limit: 2 - Unlimited USDT</strong>
             </li>
+            <hr>
             <li class="list-group-item">
               <strong>5% Tax Upon Withdrawal</strong>
             </li>
+            <hr>
+
             <li class="list-group-item">
               <button type="button" data-id="4" data-resource="{...}" data-base_symbol=""
                 class="btn deposit cmn-btn w-100" data-toggle="modal" data-target="#exampleModal">
@@ -639,7 +645,7 @@
       </div>
     </section>
 
-    <footer class="fixed-footer">
+    <footer class="fixed-footer" style="background: transparent;">
       <div class="footer-icons">
         <div class="footer-icon">
           <a href="deposit.html"><i class="material-icons">credit_card</i></a>

@@ -18,28 +18,35 @@
   <title>Confirmation Page</title>
   <!-- Add any required stylesheets or scripts for the confirmation page -->
   <style>
-        .error{
-            color: rgb(207, 22, 22);
-            margin-top: 5px;
+
+    :root {
+      --green: #01ef68;
+      /* Define the green variable if not already defined */
+    }
+
+    .error {
+      color: rgb(207, 22, 22);
+      margin-top: 5px;
       font-size: 17px;
       text-align: center;
       text-transform: capitalize;
     }
-    .success{
-            color: rgb(12, 56, 12);
-            margin-top: 5px;
-            font-size: 17px;
+
+    .success {
+      color: rgb(12, 56, 12);
+      margin-top: 5px;
+      font-size: 17px;
       text-align: center;
       text-transform: capitalize;
     }
-    
-    .card {
 
+    .card {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(90deg, hsla(30, 11%, 4%, 1) 0%, hsla(30, 11%, 4%, 1) 40%, hsla(0, 0%, 0%, 1) 100%);
+      background: transparent;
+      border: none;
     }
 
     .card-body {
@@ -49,7 +56,7 @@
       flex-direction: column;
       min-width: 0;
       word-wrap: break-word;
-      background-color: black;
+      background-color: rgba(0, 0, 0, .26);
       background-clip: border-box;
       border-radius: 1.25rem;
       margin-top: 3rem;
@@ -59,98 +66,122 @@
     }
 
     @media screen and (max-width: 768px) {
-     .card-body {
-      width: 93%;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      word-wrap: break-word;
-      background-color: black;
-      background-clip: border-box;
-      border-radius: 1.25rem;
-      margin-top: 3rem;
-      margin-bottom: 3rem;
-      padding: 1rem 1rem;
-      animation: glowing-border 2s infinite;
+      body {
+        background: #010b13;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: #010b13;
+        border: none;
+        height: 100vh;
+        width: 100%;
+      }
+
+      .card-body {
+        width: 93%;
+        min-height: fit-content;
+        position: absolute;
+        top: 50px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: rgba(0, 0, 0, 0.548);
+        /* background: rgba(0, 0, 0, .26); */
+        background-clip: border-box;
+        border-radius: 1.25rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        padding: 1rem 1rem;
+        margin: 0 auto;
+        overflow: auto;
+        animation: none;
+        border: 1px solid #035228;
+
+      }
+
+
+      .card-body .usdt__img {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1rem;
+        margin-top: 2rem;
+        border: 0.5rem solid #035228;
+        margin-bottom: 2rem;
+      }
+
+
+      .card-body P {
+        color: white;
+      }
+
+      .details {
+        margin-bottom: 3rem;
+        border-bottom: none;
+      }
+
+      .details .details__list li {
+        color: white;
+        padding: 0 6rem;
+        border-bottom: 1px solid red;
+
+      }
+
+      .details .details__list li:last-child {
+        color: white;
+        padding: 0.6rem;
+        border-bottom: 1px solid #00d664;
+      }
+
+      .list-group-item input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #00d664;
+        border-radius: 5px;
+        outline: none;
+        font-size: 14px;
+      }
+
+      .list-group-item input[type="text"]::placeholder {
+        color: #035228;
+        text-align: center;
+        font-weight: 600;
+      }
+
+
+
+      .card .card-body a {
+        text-decoration: none;
+        background-color: #18452b;
+        width: 100%;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 600;
+        font-style: initial;
+        font-family: 'Times New Roman', Times, serif;
+        cursor: pointer;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+
     }
 
-    .card-body .usdt__img {
-      width: 6rem;
-      height: 6rem;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 1rem;
-      margin-top: 2rem;
-      border: 0.5rem solid #035228;
-      margin-bottom: 2rem;
-    }
 
+    /* @keyframes glowing-border {
 
-    .card-body P {
-      color: white;
-    }
-
-
-
-
-    .details {
-      margin-bottom: 3rem;
-      border: 1px solid #00d664;
-      border-bottom: none;
-
-
-    }
-
-    .details .details__list li {
-      color: white;
-      padding: 1rem 6rem;
-      border-bottom: 1px solid #00d664;
-
-    }
-
-    .details .details__list li:last-child {
-      color: white;
-      padding: 1rem;
-      border-bottom: 1px solid #00d664;
-    }
-
-    .list-group-item input[type="text"] {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #00d664;
-      border-radius: 5px;
-      outline: none;
-      font-size: 14px;
-    }
-
-    .list-group-item input[type="text"]::placeholder {
-      color: #035228;
-      text-align: center;
-      font-weight: 600;
-    }
-
-
-
-    .card .card-body a {
-      text-decoration: none;
-      background-color: #18452b;
-      width: 100%;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      font-weight: 600;
-      font-style: initial;
-      font-family: 'Times New Roman', Times, serif;
-      cursor: pointer;
-    }
-
-
-}
-
-    @keyframes glowing-border {
       0% {
         box-shadow: 0 0 5px #00d664;
       }
@@ -163,6 +194,7 @@
         box-shadow: 0 0 5px #00d664;
       }
     }
+ */
 
 
 
@@ -174,36 +206,30 @@
       margin: 0 auto 1rem;
       margin-top: 1rem;
       border: 0.5rem solid #035228;
-      margin-bottom: 2rem;
+      margin-bottom: 10px;
     }
-
 
     .card-body P {
       color: white;
     }
 
-
-
-
     .details {
-      margin-bottom: 1rem;
-      border: 1px solid #00d664;
+      margin-bottom: 10px;
+      border: none;
       border-bottom: none;
-
-
     }
 
     .details .details__list li {
       color: white;
-      padding: 1rem 6rem;
-      border-bottom: 1px solid #00d664;
+      padding: 0 6rem;
+      border-bottom: none;
 
     }
 
     .details .details__list li:last-child {
       color: white;
       padding: 0.5rem;
-      border-bottom: 1px solid #00d664;
+      border-bottom: none;
     }
 
     .list-group-item input[type="text"] {
@@ -213,6 +239,8 @@
       border-radius: 5px;
       outline: none;
       font-size: 14px;
+      background: hsla(0, 0%, 100%, .07);
+      color: white;
     }
 
     .list-group-item input[type="text"]::placeholder {
@@ -366,104 +394,111 @@
 
     /*------------------------------------------------------------  FOOTER BEGINS--------------------------------------------------------------*/
 
-.fixed-footer {
-  position: relative;
-  width: 100%;
-  background-color: #000000;
-  color: white;
-  padding: 30px 10px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3rem;
-}
+    .fixed-footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: #000000;
+      color: white;
+      padding: 30px 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 3rem;
+    }
 
-.footer-icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 50px;
-}
+    .footer-icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+    }
 
-.footer-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .footer-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.footer-icon i {
-  font-size: 24px;
-  margin-bottom: 5px;
-  border-radius: 9px !important ;
-}
+    .footer-icon i {
+      font-size: 24px;
+      margin-bottom: 5px;
+      border-radius: 9px !important;
+    }
 
-.footer-icon span {
-  font-size: 14px;
-}
+    .footer-icon span {
+      font-size: 14px;
+    }
 
-@media screen and (max-width: 768px) {
-  .fixed-footer {
-    position: relative;
-    width: 100%;
-    background-color: #000000;
-    color: white;
-    padding: 20px 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    @media screen and (max-width: 768px) {
+      .fixed-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #000000;
+        color: white;
+        padding: 20px 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-  .footer-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-  }
+      .footer-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+      }
 
-  .footer-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+      .footer-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-  .footer-icon i {
-    font-size: 24px; /* Adjust the font size of the icons as needed */
-    margin-bottom: 5px;
-  }
+      .footer-icon i {
+        font-size: 24px;
+        /* Adjust the font size of the icons as needed */
+        margin-bottom: 5px;
+      }
 
-  .footer-icon span {
-    font-size: 14px;
-  }
+      .footer-icon span {
+        font-size: 14px;
+      }
 
-}
+    }
 
-@media screen and (max-width: 1400px) {
-  .fixed-footer {
-    position: relative;
-    width: 100%;
-    background-color: #000000;
-    color: white;
-    padding: 20px 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    @media screen and (max-width: 1400px) {
+      .fixed-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #000000;
+        color: white;
+        padding: 20px 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-}
-/*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
+    }
+
+    /*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
 
   </style>
 
 </head>
 
-<body onload="loadData()">
+<body onload="loadData()"
+  style="background:#010b13;  background-image: radial-gradient(circle at right top, var(--green) -200vw, transparent 60vw), radial-gradient(circle at left top, var(--green) -200vw, transparent 60vw), radial-gradient(circle at 70% 1000px, var(--green) -5000px, transparent 40vw);">
 
   <section class="general__container">
-    <section id="header">
-      <div class="small-header container">
+    <section id="header" style="background: #02111d">
+      <div class="small-header container" style="background: #02111d">
+
         <div class="sidebside">
           <div class="logo"><img src="../assets/images/neo-logo.png" alt=""></div>
           <h2>
@@ -489,34 +524,43 @@
         <div id="errorMsg" class="error"></div>
         <div id="successMsg" class="success"></div>
         <div class="usdt__img">
-          <img src="../material/62d315f8a5bd81658000888.jpg" class="card-img-top w-100" alt="TETHER USDT (ERC20)">
+          <img src="../material/62d315f8a5bd81658000888.jpg" class="card-img-top w-100" alt="TETHER USDT (BEP20)">
         </div>
+        <hr>
+
         <div class="details">
           <ul class="details__list">
             <li class="list-group-item">
               <p>Amount: <strong id="wAmount"></strong> USDT</p>
             </li>
+
+            <hr>
             <li class="list-group-item">
               <p>Charge: <strong id="charge"></strong> USDT</p>
             </li>
+            <hr>
             <li class="list-group-item">
               <p>Payable: <strong id="payAmount"></strong> USD</p>
             </li>
+            <hr>
             <li class="list-group-item">
-              <p> <strong>Conversion Rate: 1 USD = 1 USDT (BEP20)</strong></p>
+              <p style=" font-size: 10px;"> <strong>CONVERSION RATE: 1 USD = 1 USDT (BEP20)</strong></p>
             </li>
-            <li class="list-group-item"> <input type="text" id="walletAdd" placeholder="ENTER USDT(BEP20) WALLET ADDRESS"></li>
+            <hr>
+            <li class="list-group-item"> <input type="text" id="walletAdd"
+                placeholder="ENTER USDT(BEP20) WALLET ADDRESS"></li>
           </ul>
 
         </div>
-        <a href="#" type="button" onclick="confirmPayment()" class=".btn.deposit" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Confirm</a>
+        <a href="#" type="button" onclick="confirmPayment()" class=".btn.deposit" data-bs-target="#exampleModal"
+          data-bs-whatever="@mdo">Confirm</a>
+
         <!-- <a href="https://optimum-trade.net/user/deposit/manual" class="btn btn-block py-3 font-weight-bold mt-4 cmn-btn">Confirm</a> -->
       </div>
     </div>
 
+    <footer class="fixed-footer" style="background: #010b13;">
 
-
-    <footer class="fixed-footer">
       <div class="footer-icons">
         <div class="footer-icon">
           <a href="deposit.html"><i class="material-icons">credit_card</i></a>
@@ -538,24 +582,22 @@
         const menu = document.querySelector("#navbar");
         const menuBtn = document.querySelector("#open-menu-btn");
         const closeBtn = document.querySelector("#close-menu-btn");
-  
+
         menuBtn.addEventListener('click', () => {
           menu.style.display = "flex"
           closeBtn.style.display = "inline-block";
           menuBtn.style.display = "none";
         });
-  
+
         closeBtn.addEventListener('click', () => {
           menu.style.display = "none";
           closeBtn.style.display = "none";
           menuBtn.style.display = "inline-block";
         });
-  
-    
       });
-  
+
     </script>
-    
+
     <script src="../assets/js/main.browser.js"></script>
     <script src="../assets/js/withdrawal.js"></script>
     <script src="../contact-script.js"></script>

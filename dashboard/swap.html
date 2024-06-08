@@ -129,7 +129,7 @@
       flex-direction: column;
       min-width: 0;
       word-wrap: break-word;
-      background-color: black;
+      background-color: rgba(0, 0, 0, .26);
       background-clip: border-box;
       border-radius: 1.25rem;
       margin-top: 3rem;
@@ -229,15 +229,16 @@
         flex-direction: column;
         min-width: 0;
         word-wrap: break-word;
-        background-color: black;
+        background-color: rgba(0, 0, 0, .26);
         background-clip: border-box;
         border-radius: 1.25rem;
         margin-top: 7rem;
         padding: 1rem 1rem;
-        animation: glowing-border 2s infinite;
+        /* animation: glowing-border 2s infinite; */
+        animation: none;
         text-align: start !important;
-
-
+        border: 1px solid #1d471f;
+        /* border: 1px solid #00d664; */
       }
 
       .swap-section {
@@ -276,7 +277,7 @@
     .fixed-footer {
       position: relative;
       width: 100%;
-      background-color: #000000;
+      /* background-color: #000000; */
       color: white;
       padding: 30px 10px;
       text-align: center;
@@ -315,7 +316,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: #000000;
+        /* background-color: #000000; */
         color: white;
         padding: 20px 10px;
         text-align: center;
@@ -355,7 +356,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: #000000;
+        /* background-color: #000000; */
         color: white;
         padding: 20px 10px;
         text-align: center;
@@ -370,13 +371,13 @@
   </style>
 </head>
 
-<body style="font-family: 'Times New Roman', Times, serif; 
-background: linear-gradient(
+<body style="font-family: 'Times New Roman', Times, serif; background:#010b13; 
+/* background: linear-gradient(
 90deg
-, hsla(30, 11%, 4%, 1) 0%, hsla(30, 11%, 4%, 1) 40%, hsla(0, 0%, 0%, 1) 100%);">
+, hsla(30, 11%, 4%, 1) 0%, hsla(30, 11%, 4%, 1) 40%, hsla(0, 0%, 0%, 1) 100%);*/"> 
 
-  <section id="header">
-    <div class="small-header container">
+  <section id="header" style="background: #02111d">
+    <div class="small-header container" style="background: #02111d">
       <div class="sidebside">
         <div class="logo"><img src="../assets/images/neo-logo.png" alt=""></div>
         <h2>
@@ -437,8 +438,7 @@ background: linear-gradient(
 
   </section>
 
-
-  <footer class="fixed-footer">
+  <footer class="fixed-footer" style="background: #010b13;">
     <div class="footer-icons">
       <div class="footer-icon">
         <a href="deposit.html"><i class="material-icons">credit_card</i></a>
