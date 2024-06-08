@@ -1,6 +1,5 @@
-
-const baseUrl = 'http://localhost:4040/api/v1/';
-// const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
+// const baseUrl = 'http://localhost:4040/api/v1/';
+const baseUrl = 'https://neoprotocol.onrender.com/api/v1/';
 
 const buyHash = document.querySelector("#buyHash");
 
@@ -47,9 +46,8 @@ function calcEquVal(){
 // buyHash.addEventListener("click", async() =>{
 //     clearErrors()   
 //     if (await isAuthenticated()) {
-    
-            // x
 
+            // x
 //             const hash_amount = parseFloat(document.getElementById('amount').value);
 //             const accessToken = getCookie("accessToken")
 //             const refreshToken = getCookie("refreshToken")

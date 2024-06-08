@@ -66,4 +66,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // document.addEventListener("DOMContentLoaded", isAuthenticated())
 
 // document.addEventListener("")
+
 // document.addEventListener('DOMContentLoaded');

@@ -5,8 +5,8 @@ const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 const forgotPassword = document.querySelector("#forgotPassword");
 
-
 // year.innerText = currentYear;
+
 // if (year) {
 //     year.innerText = currentYear;
 // }
@@ -39,23 +39,12 @@ function getRefCode(){
     return urlParams.get("referralCode")
 }
 
-// function showPreloader(){
-//     document.querySelector(".spinner").style.display = 'block';
-//     document.querySelector(".main-content").classList.add("hiddenBody");
-//     document.body.classList.add("overlay");
-// }
 
-// function hidePreloader(){
-//     document.querySelector(".spinner").style.display = 'none';
-//     document.querySelector(".main-content").classList.remove("hiddenBody");
-//     document.body.classList.remove("overlay");
-// }
-
-// function showPreloader(){
-//     document.querySelector(".spinner").style.display = 'block';
-//     document.querySelector(".holder").classList.add("hiddenBody");
-//     document.body.classList.add("overlay");
-// }
+function showPreloader(){
+    document.querySelector(".spinner").style.display = 'block';
+    document.querySelector(".holder").classList.add("hiddenBody");
+    document.body.classList.add("overlay");
+}
 
 // function hidePreloader(){
 //     document.querySelector(".spinner").style.display = 'none';
@@ -94,25 +83,21 @@ async function submitSignupForm(){
     if(!usernameVal || !emailVal || !passwordVal || !confirmPasswordVal){
         displayError('Please provide the needed value(s)')
         return;
-
         // throw new Error("Please provide the needed value")
     }
 
     if(!emailRegex.test(emailVal)){
         displayError('Email is not valid!')
         return;
-        // throw new Error("Email is not valid!")
     }
 
     if(passwordVal.length < 8){
         displayError('Password should be at least 8 characters')
         return;
-        // throw new Error("Password should be at least 8 character")
     }
 
     if(passwordVal !== confirmPasswordVal){
         displayError("Password and confirm password does not match")
-        // throw new Error("Password and confirm password does not match!")
         return;
     }
     const referralCode = getRefCode();
