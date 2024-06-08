@@ -5,7 +5,6 @@ const currentYear = new Date().getFullYear();
 const year = document.querySelector("#currentYear");
 const forgotPassword = document.querySelector("#forgotPassword");
 
-
  year.innerText = currentYear;
 // if (year) {
 //     year.innerText = currentYear;
@@ -82,25 +81,21 @@ async function submitSignupForm(){
     if(!usernameVal || !emailVal || !passwordVal || !confirmPasswordVal){
         displayError('Please provide the needed value(s)')
         return;
-
         // throw new Error("Please provide the needed value")
     }
 
     if(!emailRegex.test(emailVal)){
         displayError('Email is not valid!')
         return;
-        // throw new Error("Email is not valid!")
     }
 
     if(passwordVal.length < 8){
         displayError('Password should be at least 8 characters')
         return;
-        // throw new Error("Password should be at least 8 character")
     }
 
     if(passwordVal !== confirmPasswordVal){
         displayError("Password and confirm password does not match")
-        // throw new Error("Password and confirm password does not match!")
         return;
     }
     const referralCode = getRefCode();

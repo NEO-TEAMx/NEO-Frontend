@@ -1,17 +1,3 @@
-function startProgressBarAnimation() {
-          const progressBar = document.querySelector('.progress-circle');
-          let progress = 0;
-
-          // Start the progress animation
-          const interval = setInterval(() => {
-            progress += 5; // Increment progress
-            progressBar.style.strokeDasharray = `${progress}, 100`;
-            if (progress >= 100) {
-              progress = 0; 
-            }
-          }, 10); 
-};
-
 function showPreloader(){
     document.querySelector(".spinner").style.display = 'block';
     document.querySelector(".dashboard").classList.add("hidden");
@@ -255,7 +241,7 @@ async function startMining(){
     
 
     if(await isAuthenticated()){
-        
+
         try {
             const accessToken = getCookie("accessToken")
 
@@ -297,7 +283,7 @@ async function startMining(){
                     }
                 },10)
             }
-
+          
             socket.on('miningData', (data) =>{
                 console.log({data})
                 const {
