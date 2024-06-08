@@ -6,7 +6,7 @@ const year = document.querySelector("#currentYear");
 const forgotPassword = document.querySelector("#forgotPassword");
 
 
-// year.innerText = currentYear;
+ year.innerText = currentYear;
 // if (year) {
 //     year.innerText = currentYear;
 // }
@@ -39,37 +39,25 @@ function getRefCode(){
     return urlParams.get("referralCode")
 }
 
-// function showPreloader(){
-//     document.querySelector(".spinner").style.display = 'block';
-//     document.querySelector(".main-content").classList.add("hiddenBody");
-//     document.body.classList.add("overlay");
-// }
+function showPreloader(){
+    document.querySelector(".spinner").style.display = 'block';
+    document.querySelector(".holder").classList.add("hiddenBody");
+    document.body.classList.add("overlay");
+}
 
-// function hidePreloader(){
-//     document.querySelector(".spinner").style.display = 'none';
-//     document.querySelector(".main-content").classList.remove("hiddenBody");
-//     document.body.classList.remove("overlay");
-// }
+function hidePreloader(){
+    document.querySelector(".spinner").style.display = 'none';
+    document.querySelector(".holder").classList.remove("hiddenBody");
+    document.body.classList.remove("overlay");
+}
 
-// function showPreloader(){
-//     document.querySelector(".spinner").style.display = 'block';
-//     document.querySelector(".holder").classList.add("hiddenBody");
-//     document.body.classList.add("overlay");
-// }
+document.addEventListener("DOMContentLoaded", function() {
+    showPreloader();
+});
 
-// function hidePreloader(){
-//     document.querySelector(".spinner").style.display = 'none';
-//     document.querySelector(".holder").classList.remove("hiddenBody");
-//     document.body.classList.remove("overlay");
-// }
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     showPreloader();
-// });
-
-// window.addEventListener("load", function() {
-//     hidePreloader();
-// });
+window.addEventListener("load", function() {
+    hidePreloader();
+});
 
 
 // function getToken

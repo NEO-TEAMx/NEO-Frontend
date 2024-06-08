@@ -57,13 +57,11 @@ function calcExpTime(){
     return expiraionTime;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (!window.location.pathname.includes('signin.html')) {
-        isAuthenticated();
-    }
-});
-
-// document.addEventListener("DOMContentLoaded", isAuthenticated())
-
-// document.addEventListener("")
+document.addEventListener("DOMContentLoaded", isAuthenticated())
 // document.addEventListener('DOMContentLoaded');
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     if (!window.location.pathname.includes('signin.html')) {
+//         isAuthenticated();
+//     }
+// });
