@@ -88,7 +88,6 @@ countElements.forEach((element) => {
 });
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const customObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -103,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const customHiddenElements = document.querySelectorAll('.hiddens');
   customHiddenElements.forEach((el) => customObserver.observe(el));
 });
-
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {

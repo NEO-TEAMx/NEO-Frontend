@@ -80,7 +80,7 @@
       border: 0.5rem solid #09582e;
       margin-bottom: 5px;
     }
-
+    
     .detail {
       margin-bottom: 2rem;
       /* border: 1px solid #00d664; */
@@ -454,7 +454,7 @@
     .fixed-footer {
       position: relative;
       width: 100%;
-          /* background-color: #000000; */
+      /* background-color: #000000; */
       color: white;
       padding: 30px 10px;
       text-align: center;
@@ -491,7 +491,7 @@
       .fixed-footer {
         position: relative;
         width: 100%;
-           /* background-color: #000000; */
+        /* background-color: #000000; */
         color: white;
         padding: 20px 10px;
         text-align: center;
@@ -588,6 +588,7 @@
               <strong>5% Tax Upon Withdrawal</strong>
             </li>
             <hr>
+
             <li class="list-group-item">
               <button type="button" data-id="4" data-resource="{...}" data-base_symbol=""
                 class="btn deposit cmn-btn w-100" data-toggle="modal" data-target="#exampleModal">
@@ -737,6 +738,42 @@
       }
     });
 
+    // Function to handle the form submission
+    // function handleFormSubmit(event) {
+    //   event.preventDefault();
+
+    //   // Retrieve the entered amount from the input field
+    //   const amountInput = document.getElementById("amount");
+    //   const amount = parseFloat(amountInput.value);
+    //   const withdrawaLimit = "unlimited";
+
+    //   if (amount < withdrawaLimit) {
+    //     // Create the payment limit message
+    //     const limitMessage = document.createElement("div");
+    //     limitMessage.classList.add("alert");
+    //     limitMessage.classList.add("alert-danger");
+    //     limitMessage.textContent = "Please follow the payment limit.";
+    //     limitMessage.style.color = "red"; // Set the text color to red
+    //     limitMessage.style.position = "absolute"; // Set the positioning to absolute
+    //     limitMessage.style.top = "14px"; // Position the message vertically in the middle
+    //     limitMessage.style.transform = "translateY(-50%)"; // Adjust the vertical positioning
+    //     limitMessage.style.left = "0"; // Position the message horizontally to the left
+    //     limitMessage.style.right = "0"; // Position the message horizontally to the right
+    //     limitMessage.style.textAlign = "center"; // Center the text within the message
+
+    //     // Append the message to the modal container
+    //     modal.appendChild(limitMessage);
+    //   } else {
+    //     // Store the amount in local storage
+    //     localStorage.setItem("amount", amount);
+
+    //     // Redirect the user to the confirmation page
+    //     window.location.href = "confirm-withdrawal.html";
+    //   }
+    // }
+
+    // Event listener for form submission
+    // form.addEventListener("submit", handleFormSubmit);
   </script>
   <script src="../assets/js/main.browser.js"></script>
   <script src="../assets/js/withdrawal.js"></script>

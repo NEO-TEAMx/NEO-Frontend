@@ -312,7 +312,6 @@ span {
     top: 3rem;
     padding: 0 20px;
   }
-
 }
 
 
@@ -328,6 +327,7 @@ span {
     box-sizing: border-box;
     overflow-x: hidden;
   }
+
 
   .aside li:last-child a {
     position: relative;
@@ -396,7 +396,6 @@ span {
     background-color: #101112;
     overflow: hidden;
   }
-
 }
 
 
@@ -690,7 +689,6 @@ span {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
   }
 
   .mining-section .word h2 {
@@ -984,7 +982,6 @@ span {
     color: #00d664;
   }
 }
-
 @media (max-width: 360px) {
   .mining-section {
     padding: 0 10px;
@@ -1122,7 +1119,6 @@ span {
     margin: 0;
     color: #00d664;
   }
-
 }
 
 
@@ -1347,7 +1343,6 @@ span {
 .tip-card-header h2 {
   margin: 0;
   font-size: 18px;
-
 }
 
 .tip-card-content {
@@ -1485,16 +1480,6 @@ footer .section-p1 {
 }
 
 /*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
-
-
-
-
-
-
-
-
-
-
 
 
 @media screen and (max-width: 375px) {

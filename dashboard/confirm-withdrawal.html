@@ -18,6 +18,7 @@
   <title>Confirmation Page</title>
   <!-- Add any required stylesheets or scripts for the confirmation page -->
   <style>
+
     :root {
       --green: #01ef68;
       /* Define the green variable if not already defined */
@@ -124,14 +125,9 @@
         color: white;
       }
 
-
-
-
       .details {
         margin-bottom: 3rem;
         border-bottom: none;
-
-
       }
 
       .details .details__list li {
@@ -181,10 +177,11 @@
         margin-bottom: 2rem;
       }
 
-
     }
 
+
     /* @keyframes glowing-border {
+
       0% {
         box-shadow: 0 0 5px #00d664;
       }
@@ -200,6 +197,7 @@
  */
 
 
+
     .card-body .usdt__img {
       width: 6rem;
       height: 6rem;
@@ -211,20 +209,14 @@
       margin-bottom: 10px;
     }
 
-
     .card-body P {
       color: white;
     }
-
-
-
 
     .details {
       margin-bottom: 10px;
       border: none;
       border-bottom: none;
-
-
     }
 
     .details .details__list li {
@@ -495,6 +487,7 @@
     }
 
     /*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
+
   </style>
 
 </head>
@@ -505,6 +498,7 @@
   <section class="general__container">
     <section id="header" style="background: #02111d">
       <div class="small-header container" style="background: #02111d">
+
         <div class="sidebside">
           <div class="logo"><img src="../assets/images/neo-logo.png" alt=""></div>
           <h2>
@@ -522,6 +516,7 @@
         <button id="open-menu-btn"><i class="uil uil-list-ui-alt"></i></button>
         <button id="close-menu-btn"><i class="uil uil-times"></i></button>
       </div>
+
     </section>
 
     <div class="card">
@@ -532,11 +527,13 @@
           <img src="../material/62d315f8a5bd81658000888.jpg" class="card-img-top w-100" alt="TETHER USDT (BEP20)">
         </div>
         <hr>
+
         <div class="details">
           <ul class="details__list">
             <li class="list-group-item">
               <p>Amount: <strong id="wAmount"></strong> USDT</p>
             </li>
+
             <hr>
             <li class="list-group-item">
               <p>Charge: <strong id="charge"></strong> USDT</p>
@@ -557,11 +554,13 @@
         </div>
         <a href="#" type="button" onclick="confirmPayment()" class=".btn.deposit" data-bs-target="#exampleModal"
           data-bs-whatever="@mdo">Confirm</a>
+
         <!-- <a href="https://optimum-trade.net/user/deposit/manual" class="btn btn-block py-3 font-weight-bold mt-4 cmn-btn">Confirm</a> -->
       </div>
     </div>
 
     <footer class="fixed-footer" style="background: #010b13;">
+
       <div class="footer-icons">
         <div class="footer-icon">
           <a href="deposit.html"><i class="material-icons">credit_card</i></a>
@@ -595,8 +594,6 @@
           closeBtn.style.display = "none";
           menuBtn.style.display = "inline-block";
         });
-
-
       });
 
     </script>
