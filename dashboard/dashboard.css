@@ -7,22 +7,19 @@
   font-family: poppins, sans-serif;
   font-size: 0.88rem;
   user-select: none;
-  overflow-x: hidden;
+  overflow: hidden;
   box-sizing: border-box;
   background: linear-gradient(90deg,
       hsla(30, 11%, 4%, 1) 0%,
       rgb(14, 13, 13) 100%);
 }
 
-.dashboard {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  margin-top: -14rem;
+li {
+  list-style: none;
 }
 
 a {
-  color: #ffff;
+  text-decoration: none;
 }
 
 img {
@@ -88,54 +85,23 @@ span {
   font-size: 35px;
 }
 
-
-
-/* .small-header {
-  width: auto;
-  display: flex;
-  align-items: center;
-  Overflow:hidden;
-  justify-content: space-between;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin:0;
-  background: linear-gradient(
-    90deg,
-    hsla(30, 11%, 4%, 1) 0%,
-    rgb(14, 13, 13) 100%
-  );
-}
-
-.small-header h1{
-  margin:0;
-} */
-
-/* 
-.d-small-header .open button {
-  display: inline-block;
-  cursor: pointer;
-  font-size: 25px;
-  margin-top:0;
-  margin:0;
-}
-
-.d-small-header .open{
-  margin-top:0;
-  margin:0;
-} */
-
 .container {
   display: grid;
-  width: 98%;
+  width: 100%;
   margin: 0 auto;
   gap: 1.8rem;
-  grid-template-columns: 16rem auto;
+  grid-template-columns: 18rem auto;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
 }
 
 .aside {
   height: 100vh;
-  background-color: #101112;
+  width: 18rem;
+  background-color: #02111d;
   position: fixed;
+  z-index: 1000;
 }
 
 .aside .top {
@@ -143,7 +109,7 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.8rem;
+  margin-top: 1.5rem;
   padding: 0 5px;
 }
 
@@ -185,8 +151,6 @@ span {
   display: flex;
   flex-direction: column;
   height: 100%;
-  position: relative;
-  top: 1rem;
   padding: 0 20px;
 }
 
@@ -199,12 +163,18 @@ span {
   color: #fff;
   display: flex;
   align-items: center;
-  padding: 18px 20px;
+  padding: 8px 20px;
   border-radius: 5px;
   position: relative;
   transition: transform 0.3s;
   height: 35px;
   margin-bottom: 15px;
+}
+
+.aside ul {
+  padding: 20px 0;
+  margin: 0;
+  margin-top: 1rem;
 }
 
 .aside a::before {
@@ -234,11 +204,9 @@ span {
 }
 
 .aside li:last-child a {
-  position: relative;
   top: 20px;
   bottom: 0;
-  width: 100%;
-}
+} 
 
 .aside .sidebar .active {
   background: rgba(0, 214, 100, 0.1);
@@ -257,14 +225,12 @@ span {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   .container {
-    position: relative;
     width: 100%;
     grid-template-columns: auto;
-    top: -80px;
   }
 
   .aside {
@@ -291,17 +257,8 @@ span {
     cursor: pointer;
   }
 
-  /* 
   .aside li:last-child a {
-    position: absolute;
-    bottom: 6rem;
-    width: 100%;
-  } */
-
-  .aside li:last-child a {
-    position: absolute;
     bottom: 0;
-    width: 100%;
   }
 
   .aside .sidebar {
@@ -318,55 +275,31 @@ span {
 
 @media screen and (max-width: 768px) {
 
-  hmtl,
-  body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-
-
   .aside li:last-child a {
-    position: relative;
-    top: 60px;
-    width: 100%;
+    top: 40px;
   }
 
   .aside .sidebar {
     display: flex;
     flex-direction: column;
-    height: 86vh;
+    height: 100vh;
     position: relative;
-    top: 3rem;
+    top: 0;
     padding: 0 20px;
   }
 
   .aside {
     height: 100%;
-    background-color: #101112;
+    background-color: #02111d;
     overflow: hidden;
   }
+
 }
 
 @media (min-width: 300px) and (max-width: 400px) {
 
-  hmtl,
-  body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-
   .aside li:last-child a {
-    position: relative;
-    top: 230px;
-    width: 100%;
+    top: 30px;
   }
 
   .aside a {
@@ -385,16 +318,23 @@ span {
   .aside .sidebar {
     display: flex;
     flex-direction: column;
-    height: 86vh;
+    height: 100vh;
     position: relative;
-    top: 3rem;
     padding: 0 20px;
   }
 
   .aside {
     height: 100%;
-    background-color: #101112;
-    overflow: hidden;
+    background-color:  #02111d;
+    overflow: scroll;
+  }
+
+  .aside .top {
+    margin-top: 0.8rem;
+  }
+  
+  .aside ul {
+    margin-top: 0;
   }
 }
 
@@ -412,9 +352,7 @@ span {
   }
 
   .aside li:last-child a {
-    position: relative;
-    top: 90px;
-    width: 100%;
+    top: 0;
   }
 
   .small-header {
@@ -435,6 +373,7 @@ span {
   flex-direction: column;
   justify-content: center;
   position: relative;
+  top: -190px;
   z-index: 1;
 }
 
@@ -767,7 +706,7 @@ span {
 @media screen and (max-width: 768px) {
   .mining-section {
     position: relative;
-    margin-top: 1rem;
+    top: 1.5rem;
     padding: 0 10px;
     display: flex;
     flex-direction: column;
@@ -782,6 +721,8 @@ span {
     line-height: normal;
     margin-left: 0;
     margin-top: 2rem;
+    position: relative;
+    top: -9999px;
   }
 
   .mining-section h3 {
@@ -806,11 +747,15 @@ span {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
     color: #fff;
-    margin-bottom: 3rem;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
+    top: -330px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* margin-bottom: 3rem; */
+    /* margin-left: 1.5rem;
+    margin-right: 1.5rem; */
     position: relative;
     width: 98%;
   }
@@ -1264,11 +1209,11 @@ span {
 .tip-section {
   padding: 0 5px;
   position: absolute;
-  left: 20px;
-  top: 500px;
-  /* bottom: -130px;  */
-  width: 93%;
-  z-index: 2;
+  left: 0;
+  top: 730px;
+  bottom: 0;
+  width: 98%;
+  z-index: 1000; 
 }
 
 .tip-sub-heading {
@@ -1317,15 +1262,12 @@ span {
 }
 
 .tip-card {
-  width: auto;
+  width: 95%;
   background: black;
   color: white;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  top: 0;
-  left: 0;
 }
 
 .tip-card-header {
@@ -1378,14 +1320,30 @@ span {
 
 
 @media screen and (max-width: 768px) {
-  .tip-section {
+  .container {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+  }
+
+ .tip-section {
     padding: 0 15px;
     position: absolute;
     left: 0;
-    top: 380px;
-    /* bottom: -250px; */
+    top: 200px;
+    bottom: 0;
     width: 100%;
-    z-index: 2;
+    z-index: -9999;
+    margin: 0 auto;
+}
+
+  .tip-card {
+    width: 380px;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -1394,26 +1352,25 @@ span {
 
 
 /*------------------------------------------------------------  FOOTER BEGINS--------------------------------------------------------------*/
-footer .section-p1 {
+/* footer .section-p1 {
   background-color: #000000;
   margin-left: -25px;
   left: 0;
-}
+} */
 
 .fixed-footer {
-  position: relative;
-  z-index: -1;
-  /* left: -20px; */
-  bottom: -260px;
+  position: fixed;
+  bottom: 10px;
+  left: 0;
   width: 100%;
   background-color: #000000;
   color: white;
-  padding: 30px 10px;
+  padding: 20px 10px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem;
+ 
 }
 
 .footer-icons {
@@ -1442,7 +1399,7 @@ footer .section-p1 {
 @media screen and (max-width: 768px) {
   .fixed-footer {
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
     width: 100%;
     background-color: #000000;
@@ -1452,8 +1409,8 @@ footer .section-p1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 60px;
-  }
+}
+
 
   .footer-icons {
     display: flex;
@@ -1470,7 +1427,6 @@ footer .section-p1 {
 
   .footer-icon i {
     font-size: 24px;
-    /* Adjust the font size of the icons as needed */
     margin-bottom: 5px;
   }
 
@@ -1484,22 +1440,11 @@ footer .section-p1 {
 
 @media screen and (max-width: 375px) {
   .container {
+    overflow: hidden;
     position: relative;
-    width: 100%;
-    grid-template-columns: auto;
-    top: -30px;
+    height: 100vh;
   }
-
-  .mining-section {
-    position: relative;
-    margin-top: 0;
-    padding: 0 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
+  
   .mining-section .word h2 {
     color: #00d664;
     font-weight: 500;
@@ -1532,15 +1477,17 @@ footer .section-p1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 10px;
+    /* padding-bottom: 20px; */
     color: #fff;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
+    top: -220px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* margin-bottom: 3rem; */
+    /* margin-left: 1.5rem;
+    margin-right: 1.5rem; */
     position: relative;
     width: 98%;
-    height: 250px;
   }
 
   .price-chart-section {
@@ -1605,13 +1552,11 @@ footer .section-p1 {
     padding: 0 15px;
     position: absolute;
     left: 0;
-    top: 300px;
-    margin-bottom: 0;
-    /* bottom: -250px; */
+    top: 230px;
+    bottom: 0;
     width: 100%;
-    z-index: 2;
-  }
-
+    z-index: -9999;
+}
   .tip-sub-heading h2 {
     color: #00d664;
     font-weight: 600;
@@ -1638,7 +1583,9 @@ footer .section-p1 {
     align-items: center;
     justify-content: center;
   }
-
+  .tip-card {
+    width: 330px;
+  }
   .tip-card-header i {
     font-size: 24px;
     margin-right: 10px;
@@ -1674,8 +1621,8 @@ footer .section-p1 {
 
   .fixed-footer {
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: -10px;
+    left: -4px;
     width: 100%;
     background-color: #000000;
     color: white;
@@ -1684,6 +1631,72 @@ footer .section-p1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 60px;
+}
+}
+
+@media (max-width: 360px) and (max-height: 640px) {
+  #mining-container {
+    text-align: center;
+    background-image: url(../assets/images/exchange-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    border-radius: 8px;
+    border: 1px solid rgb(30, 49, 30);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    top: -160px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: relative;
+    width: 98%;
+  }
+}
+
+
+@media (max-width: 320px) and (max-height: 658px) {
+  .container {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+  }
+
+  #mining-container {
+    text-align: center;
+    background-image: url(../assets/images/exchange-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    border-radius: 8px;
+    border: 1px solid rgb(30, 49, 30);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    top: -190px;
+    bottom: 0;
+    position: relative;
+    width: 290px;
+  }
+
+  .tip-section {
+    padding: 0 15px;
+    position: absolute;
+    left: 0;
+    top: 210px;
+    bottom: 0;
+    width: 100%;
+    z-index: -9999;
+}
+
+  .tip-card {
+    width: 290px;
   }
 }
