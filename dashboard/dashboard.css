@@ -90,9 +90,8 @@ span {
   width: 100%;
   margin: 0 auto;
   gap: 1.8rem;
-  grid-template-columns: 18rem auto;
+  grid-template-columns: 18rem 1fr; /* Adjusted to allow the main section to be responsive */
   overflow: hidden;
-  position: relative;
   height: 100vh;
 }
 
@@ -215,6 +214,404 @@ span {
 
 /*------------------------------------------------------------ SIDEBAR ENDS--------------------------------------------------------------*/
 
+
+
+/*------------------------------------------------------------  MINING SECTION BEGINS--------------------------------------------------------------*/
+
+.mining-section {
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 90%;
+  height: 100vh;
+  padding: 20px 20px;
+  overflow: hidden;
+}
+
+.mining-section .word h2 {
+  color: #00d664;
+  font-weight: 800;
+  font-size: 2.3rem;
+  line-height: 3rem;
+  text-align: left;
+}
+
+.mining-section h3 {
+  color: #00d664;
+  font-weight: 600;
+  font-size: 2.3rem;
+  line-height: 3rem;
+  margin-top: 1.2rem;
+  text-align: left;
+}
+
+#mining-container {
+  text-align: center;
+  background-image: url(../assets/images/exchange-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  border-radius: 8px;
+  border: 1px solid rgb(30, 49, 30);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  padding-bottom: 20px;
+  color: #fff;
+  position: relative;
+  width: 90%;
+  box-sizing: border-box;
+  top: 0;
+  margin-left: 70px;
+}
+
+#mining-container .swap-btn-container {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#swap-btn {
+  margin-right: 5px;
+  color: #00d664;
+  background-color: transparent;
+  border: 1px solid #00d664;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+#swap-btn i {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+#swap-btn {
+  transition: transform 0.3s;
+}
+
+#swap-btn:active {
+  transform: scale(0.6);
+}
+
+#mining-container span {
+  color: #00d664;
+}
+
+#mining-container p {
+  margin-top: 10px;
+}
+
+.progress-bar-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.progress-bar {
+  transform: rotate(-90deg);
+  position: relative;
+}
+
+.bg-circle {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 5;
+}
+
+.progress-circle {
+  fill: none;
+  stroke: #00d664;
+  stroke-width: 5;
+  stroke-dasharray: 0, 100;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1d linear;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
+
+.timer-text {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff6f6;
+}
+
+#start-mining-btn {
+  background-color: #0b6736;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 2rem;
+}
+
+#start-mining-btn:hover {
+  background-color: #0bc163;
+  border: none;
+  outline: none;
+}
+
+.top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #0a502a;
+  border-radius: 5px;
+  margin: 1.5rem 1.5rem;
+  box-shadow: 2px 2px 4px #0e921f9a;
+  text-align: center;
+}
+
+.top-left h4 {
+  padding: 0;
+  margin: 0;
+  color: rgb(151, 151, 151);
+}
+
+.top-left p {
+  padding: 0;
+  margin: 0;
+  color: #00d664;
+}
+
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #0a502a;
+  border-radius: 5px;
+  margin: 1.5rem 1.5rem;
+  box-shadow: -2px 2px 4px rgba(14, 146, 31, 0.603);
+  text-align: center;
+}
+
+.top-right h4 {
+  padding: 0;
+  margin: 0;
+  color: rgb(151, 151, 151);
+}
+
+.top-right p {
+  padding: 0;
+  margin: 0;
+  color: #00d664;
+}
+
+
+/*------------------------------------------------------------  TIP SECTION BEGINS--------------------------------------------------------------*/
+
+.tip-section {
+  padding: 0 5px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 90%;
+  z-index: 1; 
+  margin-left: 10px;
+  left: 0;
+  right: 0;
+  bottom: 160px;
+}
+
+.tip-sub-heading {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.tip-sub-heading h2 {
+  color: #00d664;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 3rem;
+  margin: 0;
+}
+
+.tip-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tip-card-header h2 {
+  color: #00d664;
+  font-weight: 800;
+  font-size: 2.3rem;
+  line-height: 3rem;
+  margin: 0;
+}
+
+.tip-sub-heading i {
+  color: yellow;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  margin: 0;
+}
+
+.tip-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 1rem;
+
+}
+
+.tip-card {
+  width: 95%;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tip-card-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #333;
+}
+
+.tip-card-header i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.tip-card-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.tip-card-content {
+  padding: 15px;
+  display: flex;
+}
+
+.tip-icon {
+  display: inline-block;
+  font-size: 40px;
+  margin-right: 15px;
+}
+
+.tip-icon i {
+  color: #00d664;
+}
+
+.tip-text {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.tip-text p {
+  text-align: justify;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.owl-dots {
+  text-align: center;
+  margin-top: 15px !important;
+}
+
+
+
+
+/*------------------------------------------------------------  TIP SECTION ENDS--------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------  FOOTER BEGINS--------------------------------------------------------------*/
+
+.fixed-footer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 100px;
+ 
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.footer-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-icon i {
+  font-size: 24px;
+  margin-bottom: 5px;
+  border-radius: 9px !important;
+}
+
+.footer-icon span {
+  font-size: 14px;
+}
+
+
+/*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
+
+
+
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\MEDIA QUERIES//////////////////////////////////////////////////////////////*/
+
 /*------------------------------------------------------------  SIDEBAR MEDIA QUERIES BEGINS--------------------------------------------------------------*/
 @media screen and (max-width: 1200px) {
 
@@ -227,12 +624,7 @@ span {
     box-sizing: border-box;
     overflow: hidden;
   }
-
-  .container {
-    width: 100%;
-    grid-template-columns: auto;
-  }
-
+  
   .aside {
     display: none;
     position: fixed;
@@ -348,7 +740,7 @@ span {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   .aside li:last-child a {
@@ -364,242 +756,38 @@ span {
 
 /*------------------------------------------------------------  SIDEBAR MEDIA QUERIES ENDS--------------------------------------------------------------*/
 
-/*------------------------------------------------------------  MINING SECTION BEGINS--------------------------------------------------------------*/
-
-.mining-section {
-  margin-top: 1.4rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  top: -190px;
-  z-index: 1;
-}
-
-.mining-section .word h2 {
-  color: #00d664;
-  font-weight: 800;
-  font-size: 2.3rem;
-  line-height: 3rem;
-  margin: 1rem 0rem 1rem 0rem;
-  margin-left: -650px;
-}
-
-.mining-section h3 {
-  color: #00d664;
-  font-weight: 600;
-  font-size: 2.3rem;
-  line-height: 3rem;
-  margin-top: 1.2rem;
-}
-
-#mining-container {
-  text-align: center;
-  background-image: url(../assets/images/exchange-bg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-color: black;
-  border-radius: 8px;
-  border: 1px solid rgb(30, 49, 30);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 20px;
-  color: #fff;
-  margin-bottom: 3rem;
-  margin-left: 5rem;
-  margin-right: 5rem;
-  position: relative;
-}
-
-#mining-container .swap-btn-container {
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-#swap-btn {
-  margin-right: 5px;
-  color: #00d664;
-  background-color: transparent;
-  border: 1px solid #00d664;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-}
-
-#swap-btn i {
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-  margin-top: -4px;
-}
-
-#swap-btn {
-  transition: transform 0.3s;
-}
-
-#swap-btn:active {
-  transform: scale(0.6);
-}
-
-#mining-container span {
-  color: #00d664;
-}
-
-#mining-container p {
-  margin-top: 10px;
-}
-
-.progress-bar-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-}
-
-.progress-bar {
-  transform: rotate(-90deg);
-  position: relative;
-}
-
-.bg-circle {
-  fill: none;
-  stroke: #eee;
-  stroke-width: 5;
-}
-
-.progress-circle {
-  fill: none;
-  stroke: #00d664;
-  stroke-width: 5;
-  stroke-dasharray: 0, 100;
-  stroke-linecap: round;
-  transition: stroke-dasharray 1d linear;
-}
-
-.progress-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  font-weight: bold;
-  color: red;
-}
-
-.timer-text {
-  position: absolute;
-  top: 70%;
-  left: 0;
-  width: 100%;
-  transform: translateY(-50%);
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff6f6;
-}
-
-#start-mining-btn {
-  background-color: #0b6736;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 2rem;
-}
-
-#start-mining-btn:hover {
-  background-color: #0bc163;
-  border: none;
-  /* Add this line to remove the border */
-  outline: none;
-}
-
-.top-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-align: left;
-  padding: 10px;
-  font-weight: bold;
-  border: 1px solid #0a502a;
-  border-radius: 5px;
-  margin: 1.5rem 1.5rem;
-  box-shadow: 2px 2px 4px #0e921f9a;
-  text-align: center;
-}
-
-.top-left h4 {
-  padding: 0;
-  margin: 0;
-  color: rgb(151, 151, 151);
-}
-
-.top-left p {
-  padding: 0;
-  margin: 0;
-  color: #00d664;
-}
-
-.top-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  text-align: right;
-  padding: 10px;
-  font-weight: bold;
-  border: 1px solid #0a502a;
-  border-radius: 5px;
-  margin: 1.5rem 1.5rem;
-  box-shadow: -2px 2px 4px rgba(14, 146, 31, 0.603);
-  text-align: center;
-}
-
-.top-right h4 {
-  padding: 0;
-  margin: 0;
-  color: rgb(151, 151, 151);
-}
-
-.top-right p {
-  padding: 0;
-  margin: 0;
-  color: #00d664;
-}
-
-/*------------------------------------------------------------  MINING SECTION ENDSS--------------------------------------------------------------*/
-/* 
-.responsive-container {
-  width: 100%;
-  padding-bottom: 50%;
-  position: relative;
-}
-
-#price-chart-container {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-} */
 
 /*------------------------------------------------------------  MINING-SECTION MEDIA QUERIES BEGINS--------------------------------------------------------------*/
+@media screen and (min-width: 900px) {
+  .tip-section {
+    bottom: 140px !important;
+    padding-left: 10px !important;
+  }
 
+  .tip-card {
+    width: 340px !important;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .owl-dots {
+    display: none;
+  }
+  
+}
 @media screen and (max-width: 1200px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+  }
+  
   .hide {
     display: block;
   }
@@ -623,12 +811,21 @@ span {
   }
 
   .mining-section {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    display: block;
     justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
   }
+  
 
   .mining-section .word h2 {
     color: #00d664;
@@ -645,7 +842,7 @@ span {
     line-height: normal;
     margin-top: 1.2rem;
   }
-
+  
   #mining-container {
     text-align: center;
     background-image: url(../assets/images/exchange-bg.png);
@@ -658,71 +855,59 @@ span {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-self: center;
     align-items: center;
     padding-bottom: 20px;
     color: #fff;
-    margin-bottom: 3rem;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
     position: relative;
-    width: 700px;
+    width: 90%;
+    box-sizing: border-box;
+    bottom: 0;
+    margin-left: 25px;
+    top: 2rem;
   }
 
-  .price-chart-section h4 {
-    color: #fff;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+  aside {
+    background: transparent;
+    height: 5px;
   }
 
-  .price-chart-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .fixed-footer {
+    margin-left: 0;
   }
 
-  .responsive-container {
-    width: fit-content;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    padding-bottom: 25rem;
-    position: relative;
-  }
-
-  #price-chart-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -160px;
-  }
-
-  footer.section-p1 {
-    background-color: #000000;
-    margin: 0;
-    padding: 20px;
-  }
 }
 
-@media screen and (max-width: 768px) {
-  .mining-section {
-    position: relative;
-    top: 1.5rem;
-    padding: 0 10px;
+
+
+@media (max-width: 768px) and (max-height: 1024px) {
+  .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
   }
 
-  .mining-section .word h2 {
-    color: #00d664;
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height: normal;
-    margin-left: 0;
-    margin-top: 2rem;
+  .mining-section {
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
     position: relative;
-    top: -9999px;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 90%;
+    height: 100vh;
+    padding: 0;
+  }
+  
+  .mining-section .word h2 {
+    display: none;
   }
 
   .mining-section h3 {
@@ -734,6 +919,7 @@ span {
     margin-bottom: 0.5rem;
   }
 
+
   #mining-container {
     text-align: center;
     background-image: url(../assets/images/exchange-bg.png);
@@ -746,43 +932,16 @@ span {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-self: center;
     align-items: center;
-    /* padding-bottom: 20px; */
+    padding-bottom: 20px;
     color: #fff;
-    top: -330px;
+    position: relative;
+    width: 90%;
+    box-sizing: border-box;
     bottom: 0;
-    left: 0;
-    right: 0;
-    /* margin-bottom: 3rem; */
-    /* margin-left: 1.5rem;
-    margin-right: 1.5rem; */
-    position: relative;
-    width: 98%;
-  }
-
-  .price-chart-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .responsive-container {
-    width: auto;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    padding-bottom: 35rem;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #price-chart-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -180px;
+    margin-left: 35px;
+    top: 8rem;
   }
 
   #mining-container .swap-btn-container {
@@ -871,7 +1030,6 @@ span {
   #start-mining-btn:hover {
     background-color: #0bc163;
     border: none;
-    /* Add this line to remove the border */
     outline: none;
   }
 
@@ -926,16 +1084,44 @@ span {
     margin: 0;
     color: #00d664;
   }
+
+  .tip-section {
+    padding: 0;
+    position: absolute;
+    left: 10px;
+    bottom: 160px;
+    width: 95%;
+    z-index: 9999;
+    background: transparent;
+  }
+
+  .tip-card {
+    width: auto !important;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
 }
+  
 @media (max-width: 360px) {
+
   .mining-section {
-    padding: 0 10px;
-    margin-top: -1.3rem;
-    padding: 0 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    display: block;
     justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 90%;
+    height: 100vh;
+    padding: 0 20px;
   }
 
   .price-chart-section {
@@ -1074,9 +1260,25 @@ span {
 }
 
 @media (max-width: 320px) {
-  .mining-section {
+  /* .mining-section {
     padding: 0;
     margin-top: -1.3rem;
+  } */
+
+  .mining-section {
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 90%;
+    height: 100vh;
+    padding: 0 20px;
   }
 
   .price-chart-section {
@@ -1128,15 +1330,6 @@ span {
     width: 80px;
   }
 
-  .tip-section {
-    padding: 0 5px;
-    width: 100%;
-    margin-bottom: -20px;
-  }
-
-  .tip-container {
-    width: 95%;
-  }
 
   .tip-sub-heading {
     margin: 0;
@@ -1204,202 +1397,22 @@ span {
 }
 
 
-/*------------------------------------------------------------  TIP SECTION BEGINS--------------------------------------------------------------*/
-
-.tip-section {
-  padding: 0 5px;
-  position: absolute;
-  left: 0;
-  top: 730px;
-  bottom: 0;
-  width: 98%;
-  z-index: 1000; 
-}
-
-.tip-sub-heading {
-  margin: 0;
-  display: flex;
-  gap: 10px;
-}
-
-.tip-sub-heading h2 {
-  color: #00d664;
-  font-weight: 800;
-  font-size: 2rem;
-  line-height: 3rem;
-  margin: 0;
-}
-
-.tip-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.tip-card-header h2 {
-  color: #00d664;
-  font-weight: 800;
-  font-size: 2.3rem;
-  line-height: 3rem;
-  margin: 0;
-}
-
-.tip-sub-heading i {
-  color: yellow;
-  font-weight: 800;
-  font-size: 1.5rem;
-  line-height: 3rem;
-  margin: 0;
-}
-
-.tip-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin-top: 1rem;
-}
-
-.tip-card {
-  width: 95%;
-  background: black;
-  color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.tip-card-header {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #333;
-}
-
-.tip-card-header i {
-  font-size: 24px;
-  margin-right: 10px;
-}
-
-.tip-card-header h2 {
-  margin: 0;
-  font-size: 18px;
-}
-
-.tip-card-content {
-  padding: 15px;
-  display: flex;
-}
-
-.tip-icon {
-  display: inline-block;
-  font-size: 40px;
-  margin-right: 15px;
-}
-
-.tip-icon i {
-  color: #00d664;
-}
-
-.tip-text {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.tip-text p {
-  text-align: justify;
-  margin-top: 5px;
-  font-size: 12px;
-}
-
-.owl-dots {
-  text-align: center;
-  margin-top: 15px !important;
-}
-
-
 @media screen and (max-width: 768px) {
-  .container {
-    overflow: hidden;
-    position: relative;
-    height: 100vh;
-  }
 
- .tip-section {
-    padding: 0 15px;
-    position: absolute;
-    left: 0;
-    top: 200px;
-    bottom: 0;
-    width: 100%;
-    z-index: -9999;
-    margin: 0 auto;
-}
+   .tip-card {
+     width: 340px;
+     background: black;
+     color: white;
+     border-radius: 10px;
+     overflow: hidden;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+ }
 
-  .tip-card {
-    width: 380px;
-    background: black;
-    color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/*------------------------------------------------------------  TIP SECTION ENDS--------------------------------------------------------------*/
-
-
-
-/*------------------------------------------------------------  FOOTER BEGINS--------------------------------------------------------------*/
-/* footer .section-p1 {
-  background-color: #000000;
-  margin-left: -25px;
-  left: 0;
-} */
-
-.fixed-footer {
-  position: fixed;
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-  background-color: #000000;
-  color: white;
-  padding: 20px 10px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
- 
-}
-
-.footer-icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 50px;
-}
-
-.footer-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-icon i {
-  font-size: 24px;
-  margin-bottom: 5px;
-  border-radius: 9px !important;
-}
-
-.footer-icon span {
-  font-size: 14px;
-}
-
-@media screen and (max-width: 768px) {
+ @media screen and (max-width: 768px) {
   .fixed-footer {
     position: fixed;
-    bottom: 10px;
+    bottom: 0;
     left: 0;
     width: 100%;
     background-color: #000000;
@@ -1409,8 +1422,53 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 0;
 }
 
+#mining-container {
+  text-align: center;
+  background-image: url(../assets/images/exchange-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  border-radius: 8px;
+  border: 1px solid rgb(30, 49, 30);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  padding-bottom: 20px;
+  color: #fff;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  bottom: 0;
+  margin-left: 0;
+  top: 7rem;
+}
+
+.tip-section {
+  bottom: 300px;
+  margin-left: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  bottom: 200px;
+  width: 100%;
+  z-index: 9999;
+  background: transparent;
+}
+
+.tip-card {
+  width: auto !important;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
   .footer-icons {
     display: flex;
@@ -1435,268 +1493,73 @@ span {
   }
 }
 
-/*------------------------------------------------------------  FOOTER ENDS--------------------------------------------------------------*/
+@media (max-width: 360px) and (max-height: 740px) { 
+  #mining-container {
+    width: 100%;
+    box-sizing: border-box;
+    bottom: 0;
+    margin-left: -2px;
+    top: 5rem;
+  }
+  .tip-section {
+    bottom: 110px !important;
+    padding-left: 15px !important;
+    margin-left: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: transparent;
+  }
 
-
-@media screen and (max-width: 375px) {
-  .container {
+  .tip-card {
+    width: 330px !important;
+    background: black;
+    color: white;
+    border-radius: 10px;
     overflow: hidden;
-    position: relative;
-    height: 100vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .mining-section .word h2 {
-    color: #00d664;
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height: normal;
-    margin-left: 0;
-    margin-top: 0;
-    padding: 0;
-  }
-
-  .mining-section h3 {
-    color: #00d664;
-    font-weight: 500;
-    font-size: 2rem;
-    line-height: normal;
-    margin-top: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  #mining-container {
-    text-align: center;
-    background-image: url(../assets/images/exchange-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: black;
-    border-radius: 8px;
-    border: 1px solid rgb(30, 49, 30);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* padding-bottom: 20px; */
-    color: #fff;
-    top: -220px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /* margin-bottom: 3rem; */
-    /* margin-left: 1.5rem;
-    margin-right: 1.5rem; */
-    position: relative;
-    width: 98%;
-  }
-
-  .price-chart-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .responsive-container {
-    width: auto;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    padding-bottom: 35rem;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #price-chart-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -180px;
-  }
-
-  #mining-container .swap-btn-container {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-  }
-
-  .progress-bar-container {
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-
-  #start-mining-btn {
-    background-color: #0b6736;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-  }
-
-  .tip-section {
-    padding: 0 15px;
-    position: absolute;
-    left: 0;
-    top: 230px;
-    bottom: 0;
-    width: 100%;
-    z-index: -9999;
 }
-  .tip-sub-heading h2 {
-    color: #00d664;
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 3rem;
-    margin: 0;
+
+@media (max-width: 320px) and (max-height: 658px) { 
+  .tip-section {
+    bottom: 110px !important;
+    padding-left: 10px !important;
   }
 
-  .tip-card-header h2 {
-    color: #00d664;
-    font-weight: 600;
-    font-size: 1.5rem;
-    line-height: normal;
-    margin: 0;
-  }
-
-  .tip-sub-heading i {
-    color: yellow;
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 1rem;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   .tip-card {
-    width: 330px;
+    width: 300px !important;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  .tip-card-header i {
-    font-size: 24px;
-    margin-right: 10px;
-  }
-
-  .tip-card-header h2 {
-    margin: 0;
-    font-size: 16px;
-
-  }
-
-  .tip-card-content {
-    padding: 10px;
-    display: flex;
-  }
-
-  .tip-icon {
-    display: inline-block;
-    font-size: 18px;
-    margin-right: 8px;
-  }
-
-  .tip-text p {
-    font-size: 11px;
-  }
+  
   .owl-dots {
-    text-align: center;
-    margin-top: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
     display: none;
   }
-
-  .fixed-footer {
-    position: fixed;
-    bottom: -10px;
-    left: -4px;
-    width: 100%;
-    background-color: #000000;
-    color: white;
-    padding: 20px 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 }
 
-@media (max-width: 360px) and (max-height: 640px) {
-  #mining-container {
-    text-align: center;
-    background-image: url(../assets/images/exchange-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: black;
-    border-radius: 8px;
-    border: 1px solid rgb(30, 49, 30);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    top: -160px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: relative;
-    width: 98%;
-  }
-}
-
-
-@media (max-width: 320px) and (max-height: 658px) {
-  .container {
-    overflow: hidden;
-    position: relative;
-    height: 100vh;
-  }
-
-  #mining-container {
-    text-align: center;
-    background-image: url(../assets/images/exchange-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-color: black;
-    border-radius: 8px;
-    border: 1px solid rgb(30, 49, 30);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    top: -190px;
-    bottom: 0;
-    position: relative;
-    width: 290px;
-  }
-
+@media (max-width: 360px) and (max-height: 640px) { 
   .tip-section {
-    padding: 0 15px;
-    position: absolute;
-    left: 0;
-    top: 210px;
-    bottom: 0;
-    width: 100%;
-    z-index: -9999;
-}
+    bottom: 90px !important;
+    padding-left: 10px !important;
+  }
 
   .tip-card {
-    width: 290px;
+    width: 340px !important;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .owl-dots {
+    display: none;
   }
 }
